@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ProductCard from '../components/ProductCard.astro';
+
+const allProducts = await getCollection('products', ({ data }) => !data.draft);
+const featured = allProducts[0];
+---
+<BaseLayout
+  title="Calm Brain Co — Printable Tools for ADHD Brains"
+  description="Printable planners and digital tools built for how ADHD brains actually work — realistic time chunks, streak-free habit tracking, and a brain dump page for the thoughts that won't stay quiet."
+>
+  <Header />
+
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="hero-badge">Printable · Instant Download</span>
+        <h1>Tools built for how your brain actually works, not against it</h1>
+        <p class="tagline">No rigid hourly time-blocking. No guilt-trip streaks. Just realistic printable systems designed around ADHD (and other not-so-typical) brains.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="/shop">Shop the Bundle</a>
+          <a class="btn btn-secondary" href="/blog">Read the Blog</a>
+        </div>
+      </div>
+      {featured && (
+        <div class="hero-image-card">
+          <img src={featured.data.heroImage} alt={featured.data.title} />
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="gallery">
+    <div class="wrap">
+      <h2>What we make</h2>
+      <p class="lede">Currently: a full printable planner system for ADHD brains. More tools for other not-so-typical brains are on the way.</p>
+      <div class="card-grid">
+        {allProducts.map((product) => <ProductCard product={product} />)}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

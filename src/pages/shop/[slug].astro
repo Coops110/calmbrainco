@@ -1,0 +1,123 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+export async function getStaticPaths() {
+  const products = await getCollection('products', ({ data }) => !data.draft);
+  return products.map((product) => ({
+    params: { slug: product.slug ?? product.id },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+const { data } = product;
+const { Content } = await render(product);
+
+const faqJsonLd = data.faq.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": data.faq.map((item) => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": { "@type": "Answer", "text": item.a },
+  })),
+} : null;
+
+const productJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": data.title,
+  "description": data.description,
+  "image": `https://calmbrainco.pages.dev${data.heroImage}`,
+  "offers": {
+    "@type": "Offer",
+    "price": data.price,
+    "priceCurrency": "USD",
+    "url": data.checkout.gumroad,
+    "availability": "https://schema.org/InStock",
+  },
+};
+---
+<BaseLayout title={data.title} description={data.description} ogImage={data.heroImage}>
+  <Header />
+
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="hero-badge">{data.category === 'adhd' ? 'ADHD' : data.category} · Printable · Instant Download</span>
+        <h1>{data.title}</h1>
+        <p class="tagline">{data.tagline}</p>
+        <div class="btn-row">
+          {data.checkout.gumroad && <a class="btn btn-primary" href={data.checkout.gumroad} rel="nofollow" onclick={`window.pintrk && pintrk('track', 'checkout', {value: ${data.price}, currency: 'USD'})`}>Get it on Gumroad — ${data.price.toFixed(2)}</a>}
+          {data.checkout.payhip && <a class="btn btn-secondary" href={data.checkout.payhip} rel="nofollow" onclick={`window.pintrk && pintrk('track', 'checkout', {value: ${data.price}, currency: 'USD'})`}>Buy on Payhip</a>}
+        </div>
+      </div>
+      <div class="hero-image-card">
+        <img src={data.heroImage} alt={data.title} />
+      </div>
+    </div>
+  </section>
+
+  {data.features.length > 0 && (
+    <section class="wrap">
+      <ul class="feature-list">
+        {data.features.map((feature) => <li>{feature}</li>)}
+      </ul>
+    </section>
+  )}
+
+  {data.gallery.length > 0 && (
+    <section class="gallery">
+      <div class="wrap">
+        <h2>What's inside</h2>
+        <p class="lede">Real pages from the actual bundle.</p>
+        <div class="gallery-grid">
+          {data.gallery.map((img) => (
+            <figure>
+              <img src={img.src} alt={img.alt} loading="lazy" />
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="philosophy">
+    <div class="wrap">
+      <Content />
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="cta-band">
+      <div class="price">${data.price.toFixed(2)}</div>
+      <p>Instant PDF download — US Letter and A4 included.</p>
+      <div class="btn-row">
+        {data.checkout.gumroad && <a class="btn btn-primary" href={data.checkout.gumroad} rel="nofollow">Get it on Gumroad</a>}
+        {data.checkout.payhip && <a class="btn btn-secondary" href={data.checkout.payhip} rel="nofollow">Buy on Payhip</a>}
+      </div>
+    </div>
+  </section>
+
+  {data.faq.length > 0 && (
+    <section class="faq">
+      <div class="wrap">
+        <h2>Questions</h2>
+        {data.faq.map((item) => (
+          <div class="faq-item">
+            <h3>{item.q}</h3>
+            <p>{item.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <Footer />
+
+  <script type="application/ld+json" set:html={JSON.stringify(productJsonLd)} />
+  {faqJsonLd && <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />}
+</BaseLayout>

@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const gumroadUrl = 'https://cooperhawk64.gumroad.com/l/jmrfmo';
+---
+<BaseLayout
+  title="Free ADHD Habit Tracker Printable"
+  description="A free printable habit tracker page built for ADHD brains — a simple 7-day check-off grid, no streak counter, no guilt if a day gets missed. Instant PDF download."
+  canonical="/free-habit-tracker"
+>
+  <Header />
+
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="hero-badge">Free · Printable · Instant Download</span>
+        <h1>A habit tracker that doesn't punish you for missing a day</h1>
+        <p class="tagline">No streak counter to break. No guilt-based framing. Just a simple 7-day check-off grid built the same way as our full planner system — try it free before you decide if the full bundle is for you.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href={gumroadUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'lead')">Get it free on Gumroad</a>
+        </div>
+      </div>
+      <div class="hero-image-card">
+        <img src="/images/adhd-planner-bundle/page05-habit-tracker-preview.png" alt="Habit tracker page with a simple 7-day check-off grid, no streak counter" />
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="cta-band">
+      <div class="price">Free</div>
+      <p>Instant PDF download — US Letter and A4 included. Pay-what-you-want, $0 is fine.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href={gumroadUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'lead')">Get it free on Gumroad</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="philosophy">
+    <div class="wrap">
+      <p>This is one page pulled from our full <a href="/shop/adhd-planner-bundle">ADHD Planner Bundle</a> — if it's useful, the full system has a weekly planner, daily planner, brain dump page, priority matrix, and more, all built the same way.</p>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

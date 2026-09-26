@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ProductCard from '../../components/ProductCard.astro';
+
+const allProducts = await getCollection('products', ({ data }) => !data.draft);
+---
+<BaseLayout
+  title="Shop"
+  description="Printable planners and digital tools for ADHD brains — instant download, US Letter and A4 included."
+>
+  <Header />
+  <section class="page-hero">
+    <div class="wrap">
+      <h1>Shop</h1>
+      <p>Printable tools built for how your brain actually works.</p>
+    </div>
+  </section>
+  <div class="wrap">
+    <div class="card-grid">
+      {allProducts.map((product) => <ProductCard product={product} />)}
+    </div>
+  </div>
+  <Footer />
+</BaseLayout>

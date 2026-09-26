@@ -1,0 +1,81 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  articleTag?: boolean;
+  publishDate?: string;
+  modifiedDate?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage = '/og-default.png',
+  articleTag = false,
+  publishDate,
+  modifiedDate,
+  noindex = false,
+} = Astro.props;
+
+const siteUrl = 'https://calmbrainco.pages.dev';
+const canonicalURL = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.url.pathname}`;
+const fullTitle = title.includes('Calm Brain Co') ? title : `${title} | Calm Brain Co`;
+
+// TODO: replace with the real Pinterest Tag ID from Calm Brain Co's OWN
+// Pinterest business account (brand id 7060568, handle coops110110) —
+// Business Hub > Ads > Conversions > Pinterest Tag. NOT the "Your New
+// Foods" account's tag/advertiser id, that's a different, unrelated account.
+const PINTEREST_TAG_ID = 'REPLACE_WITH_CALM_BRAIN_CO_PINTEREST_TAG_ID';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+  <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
+  <meta name="author" content="Calm Brain Co" />
+  <meta name="p:domain_verify" content="4f97711671a749142ea59ed1ed7c95b0" />
+
+  <meta property="og:type" content={articleTag ? 'article' : 'website'} />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:site_name" content="Calm Brain Co" />
+  <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+  {publishDate && <meta property="article:published_time" content={publishDate} />}
+  {modifiedDate && <meta property="article:modified_time" content={modifiedDate} />}
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={fullTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  {PINTEREST_TAG_ID !== 'REPLACE_WITH_CALM_BRAIN_CO_PINTEREST_TAG_ID' && (
+    <script type="text/javascript" define:vars={{ PINTEREST_TAG_ID }}>
+      !function(e){if(!window.pintrk){window.pintrk = function () {
+      window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var
+        n=window.pintrk;n.queue=[],n.version="3.0";var
+        t=document.createElement("script");t.async=!0,t.src=e;var
+        r=document.getElementsByTagName("script")[0];
+        r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
+      pintrk('load', PINTEREST_TAG_ID);
+      pintrk('page');
+    </script>
+  )}
+</head>
+<body>
+  <slot />
+</body>
+</html>

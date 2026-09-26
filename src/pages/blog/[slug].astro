@@ -1,0 +1,55 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.slug ?? post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { data } = post;
+const { Content } = await render(post);
+const relatedProduct = data.relatedProduct ? await getEntry('products', data.relatedProduct) : null;
+---
+<BaseLayout
+  title={data.title}
+  description={data.description}
+  articleTag={true}
+  publishDate={data.publishDate}
+  modifiedDate={data.modifiedDate}
+  noindex={data.noindex}
+  ogImage={data.image}
+>
+  <Header />
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="category-pill">{data.category}</span>
+      <h1>{data.title}</h1>
+    </div>
+  </section>
+  <section class="philosophy">
+    <div class="wrap">
+      <Content />
+    </div>
+  </section>
+
+  {relatedProduct && (
+    <section class="wrap">
+      <div class="cta-band">
+        <p>{relatedProduct.data.tagline}</p>
+        <div class="price">${relatedProduct.data.price.toFixed(2)}</div>
+        <div class="btn-row">
+          <a class="btn btn-primary" href={`/shop/${relatedProduct.slug ?? relatedProduct.id}`}>See the {relatedProduct.data.title}</a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <Footer />
+</BaseLayout>

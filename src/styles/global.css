@@ -1,0 +1,242 @@
+/* Calm Brain Co design system — same palette and feel as the pin graphics:
+   cream background, muted pastel accents, soft rounded cards, no harsh
+   contrast. Kept in one file (not per-component) since the whole site is
+   small enough that a single source of truth is easier to keep consistent
+   as more products/pages get added. */
+
+:root {
+  --cream: #FAF6EE;
+  --ink: #3F5750;
+  --sage: #5C7A70;
+  --sage-bg: #E9EFE7;
+  --slate: #5C7093;
+  --slate-bg: #E7EAF2;
+  --clay: #B97A56;
+  --clay-bg: #F3E7DA;
+  --plum: #7A5C74;
+  --plum-bg: #EFE5EE;
+  --radius: 20px;
+  --shadow: 0 16px 34px rgba(63, 87, 80, 0.16);
+  --max-width: 1080px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Header / Footer ---------- */
+
+.site-header {
+  padding: 28px 0;
+}
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand {
+  font-weight: 800;
+  font-size: 22px;
+  text-decoration: none;
+  color: var(--ink);
+}
+.brand span { color: var(--sage); }
+.main-nav { display: flex; gap: 28px; }
+.main-nav a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--ink);
+  opacity: 0.85;
+}
+.main-nav a:hover { opacity: 1; }
+
+.site-footer {
+  margin-top: 80px;
+  padding: 40px 0 60px;
+  border-top: 1px solid rgba(63,87,80,0.12);
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-block;
+  padding: 16px 32px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary { background: var(--sage); color: var(--cream); }
+.btn-secondary { background: transparent; color: var(--sage); border: 2px solid var(--sage); }
+.btn-row { display: flex; gap: 16px; flex-wrap: wrap; }
+
+/* ---------- Hero ---------- */
+
+.hero {
+  padding: 60px 0 40px;
+}
+.hero .wrap {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: center;
+}
+.hero-badge {
+  display: inline-block;
+  background: var(--clay-bg);
+  color: var(--clay);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-size: 44px;
+  line-height: 1.15;
+  margin: 0 0 20px;
+}
+.hero p.tagline {
+  font-size: 19px;
+  opacity: 0.85;
+  margin: 0 0 32px;
+}
+.hero-image-card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  transform: rotate(-2deg);
+}
+.hero-image-card img { border-radius: 12px; }
+
+@media (max-width: 800px) {
+  .hero .wrap { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 32px; }
+}
+
+/* ---------- Gallery ---------- */
+
+.gallery {
+  padding: 40px 0;
+}
+.gallery h2 { font-size: 30px; margin-bottom: 8px; }
+.gallery .lede { opacity: 0.8; margin-bottom: 32px; max-width: 640px; }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+.gallery-grid figure {
+  margin: 0;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.gallery-grid img { width: 100%; }
+
+/* ---------- Feature blocks ---------- */
+
+.philosophy { padding: 60px 0; }
+.philosophy h2 { font-size: 30px; margin: 48px 0 12px; }
+.philosophy h3 { font-size: 22px; margin: 40px 0 10px; color: var(--sage); }
+.philosophy p { max-width: 680px; }
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 32px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+.feature-list li {
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+  font-weight: 600;
+}
+
+/* ---------- Pricing / CTA band ---------- */
+
+.cta-band {
+  background: var(--sage-bg);
+  border-radius: var(--radius);
+  padding: 48px;
+  text-align: center;
+  margin: 60px 0;
+}
+.cta-band .price { font-size: 40px; font-weight: 800; color: var(--sage); }
+.cta-band .btn-row { justify-content: center; margin-top: 24px; }
+
+/* ---------- FAQ ---------- */
+
+.faq { padding: 40px 0 80px; }
+.faq h2 { font-size: 30px; margin-bottom: 24px; }
+.faq-item {
+  border-bottom: 1px solid rgba(63,87,80,0.15);
+  padding: 20px 0;
+}
+.faq-item h3 { font-size: 18px; margin: 0 0 8px; }
+.faq-item p { margin: 0; opacity: 0.85; }
+
+/* ---------- Shop / Blog listing grids ---------- */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+  padding: 40px 0 80px;
+}
+.product-card, .blog-card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--ink);
+  display: block;
+}
+.product-card img, .blog-card img { aspect-ratio: 4/3; object-fit: cover; }
+.product-card .card-body, .blog-card .card-body { padding: 20px; }
+.product-card h3, .blog-card h3 { margin: 0 0 8px; font-size: 19px; }
+.product-card .price-tag { color: var(--sage); font-weight: 700; }
+
+/* ---------- Page hero (blog/shop index) ---------- */
+
+.page-hero { padding: 60px 0 20px; text-align: center; }
+.page-hero h1 { font-size: 38px; margin-bottom: 12px; }
+.page-hero p { max-width: 600px; margin: 0 auto; opacity: 0.8; }
+
+.category-pill {
+  display: inline-block;
+  background: var(--slate-bg);
+  color: var(--slate);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}

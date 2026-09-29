@@ -32,6 +32,8 @@ const fullTitle = title.includes('Calm Brain Co') ? title : `${title} | Calm Bra
 // Business Hub > Ads > Conversions > Pinterest Tag. NOT the "Your New
 // Foods" account's tag/advertiser id, that's a different, unrelated account.
 const PINTEREST_TAG_ID = '2614020631577';
+
+const GA4_MEASUREMENT_ID = 'G-9YLBB6D9QL';
 ---
 
 <!DOCTYPE html>
@@ -61,6 +63,14 @@ const PINTEREST_TAG_ID = '2614020631577';
   <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <script type="text/javascript" async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`}></script>
+  <script type="text/javascript" define:vars={{ GA4_MEASUREMENT_ID }}>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', GA4_MEASUREMENT_ID);
+  </script>
 
   {PINTEREST_TAG_ID !== 'REPLACE_WITH_CALM_BRAIN_CO_PINTEREST_TAG_ID' && (
     <script type="text/javascript" define:vars={{ PINTEREST_TAG_ID }}>

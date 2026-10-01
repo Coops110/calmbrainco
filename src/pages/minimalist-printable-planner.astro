@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const gumroadUrl = 'https://cooperhawk64.gumroad.com/l/abqkkx';
+const payhipUrl = 'https://payhip.com/b/su2J3';
+---
+<BaseLayout
+  title="Minimalist Printable Planner for ADHD Brains"
+  description="A minimalist printable planner with no clutter and no filler pages — undated, calm layouts, a brain dump page, and a habit tracker with no streak to break. Instant PDF download."
+  canonical="/minimalist-printable-planner"
+  ogImage="/images/adhd-planner-bundle/page00-cover-preview.png"
+>
+  <Header />
+
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="hero-badge">Minimalist · Printable · Instant Download</span>
+        <h1>A printable planner stripped down to what actually matters</h1>
+        <p class="tagline">No decorative filler, no pages you'll never use — just clean, undated layouts for the few things that genuinely need tracking. Built for a calmer mind, not a busier page.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href={gumroadUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'checkout', {value: 17.99, currency: 'USD'})">Get it on Gumroad — $17.99</a>
+          <a class="btn btn-secondary" href={payhipUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'checkout', {value: 17.99, currency: 'USD'})">Buy on Payhip</a>
+        </div>
+      </div>
+      <div class="hero-image-card">
+        <img src="/images/adhd-planner-bundle/page00-cover-preview.png" alt="Minimalist printable planner cover page" />
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <div class="wrap">
+      <h2>Clean pages, nothing extra</h2>
+      <p class="lede">Every page earns its spot — no busywork, no decoration for its own sake.</p>
+      <div class="gallery-grid">
+        <figure>
+          <img src="/images/adhd-planner-bundle/page04-brain-dump-preview.png" alt="Brain dump page with columns for tasks, ideas and random thoughts" loading="lazy" />
+        </figure>
+        <figure>
+          <img src="/images/adhd-planner-bundle/page05-habit-tracker-preview.png" alt="Habit tracker page with a simple 7-day check-off grid, no streak counter" loading="lazy" />
+        </figure>
+        <figure>
+          <img src="/images/adhd-planner-bundle/page03-monthly-overview-preview.png" alt="Monthly overview grid page for tracking the shape of a month at a glance" loading="lazy" />
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="philosophy">
+    <div class="wrap">
+      <p>This is the same <a href="/shop/adhd-planner-bundle">full ADHD Planner Bundle</a> — thirteen pages in total, including the <a href="/blog/priority-matrix-choosing-three-things">priority matrix</a> and a <a href="/blog/self-care-checkin-no-score-to-chase">self-care check-in</a> page. If minimalist is the bar, this clears it: undated, no streaks, no filler.</p>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="cta-band">
+      <div class="price">$17.99</div>
+      <p>Instant PDF download — US Letter and A4 included.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href={gumroadUrl} rel="nofollow">Get it on Gumroad</a>
+        <a class="btn btn-secondary" href={payhipUrl} rel="nofollow">Buy on Payhip</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

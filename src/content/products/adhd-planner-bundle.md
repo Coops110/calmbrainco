@@ -73,3 +73,5 @@ Most habit trackers punish a missed day by resetting a streak counter to zero. T
 ### Everything else a real week needs
 
 Monthly overview, self-care check-in, goal breakdown, reminder tracker, meal planner, chore checklist, and bill tracker round out the system — the boring parts of a week, written down in one place instead of juggled across five apps.
+
+Prefer a different way into the same system? See it framed as a [minimalist printable planner](/minimalist-printable-planner) or as [productivity aesthetic daily planning](/productivity-aesthetic-daily-planning) — same thirteen pages, different starting angle.

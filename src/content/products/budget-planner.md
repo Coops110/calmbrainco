@@ -60,4 +60,4 @@ Same philosophy as the original planner's habit tracker: thirty circles, fill on
 
 Weekly spending, bill payments, debt payoff, spending by category, and a net worth snapshot round out the system — the boring parts of managing money, written down in one place instead of scattered across apps you stopped opening.
 
-Pairs naturally with the [ADHD Planner Bundle](/shop/adhd-planner-bundle) for the full day-to-day and money system together.
+Pairs naturally with the [ADHD Planner Bundle](/shop/adhd-planner-bundle) for the full day-to-day and money system together. Curious why spreadsheets and budgeting apps tend to fail for ADHD brains specifically? Read [why a budget spreadsheet doesn't work for ADHD brains](/blog/budget-spreadsheet-doesnt-work-for-adhd).

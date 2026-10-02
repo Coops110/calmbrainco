@@ -27,7 +27,9 @@ features:
   - "Undated — start on any day, no wasted pages from a missed January 1st"
   - "US Letter and A4 both included in one purchase"
   - "Instant PDF download, print at home or a copy shop"
-checkout: {}
+checkout:
+  gumroad: "https://cooperhawk64.gumroad.com/l/cuykdzl"
+  payhip: "https://payhip.com/b/Z5EI4"
 faq:
   - q: "Is this a physical planner or a printable?"
     a: "It's a printable PDF you download instantly and print yourself, at home or at a copy shop. There's no physical product shipped."

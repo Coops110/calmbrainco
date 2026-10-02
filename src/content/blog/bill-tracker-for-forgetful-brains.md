@@ -15,7 +15,7 @@ Banking apps and auto-pay reminders assume you'll see a notification and act on 
 
 ## One page, everything due
 
-A dedicated bill tracker page solves a narrower problem than a full budget: not how much you're spending, just what's due and when, all in one place you actually look at. No app to open, no notification to dismiss — just a page that sits in the planner you're already using every day.
+A dedicated bill tracker page solves a narrower problem than a full budget: not how much you're spending, just what's due and when, all in one place you actually look at. No app to open, no notification to dismiss — just a page that sits in the planner you're already using every day. If the money side needs more than just due dates, the [ADHD-Friendly Budget Planner](/shop/budget-planner) builds out the rest of the picture with the same no-shame approach.
 
 ## Where to start
 

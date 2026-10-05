@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://calmbrainco.pages.dev/sitemap-index.xml
+Sitemap: https://calmbrainco.shop/sitemap-index.xml

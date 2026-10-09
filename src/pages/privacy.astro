@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<BaseLayout
+  title="Privacy Policy"
+  description="Calm Brain Co privacy policy — what data is collected, how it's used, and how account connections to third-party platforms are handled."
+  canonical="/privacy"
+>
+  <Header />
+
+  <section class="page-hero">
+    <div class="wrap">
+      <h1>Privacy Policy</h1>
+    </div>
+  </section>
+
+  <section class="philosophy">
+    <div class="wrap">
+      <p>Calm Brain Co ("we," "us") sells printable planning products at calmbrainco.shop. This page covers two things: the store itself, and a private internal dashboard we operate that connects to our own social media accounts.</p>
+
+      <h2>The store</h2>
+      <p>Checkout is handled entirely by our payment processors (Gumroad and Payhip) — we never see or store your card details. We use Google Analytics to understand site traffic in aggregate. We do not sell or share visitor data with third parties beyond these two functions.</p>
+
+      <h2>Internal social media dashboard</h2>
+      <p>We operate a single-user, private dashboard for our own internal use, which connects to our own social media accounts (including Pinterest) via each platform's official API. It reads only our own connected accounts' publicly-visible statistics — followers, views, likes, comments, shares, and recent posts — to display them in one place. It never posts, modifies, or deletes anything on any connected account, and this dashboard has no users other than the account owner.</p>
+      <p>Data retrieved this way is cached for up to 60 days solely to compute week-over-week change figures, and is never shared, sold, or transmitted to any third party. Disconnecting an account from the dashboard removes its stored access tokens.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about this policy can be sent via the contact details on our shop pages.</p>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

@@ -162,7 +162,9 @@ p + p { margin-top: 0.9em; }
 /* Products (home morning chunk) */
 .products { display: grid; gap: 40px; }
 @media (min-width: 720px) { .products { grid-template-columns: 1fr 1fr; gap: 48px; } }
+@media (min-width: 1040px) { .products { grid-template-columns: repeat(3, 1fr); } }
 .product { display: grid; grid-template-columns: minmax(120px, 42%) 1fr; gap: 20px 24px; align-items: start; }
+@media (min-width: 1040px) { .product { grid-template-columns: 1fr; } .product .paper { max-width: 280px; } }
 .product__body { display: grid; gap: 10px; grid-template-rows: auto 1fr auto auto auto; align-self: stretch; }
 .product__facts { color: var(--ink-soft); font-size: 0.9375rem; }
 .product__price { font-weight: 700; font-size: 1.25rem; color: var(--clay-deep); }

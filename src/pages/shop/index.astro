@@ -5,11 +5,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import FaqList from '../../components/FaqList.astro';
-import { adhdPlannerBundle, budgetPlanner } from '../../data/products';
+import { adhdPlannerBundle, budgetPlanner, homeResetPlanner, studentPlanner, workFocusPlanner, familyHouseholdPlanner } from '../../data/products';
 import { SITE, breadcrumbNode } from '../../lib/seo';
 
 const bundleEntry = await getEntry('products', 'adhd-planner-bundle');
 const budgetEntry = await getEntry('products', 'budget-planner');
+const homeResetEntry = await getEntry('products', 'adhd-home-reset-planner');
+const studentEntry = await getEntry('products', 'adhd-student-planner');
+const workFocusEntry = await getEntry('products', 'adhd-work-focus-planner');
+const familyEntry = await getEntry('products', 'adhd-family-household-planner');
 const path = '/shop/';
 const canonicalURL = `${SITE}${path}`;
 
@@ -25,16 +29,20 @@ const jsonLd = [
     '@id': `${canonicalURL}#webpage`,
     url: canonicalURL,
     name: 'Shop: Printable ADHD Planners (PDF)',
-    description: 'Two printable PDF planners for ADHD brains at $17.99 each: the 13-page ADHD Planner Bundle and the 9-page ADHD-Friendly Budget Planner. Undated, US Letter and A4, instant download.',
+    description: 'Six printable PDF planners for ADHD brains at $17.99 each: the 13-page ADHD Planner Bundle, the 9-page ADHD-Friendly Budget Planner, the 11-page ADHD Home Reset Planner, the 10-page ADHD Student Planner, the 10-page ADHD Work and Focus Planner, and the 10-page ADHD Family and Household Planner. Undated, US Letter and A4, instant download.',
     isPartOf: { '@id': `${SITE}/#website` },
     inLanguage: 'en',
     mainEntity: {
       '@type': 'ItemList',
       '@id': `${canonicalURL}#list`,
-      numberOfItems: 2,
+      numberOfItems: 6,
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'ADHD Planner Bundle', url: `${SITE}/shop/adhd-planner-bundle/` },
         { '@type': 'ListItem', position: 2, name: 'ADHD-Friendly Budget Planner', url: `${SITE}/shop/budget-planner/` },
+        { '@type': 'ListItem', position: 3, name: 'ADHD Home Reset Planner', url: `${SITE}/shop/adhd-home-reset-planner/` },
+        { '@type': 'ListItem', position: 4, name: 'ADHD Student Planner', url: `${SITE}/shop/adhd-student-planner/` },
+        { '@type': 'ListItem', position: 5, name: 'ADHD Work and Focus Planner', url: `${SITE}/shop/adhd-work-focus-planner/` },
+        { '@type': 'ListItem', position: 6, name: 'ADHD Family and Household Planner', url: `${SITE}/shop/adhd-family-household-planner/` },
       ],
     },
   },
@@ -42,7 +50,7 @@ const jsonLd = [
 ---
 <BaseLayout
   title="Shop: Printable ADHD Planners (PDF)"
-  description="Two undated printable PDF planners for ADHD brains at $17.99 each: the 13-page ADHD Planner Bundle and the 9-page ADHD-Friendly Budget Planner. US Letter and A4, instant download."
+  description="Six undated printable PDF planners for ADHD brains at $17.99 each: the 13-page ADHD Planner Bundle, the 9-page ADHD-Friendly Budget Planner, the 11-page ADHD Home Reset Planner, the 10-page ADHD Student Planner, the 10-page ADHD Work and Focus Planner, and the 10-page ADHD Family and Household Planner. US Letter and A4, instant download."
   path={path}
   ogImage="/og/shop.png"
   jsonLd={jsonLd}
@@ -52,7 +60,7 @@ const jsonLd = [
     <section class="page-hero">
       <div class="wrap">
         <h1>Shop</h1>
-        <p class="measure">Two planners, one free page. All printable PDFs, undated, US Letter and A4.</p>
+        <p class="measure">Six planners, one free page. All printable PDFs, undated, US Letter and A4.</p>
       </div>
     </section>
 
@@ -83,6 +91,46 @@ const jsonLd = [
               <a class="btn btn--secondary" href="/shop/budget-planner/">See all 9 pages</a>
             </div>
           </article>
+          <article class="product">
+            <div class="paper paper--cover"><Image src={homeResetPlanner.pages[0].img} alt={homeResetPlanner.pages[0].alt} width={420} /></div>
+            <div class="product__body">
+              <h3><a href="/shop/adhd-home-reset-planner/" style="color:inherit;text-decoration:none">ADHD Home Reset Planner</a></h3>
+              <p>{homeResetEntry?.data.tagline}.</p>
+              <p class="product__facts">11 pages. Undated. Instant PDF.</p>
+              <p class="product__price">$17.99</p>
+              <a class="btn btn--secondary" href="/shop/adhd-home-reset-planner/">See all 11 pages</a>
+            </div>
+          </article>
+          <article class="product">
+            <div class="paper paper--cover"><Image src={studentPlanner.pages[0].img} alt={studentPlanner.pages[0].alt} width={420} /></div>
+            <div class="product__body">
+              <h3><a href="/shop/adhd-student-planner/" style="color:inherit;text-decoration:none">ADHD Student Planner</a></h3>
+              <p>{studentEntry?.data.tagline}.</p>
+              <p class="product__facts">10 pages. Undated. Instant PDF.</p>
+              <p class="product__price">$17.99</p>
+              <a class="btn btn--secondary" href="/shop/adhd-student-planner/">See all 10 pages</a>
+            </div>
+          </article>
+          <article class="product">
+            <div class="paper paper--cover"><Image src={workFocusPlanner.pages[0].img} alt={workFocusPlanner.pages[0].alt} width={420} /></div>
+            <div class="product__body">
+              <h3><a href="/shop/adhd-work-focus-planner/" style="color:inherit;text-decoration:none">ADHD Work and Focus Planner</a></h3>
+              <p>{workFocusEntry?.data.tagline}.</p>
+              <p class="product__facts">10 pages. Undated. Instant PDF.</p>
+              <p class="product__price">$17.99</p>
+              <a class="btn btn--secondary" href="/shop/adhd-work-focus-planner/">See all 10 pages</a>
+            </div>
+          </article>
+          <article class="product">
+            <div class="paper paper--cover"><Image src={familyHouseholdPlanner.pages[0].img} alt={familyHouseholdPlanner.pages[0].alt} width={420} /></div>
+            <div class="product__body">
+              <h3><a href="/shop/adhd-family-household-planner/" style="color:inherit;text-decoration:none">ADHD Family and Household Planner</a></h3>
+              <p>{familyEntry?.data.tagline}.</p>
+              <p class="product__facts">10 pages. Undated. Instant PDF.</p>
+              <p class="product__price">$17.99</p>
+              <a class="btn btn--secondary" href="/shop/adhd-family-household-planner/">See all 10 pages</a>
+            </div>
+          </article>
         </div>
         <p class="chunk__foot">Checkout happens on Gumroad or Payhip. No account on this site, no shipping, no waiting: the PDF is yours within a minute of paying.</p>
       </div>
@@ -96,17 +144,17 @@ const jsonLd = [
         <div class="compare-scroll">
           <table class="compare">
             <thead>
-              <tr><th scope="col">&nbsp;</th><th scope="col">ADHD Planner Bundle</th><th scope="col">ADHD-Friendly Budget Planner</th></tr>
+              <tr><th scope="col">&nbsp;</th><th scope="col">ADHD Planner Bundle</th><th scope="col">ADHD-Friendly Budget Planner</th><th scope="col">ADHD Home Reset Planner</th><th scope="col">ADHD Student Planner</th><th scope="col">ADHD Work and Focus Planner</th><th scope="col">ADHD Family and Household Planner</th></tr>
             </thead>
             <tbody>
-              <tr><th scope="row">Best for</th><td>Days, weeks and habits</td><td>Money: bills, savings, subscriptions</td></tr>
-              <tr><th scope="row">Pages</th><td>13</td><td>9</td></tr>
-              <tr><th scope="row">The core page</th><td>Weekly: morning, afternoon, evening</td><td>Monthly overview: income, fixed, variable</td></tr>
-              <tr><th scope="row">Also inside</th><td>Daily, monthly, brain dump, habit tracker, priority matrix, reminders, meals, goals, self-care, chores, bills</td><td>Weekly spending, bill tracker, savings goal, debt payoff, subscriptions, spending by category, net worth</td></tr>
-              <tr><th scope="row">Dated</th><td>No</td><td>No</td></tr>
-              <tr><th scope="row">Sizes</th><td>US Letter and A4</td><td>US Letter and A4</td></tr>
-              <tr><th scope="row">Price</th><td>$17.99</td><td>$17.99</td></tr>
-              <tr><th scope="row">&nbsp;</th><td><a class="btn btn--secondary" href="/shop/adhd-planner-bundle/">Buy on Gumroad</a></td><td><a class="btn btn--secondary" href="/shop/budget-planner/">Buy on Gumroad</a></td></tr>
+              <tr><th scope="row">Best for</th><td>Days, weeks and habits</td><td>Money: bills, savings, subscriptions</td><td>Cleaning and decluttering</td><td>Classes, assignments and studying</td><td>Task initiation and focus at work</td><td>Running a household with other people in it</td></tr>
+              <tr><th scope="row">Pages</th><td>13</td><td>9</td><td>11</td><td>10</td><td>10</td><td>10</td></tr>
+              <tr><th scope="row">The core page</th><td>Weekly: morning, afternoon, evening</td><td>Monthly overview: income, fixed, variable</td><td>Zone map: flexible zones assigned to days</td><td>Assignment tracker: due in days, not a date</td><td>Task breakdown: pebble, not mountain</td><td>Household chore rotation: who does what this week</td></tr>
+              <tr><th scope="row">Also inside</th><td>Daily, monthly, brain dump, habit tracker, priority matrix, reminders, meals, goals, self-care, chores, bills</td><td>Weekly spending, bill tracker, savings goal, debt payoff, subscriptions, spending by category, net worth</td><td>Weekly reset, 10-minute reset, deep clean rotation, one shelf at a time, laundry loop, kitchen reset, body-doubling log, guest-ready, letting go</td><td>Class schedule, big project breakdown, study session, exam prep countdown, weekly study planner, reading tracker, focus-time check-in, end-of-week reset</td><td>Workday top 3, focus session tracker, email triage, meeting notes, context-switch reset, waiting-on tracker, end-of-day shutdown, weekly work review</td><td>Family week at a glance, mental load dump, kid routine cards, school paperwork tracker, contact and info sheet, caregiver handoff notes, family meal rotation, one thing for me</td></tr>
+              <tr><th scope="row">Dated</th><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+              <tr><th scope="row">Sizes</th><td>US Letter and A4</td><td>US Letter and A4</td><td>US Letter and A4</td><td>US Letter and A4</td><td>US Letter and A4</td><td>US Letter and A4</td></tr>
+              <tr><th scope="row">Price</th><td>$17.99</td><td>$17.99</td><td>$17.99</td><td>$17.99</td><td>$17.99</td><td>$17.99</td></tr>
+              <tr><th scope="row">&nbsp;</th><td><a class="btn btn--secondary" href="/shop/adhd-planner-bundle/">Buy on Gumroad</a></td><td><a class="btn btn--secondary" href="/shop/budget-planner/">Buy on Gumroad</a></td><td><a class="btn btn--secondary" href="/shop/adhd-home-reset-planner/">Buy on Gumroad</a></td><td><a class="btn btn--secondary" href="/shop/adhd-student-planner/">Buy on Gumroad</a></td><td><a class="btn btn--secondary" href="/shop/adhd-work-focus-planner/">Buy on Gumroad</a></td><td><a class="btn btn--secondary" href="/shop/adhd-family-household-planner/">Buy on Gumroad</a></td></tr>
             </tbody>
           </table>
         </div>

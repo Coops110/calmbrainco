@@ -99,6 +99,9 @@ async function main() {
   await renderCard('shop', { eyebrow: 'Shop', title: 'Printable ADHD planners, instant PDF', caption: '$17.99 each, undated, US Letter and A4' });
   await renderCard('adhd-planner-bundle', { eyebrow: 'Planner', title: 'ADHD Planner Bundle', caption: '13 pages, $17.99, undated PDF' });
   await renderCard('budget-planner', { eyebrow: 'Planner', title: 'ADHD-Friendly Budget Planner', caption: '9 pages, $17.99, undated PDF' });
+  await renderCard('adhd-home-reset-planner', { eyebrow: 'Planner', title: 'ADHD Home Reset Planner', caption: '11 pages, $17.99, undated PDF' });
+  await renderCard('adhd-student-planner', { eyebrow: 'Planner', title: 'ADHD Student Planner', caption: '10 pages, $17.99, undated PDF' });
+  await renderCard('adhd-work-focus-planner', { eyebrow: 'Planner', title: 'ADHD Work and Focus Planner', caption: '10 pages, $17.99, undated PDF' });
   await renderCard('free-habit-tracker', { eyebrow: 'Free', title: 'A habit tracker with no streak to break', caption: 'Pay what you want, $0 is fine' });
   await renderCard('minimalist-printable-planner', { eyebrow: 'Shop', title: 'A minimalist printable planner', caption: '13 undated pages, $17.99' });
   await renderCard('productivity-aesthetic-daily-planning', { eyebrow: 'Shop', title: 'Calm, aesthetic daily planning', caption: '13 undated pages, $17.99' });

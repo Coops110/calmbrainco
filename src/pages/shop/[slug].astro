@@ -7,14 +7,11 @@ import Footer from '../../components/Footer.astro';
 import Reasons from '../../components/Reasons.astro';
 import FaqList from '../../components/FaqList.astro';
 import StickyBuyBar from '../../components/StickyBuyBar.astro';
-import { products, adhdPlannerBundle, budgetPlanner } from '../../data/products';
+import { products, pairedProduct } from '../../data/products';
 import { SITE, breadcrumbNode, faqNode } from '../../lib/seo';
 
 export function getStaticPaths() {
-  return [
-    { params: { slug: 'adhd-planner-bundle' }, props: { slug: 'adhd-planner-bundle' } },
-    { params: { slug: 'budget-planner' }, props: { slug: 'budget-planner' } },
-  ];
+  return Object.keys(products).map((slug) => ({ params: { slug }, props: { slug } }));
 }
 
 const { slug } = Astro.props as { slug: string };
@@ -26,7 +23,7 @@ const { Content } = await render(entry);
 
 const path = `/shop/${slug}/`;
 const canonicalURL = `${SITE}${path}`;
-const otherProduct = slug === 'adhd-planner-bundle' ? budgetPlanner : adhdPlannerBundle;
+const otherProduct = pairedProduct(product);
 const otherEntry = await getEntry('products', otherProduct.slug);
 
 const jsonLd = [
@@ -40,7 +37,7 @@ const jsonLd = [
     name: data.title,
     description: data.description,
     image: [`${SITE}/og/${slug}.png`],
-    sku: slug === 'adhd-planner-bundle' ? 'CBC-ADHD-PLANNER-BUNDLE' : 'CBC-BUDGET-PLANNER',
+    sku: `CBC-${slug.toUpperCase()}`,
     brand: { '@type': 'Brand', name: 'Calm Brain Co' },
     category: 'Printable planners',
     url: canonicalURL,

@@ -1,0 +1,33 @@
+---
+export interface Props {
+  name: string;
+  price: number;
+  gumroad: string;
+}
+const { name, price, gumroad } = Astro.props;
+---
+<div class="buybar" id="buybar" aria-hidden="true">
+  <div class="buybar__name"><b>{name}</b><span>${price.toFixed(2)}</span></div>
+  <a class="btn btn--primary" href={gumroad} rel="nofollow" onclick="window.pintrk && pintrk('track', 'checkout', {value: 17.99, currency: 'USD'})">Get it on Gumroad</a>
+</div>
+
+<script>
+  // Phones only: show a one-line buy bar once the hero's buy buttons have
+  // scrolled out of view, hide it again whenever a buy block is on screen.
+  // Progressive enhancement only: without JS the repeated buy band on the
+  // page still exists, nothing is lost.
+  (function () {
+    const bar = document.getElementById('buybar');
+    const targets = [document.getElementById('buy'), document.querySelector('.buy__box')].filter(Boolean) as Element[];
+    if (!bar || !('IntersectionObserver' in window) || targets.length === 0) return;
+    const visible = new Set<Element>();
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { e.isIntersecting ? visible.add(e.target) : visible.delete(e.target); });
+      const on = visible.size === 0 && window.scrollY > 200;
+      bar.classList.toggle('is-on', on);
+      bar.setAttribute('aria-hidden', on ? 'false' : 'true');
+      document.body.classList.toggle('has-buybar', on && window.innerWidth < 880);
+    }, { threshold: 0.1 });
+    targets.forEach((t) => io.observe(t));
+  })();
+</script>

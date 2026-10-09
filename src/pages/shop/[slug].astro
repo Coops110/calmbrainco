@@ -1,123 +1,264 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import { getCollection, getEntry, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import Reasons from '../../components/Reasons.astro';
+import FaqList from '../../components/FaqList.astro';
+import StickyBuyBar from '../../components/StickyBuyBar.astro';
+import { products, adhdPlannerBundle, budgetPlanner } from '../../data/products';
+import { SITE, breadcrumbNode, faqNode } from '../../lib/seo';
 
-export async function getStaticPaths() {
-  const products = await getCollection('products', ({ data }) => !data.draft);
-  return products.map((product) => ({
-    params: { slug: product.slug ?? product.id },
-    props: { product },
-  }));
+export function getStaticPaths() {
+  return [
+    { params: { slug: 'adhd-planner-bundle' }, props: { slug: 'adhd-planner-bundle' } },
+    { params: { slug: 'budget-planner' }, props: { slug: 'budget-planner' } },
+  ];
 }
 
-const { product } = Astro.props;
-const { data } = product;
-const { Content } = await render(product);
+const { slug } = Astro.props as { slug: string };
+const product = products[slug];
+const entry = await getEntry('products', slug);
+if (!entry) throw new Error(`Missing content/products/${slug}.md`);
+const { data } = entry;
+const { Content } = await render(entry);
 
-const faqJsonLd = data.faq.length > 0 ? {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": data.faq.map((item) => ({
-    "@type": "Question",
-    "name": item.q,
-    "acceptedAnswer": { "@type": "Answer", "text": item.a },
-  })),
-} : null;
+const path = `/shop/${slug}/`;
+const canonicalURL = `${SITE}${path}`;
+const otherProduct = slug === 'adhd-planner-bundle' ? budgetPlanner : adhdPlannerBundle;
+const otherEntry = await getEntry('products', otherProduct.slug);
 
-const productJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": data.title,
-  "description": data.description,
-  "image": `https://calmbrainco.shop${data.heroImage}`,
-  "offers": {
-    "@type": "Offer",
-    "price": data.price,
-    "priceCurrency": "USD",
-    "url": data.checkout.gumroad,
-    "availability": "https://schema.org/InStock",
+const jsonLd = [
+  breadcrumbNode(canonicalURL, [
+    { name: 'Planners', url: `${SITE}/shop/` },
+    { name: data.title },
+  ]),
+  {
+    '@type': 'Product',
+    '@id': `${canonicalURL}#product`,
+    name: data.title,
+    description: data.description,
+    image: [`${SITE}/og/${slug}.png`],
+    sku: slug === 'adhd-planner-bundle' ? 'CBC-ADHD-PLANNER-BUNDLE' : 'CBC-BUDGET-PLANNER',
+    brand: { '@type': 'Brand', name: 'Calm Brain Co' },
+    category: 'Printable planners',
+    url: canonicalURL,
+    additionalProperty: [
+      { '@type': 'PropertyValue', name: 'Format', value: 'PDF, instant download' },
+      { '@type': 'PropertyValue', name: 'Pages', value: product.pageCount },
+      { '@type': 'PropertyValue', name: 'Paper sizes', value: 'US Letter and A4' },
+      { '@type': 'PropertyValue', name: 'Dated', value: 'No, undated' },
+    ],
+    isRelatedTo: { '@id': `${SITE}/shop/${otherProduct.slug}/#product` },
+    offers: [
+      {
+        '@type': 'Offer',
+        '@id': `${canonicalURL}#offer-gumroad`,
+        name: 'Buy on Gumroad',
+        url: product.gumroad,
+        price: product.price,
+        priceCurrency: 'USD',
+        availability: 'https://schema.org/InStock',
+        itemCondition: 'https://schema.org/NewCondition',
+        seller: { '@type': 'OnlineStore', '@id': `${SITE}/#organization` },
+      },
+      {
+        '@type': 'Offer',
+        '@id': `${canonicalURL}#offer-payhip`,
+        name: 'Buy on Payhip',
+        url: product.payhip,
+        price: product.price,
+        priceCurrency: 'USD',
+        availability: 'https://schema.org/InStock',
+        itemCondition: 'https://schema.org/NewCondition',
+        seller: { '@type': 'OnlineStore', '@id': `${SITE}/#organization` },
+      },
+    ],
   },
-};
----
-<BaseLayout title={data.title} description={data.description} ogImage={data.heroImage}>
-  <Header />
+  data.faq.length > 0 ? faqNode(canonicalURL, data.faq) : null,
+];
 
-  <section class="hero">
-    <div class="wrap">
-      <div>
-        <span class="hero-badge">{data.category === 'adhd' ? 'ADHD' : data.category} · Printable · Instant Download</span>
-        <h1>{data.title}</h1>
-        <p class="tagline">{data.tagline}</p>
-        <div class="btn-row">
-          {data.checkout.gumroad && <a class="btn btn-primary" href={data.checkout.gumroad} rel="nofollow" onclick={`window.pintrk && pintrk('track', 'checkout', {value: ${data.price}, currency: 'USD'})`}>Get it on Gumroad — ${data.price.toFixed(2)}</a>}
-          {data.checkout.payhip && <a class="btn btn-secondary" href={data.checkout.payhip} rel="nofollow" onclick={`window.pintrk && pintrk('track', 'checkout', {value: ${data.price}, currency: 'USD'})`}>Buy on Payhip</a>}
+const coverPage = product.pages[0];
+const secondPage = product.pages[1];
+
+const relatedPosts = (await getCollection('blog', (p) => p.data.relatedProduct === slug && !p.data.draft))
+  .sort((a, b) => new Date(a.data.publishDate).getTime() - new Date(b.data.publishDate).getTime())
+  .slice(0, 3);
+---
+<BaseLayout
+  title={`${data.title} (${product.pageCount} Printable Pages, PDF)`}
+  description={data.description}
+  path={path}
+  ogImage={`/og/${slug}.png`}
+  type="product"
+  price={product.price}
+  jsonLd={jsonLd}
+>
+  <Header current="shop" />
+  <main id="main">
+    <section class="phero" aria-labelledby="product-title">
+      <div class="wrap">
+        <div class="phero__copy">
+          <p class="crumb"><a href="/shop/">Planners</a><span aria-hidden="true">/</span>{data.title}</p>
+          <h1 id="product-title">{data.title}</h1>
+          <p class="phero__promise">{data.tagline}.</p>
+          <div class="phero__buy" id="buy">
+            <div class="phero__pricerow"><span class="phero__price">${product.price.toFixed(2)}</span><span class="phero__pricenote">one purchase, both paper sizes</span></div>
+            <div class="phero__actions">
+              <a class="btn btn--primary" href={product.gumroad} rel="nofollow" onclick={`window.pintrk && pintrk('track', 'checkout', {value: ${product.price}, currency: 'USD'})`}>Get it on Gumroad</a>
+              <a class="btn btn--secondary" href={product.payhip} rel="nofollow" onclick={`window.pintrk && pintrk('track', 'checkout', {value: ${product.price}, currency: 'USD'})`}>Buy on Payhip</a>
+            </div>
+            <p class="phero__after">Either one emails you the PDF straight after payment. You print it yourself, at home or at a copy shop.</p>
+          </div>
+          <dl class="facts">
+            <div><dt>Pages</dt><dd>{product.pageCount}</dd></div>
+            <div><dt>Dates</dt><dd>Undated</dd></div>
+            <div><dt>Sizes</dt><dd>US Letter and A4</dd></div>
+            <div><dt>Format</dt><dd>Instant PDF</dd></div>
+          </dl>
+        </div>
+        <div class="desk">
+          <div class="stack">
+            <div class="paper paper--behind" aria-hidden="true"><Image src={secondPage.img} alt="" loading="eager" width={420} /></div>
+            <div class="paper paper--front paper--cover"><Image src={coverPage.img} alt={coverPage.alt} loading="eager" width={420} /></div>
+          </div>
         </div>
       </div>
-      <div class="hero-image-card">
-        <img src={data.heroImage} alt={data.title} />
-      </div>
-    </div>
-  </section>
-
-  {data.features.length > 0 && (
-    <section class="wrap">
-      <ul class="feature-list">
-        {data.features.map((feature) => <li>{feature}</li>)}
-      </ul>
     </section>
-  )}
 
-  {data.gallery.length > 0 && (
-    <section class="gallery">
+    <section class="chunk chunk--sand" aria-labelledby="pages-title">
       <div class="wrap">
-        <h2>What's inside</h2>
-        <p class="lede">Real pages from the actual bundle.</p>
-        <div class="gallery-grid">
-          {data.gallery.map((img) => (
-            <figure>
-              <img src={img.src} alt={img.alt} loading="lazy" />
+        <div class="chunk__head">
+          <h2 id="pages-title">Every page, in order</h2>
+          <p>These are the real pages, not mock-ups. Pick one from the list or scroll the sheets sideways. Each one is the full sheet, so what you see is what prints.</p>
+        </div>
+        <div class="pages__tools">
+          <ul class="index" aria-label="Jump to a page">
+            {product.pages.map((p, i) => (
+              <li><a href={`#p${i + 1}`}><span class="num" aria-hidden="true">{i + 1}</span>{p.name}</a></li>
+            ))}
+          </ul>
+          <div class="pages__nav" id="pages-nav">
+            <button type="button" class="pbtn" data-dir="-1" aria-label="Previous page"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M11.5 3.5 6 9l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button type="button" class="pbtn" data-dir="1" aria-label="Next page"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M6.5 3.5 12 9l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
+        <div class="pages" tabindex="0" role="region" aria-label={`All ${product.pageCount} pages, scroll sideways`}>
+          {product.pages.map((p, i) => (
+            <figure class="page" id={`p${i + 1}`}>
+              <div class={`paper ${p.id === 'cover' ? 'paper--cover' : ''}`}><Image src={p.img} alt={`Page ${i + 1}, ${p.name}: ${p.alt}`} loading={i < 2 ? 'eager' : 'lazy'} width={480} /></div>
+              <figcaption><span class="num" aria-hidden="true">{i + 1}</span><span><b>{p.name}</b><span class="soft">{p.caption}</span></span></figcaption>
             </figure>
           ))}
         </div>
+        {slug === 'adhd-planner-bundle' && <p class="pages__hint">Page 6, the Habit Tracker, is also <a href="/free-habit-tracker/">free on its own</a> if you want to try the paper first.</p>}
       </div>
     </section>
-  )}
 
-  <section class="philosophy">
-    <div class="wrap">
-      <Content />
-    </div>
-  </section>
-
-  <section class="wrap">
-    <div class="cta-band">
-      <div class="price">${data.price.toFixed(2)}</div>
-      <p>Instant PDF download — US Letter and A4 included.</p>
-      <div class="btn-row">
-        {data.checkout.gumroad && <a class="btn btn-primary" href={data.checkout.gumroad} rel="nofollow">Get it on Gumroad</a>}
-        {data.checkout.payhip && <a class="btn btn-secondary" href={data.checkout.payhip} rel="nofollow">Buy on Payhip</a>}
-      </div>
-    </div>
-  </section>
-
-  {data.faq.length > 0 && (
-    <section class="faq">
+    <section class="chunk chunk--mint" aria-labelledby="why-title">
       <div class="wrap">
-        <h2>Questions</h2>
-        {data.faq.map((item) => (
-          <div class="faq-item">
-            <h3>{item.q}</h3>
-            <p>{item.a}</p>
-          </div>
-        ))}
+        <div class="chunk__head">
+          <h2 id="why-title">Why these pages hold up when a day goes sideways</h2>
+          <p>Most planners assume a brain that runs on schedule: hourly blocks, perfect streaks, the same rigid format every day. These pages assume a real week, and nothing about them falls apart when a day gets skipped.</p>
+        </div>
+        <Reasons />
       </div>
     </section>
-  )}
+
+    <section class="chunk" aria-labelledby="get-title">
+      <div class="wrap get">
+        <div>
+          <h2 id="get-title" style="margin-bottom:22px">What you get</h2>
+          <h3>One PDF, {product.pageCount} pages</h3>
+          <ul class="pagelist">
+            {product.pages.map((p) => <li><span class="o" aria-hidden="true"></span>{p.name}</li>)}
+          </ul>
+          <p class="get__facts">{product.pageCount - 1} planner pages plus the cover, in US Letter and A4, in the same download. Print any page as many times as you like for your own use. Nothing is dated, so there is no edition to go out of date.</p>
+        </div>
+        <div>
+          <h2 style="margin-bottom:22px">What happens after you pay</h2>
+          <ol class="steps">
+            <li class="step"><span class="num" aria-hidden="true">1</span><div><b>Download</b><p>Gumroad or Payhip emails you a link within a minute. Save the PDF somewhere you will find it again.</p></div></li>
+            <li class="step"><span class="num" aria-hidden="true">2</span><div><b>Print</b><p>At home on plain paper, or send the file to a copy shop. Print only the pages you want this week, or the whole set once.</p></div></li>
+            <li class="step"><span class="num" aria-hidden="true">3</span><div><b>Start on any day</b><p>Write the date on the top line and fill in three things. That is the whole first step.</p></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="chunk chunk--tint buy" aria-labelledby="buy-title">
+      <div class="wrap buy__box">
+        <h2 id="buy-title">{data.title}</h2>
+        <div class="phero__pricerow"><span class="phero__price">${product.price.toFixed(2)}</span><span class="phero__pricenote">{product.pageCount} pages, undated, US Letter and A4, instant PDF</span></div>
+        <div class="phero__actions">
+          <a class="btn btn--primary" href={product.gumroad} rel="nofollow" onclick={`window.pintrk && pintrk('track', 'checkout', {value: ${product.price}, currency: 'USD'})`}>Get it on Gumroad</a>
+          <a class="btn btn--secondary" href={product.payhip} rel="nofollow" onclick={`window.pintrk && pintrk('track', 'checkout', {value: ${product.price}, currency: 'USD'})`}>Buy on Payhip</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="chunk chunk--peri" aria-labelledby="cross-title">
+      <div class="wrap cross">
+        <div class="paper paper--cover"><Image src={otherProduct.pages[0].img} alt={otherProduct.pages[0].alt} loading="lazy" width={320} /></div>
+        <div class="cross__body">
+          <h2 id="cross-title">{slug === 'adhd-planner-bundle' ? 'Money is its own kind of overwhelm' : 'The day-to-day system that pairs with this one'}</h2>
+          {otherEntry && <p>{otherEntry.data.description}</p>}
+          <p class="cross__price">${otherProduct.price.toFixed(2)}</p>
+          <a class="btn btn--secondary" href={`/shop/${otherProduct.slug}/`}>See all {otherProduct.pageCount} pages</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="chunk" aria-labelledby="philosophy-title">
+      <div class="wrap">
+        <div class="article__body measure">
+          <h2 id="philosophy-title" class="sr-only">About the {data.title}</h2>
+          <Content />
+        </div>
+      </div>
+    </section>
+
+    {relatedPosts.length > 0 && (
+      <section class="chunk" aria-labelledby="reading-title">
+        <div class="wrap reading">
+          <h2 id="reading-title" style="font-size:1.3125rem">Reading, if you want the thinking behind the pages</h2>
+          <ul>
+            {relatedPosts.map((post) => (
+              <li><a href={`/blog/${post.id}/`}><span class="o" aria-hidden="true"></span>{post.data.title}</a></li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )}
+
+    <section class="chunk" aria-labelledby="faq-title">
+      <div class="wrap"><div class="questions">
+        <h2 id="faq-title">Questions</h2>
+        <FaqList faq={data.faq} />
+      </div></div>
+    </section>
+  </main>
 
   <Footer />
+  <StickyBuyBar name={data.title} price={product.price} gumroad={product.gumroad} />
 
-  <script type="application/ld+json" set:html={JSON.stringify(productJsonLd)} />
-  {faqJsonLd && <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />}
+  <script>
+    // Page strip previous/next buttons; progressive enhancement, swiping and
+    // the index work without JS.
+    (function () {
+      const strip = document.querySelector('.pages') as HTMLElement | null;
+      const nav = document.getElementById('pages-nav');
+      if (!strip || !nav) return;
+      nav.classList.add('is-on');
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      nav.addEventListener('click', (e) => {
+        const b = (e.target as HTMLElement).closest('.pbtn') as HTMLElement | null;
+        if (!b) return;
+        const first = strip.querySelector('.page') as HTMLElement | null;
+        const step = first ? first.getBoundingClientRect().width + 24 : 400;
+        strip.scrollBy({ left: Number(b.dataset.dir) * step, behavior: reduce ? 'auto' : 'smooth' });
+      });
+    })();
+  </script>
 </BaseLayout>

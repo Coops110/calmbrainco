@@ -1,55 +1,103 @@
 ---
+import { Image } from 'astro:assets';
 import { getCollection, getEntry, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import { products, findPage } from '../../data/products';
+import { SITE, breadcrumbNode } from '../../lib/seo';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
-  return posts.map((post) => ({
-    params: { slug: post.slug ?? post.id },
-    props: { post },
+  const sorted = [...posts].sort((a, b) => new Date(a.data.publishDate).getTime() - new Date(b.data.publishDate).getTime());
+  return sorted.map((post, i) => ({
+    params: { slug: post.id },
+    props: { post, prev: sorted[i - 1] ?? null, next: sorted[i + 1] ?? null },
   }));
 }
 
-const { post } = Astro.props;
+const { post, prev, next } = Astro.props;
 const { data } = post;
 const { Content } = await render(post);
-const relatedProduct = data.relatedProduct ? await getEntry('products', data.relatedProduct) : null;
+const relatedProduct = data.relatedProduct ? products[data.relatedProduct] : null;
+const relatedEntry = data.relatedProduct ? await getEntry('products', data.relatedProduct) : null;
+const relatedPage = relatedProduct && data.relatedPageId ? findPage(relatedProduct, data.relatedPageId) : null;
+
+const path = `/blog/${post.id}/`;
+const canonicalURL = `${SITE}${path}`;
+
+function formatDate(iso: string) {
+  return new Date(iso + 'T00:00:00Z').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+}
+
+const jsonLd = [
+  breadcrumbNode(canonicalURL, [{ name: 'Blog', url: `${SITE}/blog/` }, { name: data.title }]),
+  {
+    '@type': 'BlogPosting',
+    '@id': `${canonicalURL}#article`,
+    headline: data.title,
+    description: data.description,
+    image: [`${SITE}/og/blog-${post.id}.png`],
+    datePublished: data.publishDate,
+    dateModified: data.modifiedDate ?? data.publishDate,
+    author: { '@type': 'Organization', '@id': `${SITE}/#organization`, name: 'Calm Brain Co', url: `${SITE}/` },
+    publisher: { '@type': 'Organization', '@id': `${SITE}/#organization`, name: 'Calm Brain Co', url: `${SITE}/` },
+    mainEntityOfPage: `${canonicalURL}`,
+    isPartOf: { '@id': `${SITE}/blog/#blog` },
+    articleSection: data.category,
+    keywords: data.tags,
+    inLanguage: 'en',
+    ...(relatedProduct ? { mentions: { '@id': `${SITE}/shop/${relatedProduct.slug}/#product` } } : {}),
+  },
+];
 ---
 <BaseLayout
   title={data.title}
   description={data.description}
-  articleTag={true}
+  path={path}
+  ogImage={`/og/blog-${post.id}.png`}
+  type="article"
   publishDate={data.publishDate}
   modifiedDate={data.modifiedDate}
   noindex={data.noindex}
-  ogImage={data.image}
+  jsonLd={jsonLd}
 >
-  <Header />
-  <section class="page-hero">
-    <div class="wrap">
-      <span class="category-pill">{data.category}</span>
-      <h1>{data.title}</h1>
-    </div>
-  </section>
-  <section class="philosophy">
-    <div class="wrap">
-      <Content />
-    </div>
-  </section>
+  <Header current="blog" />
+  <main id="main">
+    <article class="article">
+      <div class="wrap">
+        <p class="crumb"><a href="/blog/">Blog</a><span aria-hidden="true">/</span>{data.category}</p>
+        <h1>{data.title}</h1>
+        <p class="article__meta">Published {formatDate(data.publishDate)}{data.modifiedDate && data.modifiedDate !== data.publishDate && ` · Updated ${formatDate(data.modifiedDate)}`} · By {data.author}</p>
 
-  {relatedProduct && (
-    <section class="wrap">
-      <div class="cta-band">
-        <p>{relatedProduct.data.tagline}</p>
-        <div class="price">${relatedProduct.data.price.toFixed(2)}</div>
-        <div class="btn-row">
-          <a class="btn btn-primary" href={`/shop/${relatedProduct.slug ?? relatedProduct.id}`}>See the {relatedProduct.data.title}</a>
+        <div class="article__body measure" style="margin-top:28px">
+          <Content />
         </div>
-      </div>
-    </section>
-  )}
 
+        {relatedProduct && relatedEntry && (
+          <aside class="article-aside">
+            <div class="article-aside__row">
+              {relatedPage && <div class="paper" style="width:96px;flex:none"><Image src={relatedPage.img} alt={relatedPage.alt} width={160} /></div>}
+              <div>
+                <h2 style="font-size:1.0625rem;margin-bottom:4px">{relatedEntry.data.title}</h2>
+                <p class="soft small" style="margin-bottom:10px">{relatedEntry.data.tagline}.</p>
+                <a class="btn btn--secondary" href={`/shop/${relatedProduct.slug}/`}>See the planner, ${relatedProduct.price.toFixed(2)}</a>
+              </div>
+            </div>
+          </aside>
+        )}
+
+        {(prev || next) && (
+          <nav class="questions" aria-label="More reading" style="margin-top:40px">
+            <h2 style="font-size:1rem">Read next</h2>
+            <ul style="list-style:none;padding:0;margin:0;display:grid;gap:8px">
+              {prev && <li><a href={`/blog/${prev.id}/`}>&larr; {prev.data.title}</a></li>}
+              {next && <li><a href={`/blog/${next.id}/`}>{next.data.title} &rarr;</a></li>}
+            </ul>
+          </nav>
+        )}
+      </div>
+    </article>
+  </main>
   <Footer />
 </BaseLayout>

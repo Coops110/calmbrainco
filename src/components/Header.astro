@@ -1,11 +1,19 @@
 ---
+export interface Props {
+  current?: 'shop' | 'free' | 'blog' | null;
+}
+const { current = null } = Astro.props;
 ---
 <header class="site-header">
   <div class="wrap">
-    <a href="/" class="brand">Calm Brain <span>Co</span></a>
-    <nav class="main-nav">
-      <a href="/shop">Shop</a>
-      <a href="/blog">Blog</a>
+    <a href="/" class="brand" aria-label="Calm Brain Co, home">
+      <svg class="mark" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="14" fill="#5C7A70"/><circle cx="14" cy="14" r="8" fill="#FAF6EE"/><circle cx="14" cy="14" r="3.5" fill="#5C7A70"/></svg>
+      Calm Brain Co
+    </a>
+    <nav class="nav" aria-label="Site">
+      <a href="/shop/" aria-current={current === 'shop' ? 'page' : undefined}>Planners</a>
+      <a href="/free-habit-tracker/" aria-current={current === 'free' ? 'page' : undefined}>Free page</a>
+      <a href="/blog/" aria-current={current === 'blog' ? 'page' : undefined}>Blog</a>
     </nav>
   </div>
 </header>

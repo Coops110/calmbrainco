@@ -1,22 +1,27 @@
 ---
 title: "The Bill Tracker Page for Brains That Forget Due Dates"
-description: "Late fees aren't a money problem for a lot of ADHD brains, they're an out-of-sight-out-of-mind problem. Here's a simpler way to track what's due."
+description: "Late fees are rarely a money problem for ADHD brains, they are a visibility problem. Why alerts get dismissed, and how one printed bill tracker keeps dates in view."
 publishDate: "2026-09-24"
 category: "ADHD"
 tags: ["bill-tracker", "adhd", "planning"]
-relatedProduct: "adhd-planner-bundle"
+relatedProduct: "budget-planner"
+relatedPageId: "bill-tracker"
 ---
 
-A missed bill is rarely about the money. Most of the time the money was there — the bill just fell out of view, buried in an app or an inbox, and by the time it resurfaces it's already late.
+A missed bill is rarely about the money. Most of the time the money was there. The bill fell out of view, buried in an app or an inbox, and by the time it resurfaces it is already late.
 
-## The problem is visibility, not budgeting
+## Why do ADHD brains miss bills they can afford
 
-Banking apps and auto-pay reminders assume you'll see a notification and act on it in the moment. For an ADHD brain, a notification is easy to dismiss and just as easy to forget five minutes later. The bill isn't forgotten because it doesn't matter — it's forgotten because nothing kept it visible until it was actually due.
+Banking apps and autopay reminders assume you will see a notification and act on it in the moment. A notification is easy to dismiss and just as easy to forget five minutes later. The bill is not forgotten because it does not matter. It is forgotten because nothing kept it visible until it was actually due.
 
-## One page, everything due
+## Does autopay solve it
 
-A dedicated bill tracker page solves a narrower problem than a full budget: not how much you're spending, just what's due and when, all in one place you actually look at. No app to open, no notification to dismiss — just a page that sits in the planner you're already using every day. If the money side needs more than just due dates, the [ADHD-Friendly Budget Planner](/shop/budget-planner) builds out the rest of the picture with the same no-shame approach.
+Partly. Autopay helps for fixed bills with a stable amount, but it hides variable ones and subscriptions, since nothing prompts you to check whether the amount or the service still makes sense.
 
-## Where to start
+## What goes on a one-page bill tracker
 
-The bill tracker page in the ADHD Planner Bundle keeps every due date and amount on one page, no guesswork, no digging through an inbox to remember what's coming.
+The real columns are simple: bill name, amount, due date, and a paid circle. That is enough to answer "what's due and when" without the overhead of a full budget.
+
+## Where this lives in the planner
+
+Both the ADHD Planner Bundle and the ADHD-Friendly Budget Planner include a bill tracker page with exactly these columns. If the money side needs more than due dates, the [ADHD-Friendly Budget Planner](/shop/budget-planner/) builds out the rest of the picture: monthly overview, savings, debt payoff and subscriptions, $17.99 for 9 pages.

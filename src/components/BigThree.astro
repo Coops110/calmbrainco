@@ -1,0 +1,33 @@
+---
+// The hero's interactive hook (DESIGN.md: "the memorable thing is the hero").
+// Pure HTML/CSS: native text inputs + checkboxes styled as the planner's
+// ring, :has() drives the strike-through. No JavaScript, nothing saved or
+// sent anywhere, keyboard accessible by default.
+---
+<form class="big3" aria-labelledby="big3-title" onsubmit="return false">
+  <div class="big3__head">
+    <h2 class="big3__title" id="big3-title">Today's Big 3</h2>
+    <span class="big3__date">Try it here</span>
+  </div>
+  <ol class="big3__list">
+    <li class="big3__row">
+      <span class="num" aria-hidden="true">1</span>
+      <label class="sr-only" for="big3-1">First thing for today</label>
+      <input class="big3__input" id="big3-1" type="text" maxlength="48" autocomplete="off" spellcheck="false" placeholder="one thing">
+      <label class="ring"><input type="checkbox" id="done-1"><span class="ring__dot" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" fill="none" stroke="#FAF6EE" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="sr-only">Mark the first thing done</span></label>
+    </li>
+    <li class="big3__row">
+      <span class="num" aria-hidden="true">2</span>
+      <label class="sr-only" for="big3-2">Second thing for today</label>
+      <input class="big3__input" id="big3-2" type="text" maxlength="48" autocomplete="off" spellcheck="false">
+      <label class="ring"><input type="checkbox" id="done-2"><span class="ring__dot" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" fill="none" stroke="#FAF6EE" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="sr-only">Mark the second thing done</span></label>
+    </li>
+    <li class="big3__row">
+      <span class="num" aria-hidden="true">3</span>
+      <label class="sr-only" for="big3-3">Third thing for today</label>
+      <input class="big3__input" id="big3-3" type="text" maxlength="48" autocomplete="off" spellcheck="false">
+      <label class="ring"><input type="checkbox" id="done-3"><span class="ring__dot" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" fill="none" stroke="#FAF6EE" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="sr-only">Mark the third thing done</span></label>
+    </li>
+  </ol>
+  <p class="big3__note"><b>Three lines. There is no fourth on purpose.</b> This is the top of the Daily Planner page. Nothing you write here is saved or sent anywhere.</p>
+</form>

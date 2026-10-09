@@ -1,70 +1,99 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { adhdPlannerBundle, findPage } from '../data/products';
+import { SITE, breadcrumbNode } from '../lib/seo';
 
-const gumroadUrl = 'https://cooperhawk64.gumroad.com/l/abqkkx';
-const payhipUrl = 'https://payhip.com/b/su2J3';
+const gumroadUrl = adhdPlannerBundle.gumroad;
+const payhipUrl = adhdPlannerBundle.payhip;
+const cover = adhdPlannerBundle.pages[0];
+const brainDump = findPage(adhdPlannerBundle, 'brain-dump')!;
+const habitTracker = findPage(adhdPlannerBundle, 'habit-tracker')!;
+const monthly = findPage(adhdPlannerBundle, 'monthly-overview')!;
+const path = '/minimalist-printable-planner/';
+const canonicalURL = `${SITE}${path}`;
+
+const jsonLd = [
+  breadcrumbNode(canonicalURL, [{ name: 'Minimalist printable planner' }]),
+  {
+    '@type': 'WebPage',
+    '@id': `${canonicalURL}#webpage`,
+    url: canonicalURL,
+    name: 'A minimalist printable planner stripped to what matters',
+    about: { '@id': `${SITE}/shop/adhd-planner-bundle/#product` },
+    isPartOf: { '@id': `${SITE}/#website` },
+    inLanguage: 'en',
+  },
+];
 ---
 <BaseLayout
-  title="Minimalist Printable Planner for ADHD Brains"
-  description="A minimalist printable planner with no clutter and no filler pages — undated, calm layouts, a brain dump page, and a habit tracker with no streak to break. Instant PDF download."
-  canonical="/minimalist-printable-planner"
-  ogImage="/images/adhd-planner-bundle/page00-cover-preview.png"
+  title="Minimalist Printable Planner, Undated PDF"
+  description="A minimalist printable planner with no filler: 13 undated, low-ink pages for the few things worth tracking, with a brain dump and a streak-free habit tracker."
+  path={path}
+  ogImage="/og/minimalist-printable-planner.png"
+  jsonLd={jsonLd}
 >
-  <Header />
+  <Header current="shop" />
+  <main id="main">
+    <section class="phero" aria-labelledby="hero-title">
+      <div class="wrap">
+        <div class="phero__copy">
+          <h1 id="hero-title">A minimalist printable planner stripped to what matters</h1>
+          <p class="phero__promise">No decorative filler, no pages you will never use. Undated layouts for the few things that genuinely need tracking, a brain dump page, and a habit tracker with no streak to break.</p>
+          <div class="phero__buy" id="buy">
+            <div class="phero__pricerow"><span class="phero__price">$17.99</span><span class="phero__pricenote">one purchase, both paper sizes</span></div>
+            <div class="phero__actions">
+              <a class="btn btn--primary" href={gumroadUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'checkout', {value: 17.99, currency: 'USD'})">Get it on Gumroad</a>
+              <a class="btn btn--secondary" href={payhipUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'checkout', {value: 17.99, currency: 'USD'})">Buy on Payhip</a>
+            </div>
+          </div>
+        </div>
+        <div class="desk"><div class="paper paper--cover"><Image src={cover.img} alt={cover.alt} loading="eager" width={420} /></div></div>
+      </div>
+    </section>
 
-  <section class="hero">
-    <div class="wrap">
-      <div>
-        <span class="hero-badge">Minimalist · Printable · Instant Download</span>
-        <h1>A printable planner stripped down to what actually matters</h1>
-        <p class="tagline">No decorative filler, no pages you'll never use — just clean, undated layouts for the few things that genuinely need tracking. Built for a calmer mind, not a busier page.</p>
-        <div class="btn-row">
-          <a class="btn btn-primary" href={gumroadUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'checkout', {value: 17.99, currency: 'USD'})">Get it on Gumroad — $17.99</a>
-          <a class="btn btn-secondary" href={payhipUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'checkout', {value: 17.99, currency: 'USD'})">Buy on Payhip</a>
+    <section class="chunk chunk--mint" aria-labelledby="what-title">
+      <div class="wrap">
+        <div class="chunk__head">
+          <h2 id="what-title">What counts as minimalist here</h2>
+          <p class="measure">Undated pages, no decorative sections, a cream page with one tint of colour per block, and generous white space. The minimalism is also the ADHD design: fewer things on the page means fewer decisions before you start.</p>
+        </div>
+        <div class="products">
+          <article class="product">
+            <div class="paper"><Image src={brainDump.img} alt={brainDump.alt} loading="lazy" width={320} /></div>
+            <div class="product__body"><h3>Brain Dump</h3><p>{brainDump.caption}</p></div>
+          </article>
+          <article class="product">
+            <div class="paper"><Image src={habitTracker.img} alt={habitTracker.alt} loading="lazy" width={320} /></div>
+            <div class="product__body"><h3>Habit Tracker</h3><p>{habitTracker.caption}</p></div>
+          </article>
+          <article class="product">
+            <div class="paper"><Image src={monthly.img} alt={monthly.alt} loading="lazy" width={320} /></div>
+            <div class="product__body"><h3>Monthly Overview</h3><p>{monthly.caption}</p></div>
+          </article>
         </div>
       </div>
-      <div class="hero-image-card">
-        <img src="/images/adhd-planner-bundle/page00-cover-preview.png" alt="Minimalist printable planner cover page" />
+    </section>
+
+    <section class="chunk" aria-labelledby="source-title">
+      <div class="wrap">
+        <h2 id="source-title" class="sr-only">Where this page lives</h2>
+        <p class="measure">This is the full <a href="/shop/adhd-planner-bundle/">ADHD Planner Bundle</a>, thirteen pages in total, shown from the angle that matters most if minimalist is the bar: undated, no streaks, no filler. See the <a href="/shop/adhd-planner-bundle/">full page index</a> or try the <a href="/productivity-aesthetic-daily-planning/">calmer, more visual framing</a> instead.</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="gallery">
-    <div class="wrap">
-      <h2>Clean pages, nothing extra</h2>
-      <p class="lede">Every page earns its spot — no busywork, no decoration for its own sake.</p>
-      <div class="gallery-grid">
-        <figure>
-          <img src="/images/adhd-planner-bundle/page04-brain-dump-preview.png" alt="Brain dump page with columns for tasks, ideas and random thoughts" loading="lazy" />
-        </figure>
-        <figure>
-          <img src="/images/adhd-planner-bundle/page05-habit-tracker-preview.png" alt="Habit tracker page with a simple 7-day check-off grid, no streak counter" loading="lazy" />
-        </figure>
-        <figure>
-          <img src="/images/adhd-planner-bundle/page03-monthly-overview-preview.png" alt="Monthly overview grid page for tracking the shape of a month at a glance" loading="lazy" />
-        </figure>
+    <section class="chunk chunk--tint buy" aria-labelledby="buy-title">
+      <div class="wrap buy__box">
+        <h2 id="buy-title">ADHD Planner Bundle</h2>
+        <div class="phero__pricerow"><span class="phero__price">$17.99</span><span class="phero__pricenote">13 pages, undated, US Letter and A4</span></div>
+        <div class="phero__actions">
+          <a class="btn btn--primary" href={gumroadUrl} rel="nofollow">Get it on Gumroad</a>
+          <a class="btn btn--secondary" href={payhipUrl} rel="nofollow">Buy on Payhip</a>
+        </div>
       </div>
-    </div>
-  </section>
-
-  <section class="philosophy">
-    <div class="wrap">
-      <p>This is the same <a href="/shop/adhd-planner-bundle">full ADHD Planner Bundle</a> — thirteen pages in total, including the <a href="/blog/priority-matrix-choosing-three-things">priority matrix</a> and a <a href="/blog/self-care-checkin-no-score-to-chase">self-care check-in</a> page. If minimalist is the bar, this clears it: undated, no streaks, no filler.</p>
-    </div>
-  </section>
-
-  <section class="wrap">
-    <div class="cta-band">
-      <div class="price">$17.99</div>
-      <p>Instant PDF download — US Letter and A4 included.</p>
-      <div class="btn-row">
-        <a class="btn btn-primary" href={gumroadUrl} rel="nofollow">Get it on Gumroad</a>
-        <a class="btn btn-secondary" href={payhipUrl} rel="nofollow">Buy on Payhip</a>
-      </div>
-    </div>
-  </section>
-
+    </section>
+  </main>
   <Footer />
 </BaseLayout>

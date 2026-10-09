@@ -1,22 +1,35 @@
 ---
 title: "The Self-Care Check-In With No Score to Chase"
-description: "Most self-care trackers turn wellbeing into another metric to optimize. Here's why a simple four-question check-in works better for ADHD brains."
+description: "Most self-care trackers turn rest into another metric. A four-question weekly check-in for ADHD brains that takes thirty seconds and has no score to chase."
 publishDate: "2026-09-24"
 category: "ADHD"
 tags: ["self-care", "adhd", "wellbeing"]
 relatedProduct: "adhd-planner-bundle"
+relatedPageId: "self-care-checkin"
 ---
 
-A lot of self-care trackers quietly turn wellbeing into another thing to perform well at — a wellness score, a streak, a percentage to keep climbing. For an ADHD brain already managing enough scorekeeping, that's not rest. It's another task wearing a calmer font.
+Many self-care trackers quietly turn wellbeing into another thing to perform well at: a wellness score, a streak, a percentage to keep climbing. For a brain already managing enough scorekeeping, that is not rest. It is another task wearing a calmer font.
 
-## Wellbeing isn't a metric
+## What is a self-care check-in
 
-The moment self-care becomes something you can fail at, it stops doing its actual job. A low "score" on a wellness tracker doesn't make someone rest more — it usually just adds guilt to whatever was already making the week hard. Tracking wellbeing like a KPI misses the point of why the check-in existed in the first place.
+A self-care check-in is a short, honest read on how the week actually went: sleep, movement, water, mood. Nothing here diagnoses anything; it is a check-in, not an assessment.
 
-## Four honest questions, no total
+## Why does scoring self-care backfire
 
-A self-care check-in that actually helps skips the scoring entirely. A handful of plain questions — how did today actually go, what got missed, what's one thing to adjust — with no total at the bottom to feel good or bad about. The point isn't a number. It's a quick, honest read on the week that takes thirty seconds, not a new thing to optimize.
+The moment self-care becomes something you can fail at, it stops doing its job. A low score on a wellness tracker does not make someone rest more. It usually adds guilt to whatever already made the week hard.
 
-## Where to start
+## What are the four questions
 
-The self-care check-in page in the ADHD Planner Bundle uses exactly that format — four honest questions, no perfect score to chase, no total to feel bad about.
+The page asks four plain things: hours of sleep, whether you moved today, how many glasses of water, and a quick mood check, plus a line for one good thing that happened today. No total, no average, no grade.
+
+## How often should you check in
+
+Weekly, or whenever you think of it. There is no required cadence.
+
+## What do you do with a bad week
+
+Adjust one thing, or adjust nothing and just notice. There is no guilt framing built into the page and none intended here either.
+
+## Where this lives in the planner
+
+The self-care check-in is page 11 of 13 in the ADHD Planner Bundle. Get the [ADHD Planner Bundle](/shop/adhd-planner-bundle/) for $17.99.

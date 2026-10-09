@@ -1,0 +1,14 @@
+---
+export interface Props {
+  faq: Array<{ q: string; a: string }>;
+}
+const { faq } = Astro.props;
+---
+<div>
+  {faq.map((item) => (
+    <details class="q">
+      <summary>{item.q}</summary>
+      <p>{item.a}</p>
+    </details>
+  ))}
+</div>

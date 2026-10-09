@@ -1,24 +1,35 @@
 ---
 title: "The Priority Matrix Page: How to Actually Pick 3 Things"
-description: "A to-do list with twenty items isn't a plan, it's a guilt generator. Here's how a simple four-box priority matrix forces a real choice instead."
+description: "A to-do list with twenty items is not a plan. How a four-box priority matrix forces a real choice, and why the Calm Brain Co pages cap the day at three."
 publishDate: "2026-09-24"
 category: "ADHD"
 tags: ["priorities", "adhd", "planning"]
 relatedProduct: "adhd-planner-bundle"
+relatedPageId: "priority-matrix"
 ---
 
-A to-do list doesn't ask you to choose anything. It just grows — one more thing added at the top, nothing ever really removed, until the list itself becomes the thing you're avoiding.
+A to-do list does not ask you to choose anything. It just grows, one more thing added at the top, nothing ever really removed, until the list itself becomes the thing you are avoiding.
 
-## The list isn't the plan, it's the noise
+## Why a long to-do list makes ADHD planning worse
 
-For an ADHD brain, a long list is actively worse than no list at all. Every item on it carries the same visual weight, so the list gives no real guidance on what matters today versus what's just sitting there from three weeks ago. By evening, what's left isn't a plan, it's a scoreboard of everything you didn't get to.
+Every item on a long list carries the same visual weight, so the list gives no real guidance on what matters today versus what has been sitting there for three weeks. By evening, what is left is not a plan, it is a record of everything you did not get to.
 
-## Four boxes, not twenty lines
+## What is a priority matrix
 
-A priority matrix works differently. Instead of one long column, it splits today into four small boxes — sorted by what's actually urgent and what actually matters, not just what's loudest in your head right now. The physical limit of four small boxes does something a list never does: it forces a real choice about what gets a spot and what waits.
+A priority matrix splits today into a small number of boxes, sorted by what is actually urgent and what actually matters, instead of one long column. It is a simplified relative of the well-known Eisenhower matrix, which sorts tasks by urgency and importance into four quadrants.
 
-That constraint is the whole point. A list has infinite room, so nothing ever has to compete for space. A four-box matrix doesn't have room for everything — which means only the things that actually matter make it onto the page.
+## How this matrix is different
 
-## Where to start
+The Calm Brain Co priority matrix uses four plain piles: do first, plan for, quick wins, and let go. The "let go" pile is allowed to be large on purpose; the point of the page is permission to not do everything, not a complete inventory of everything you could do.
 
-The priority matrix page in the ADHD Planner Bundle uses exactly this four-box format — plan for it, or let it go, nothing left hovering in an endless list.
+## How to use it in under five minutes
+
+Write down everything on your mind without sorting it. Then, one at a time, drop each item into a box: is it urgent and does it matter (do first), does it matter but it can wait (plan for), is it quick and easy regardless of importance (quick wins), or does it belong in let go. Whatever ends up in "do first" becomes today's three priorities.
+
+## Why three priorities and not five
+
+Three is small enough to hold in mind without writing it down again, and small enough that finishing all three is a realistic outcome for a normal day. Five already starts to feel like the old list.
+
+## Where this lives in the planner
+
+The priority matrix is page 7 of 13 in the ADHD Planner Bundle, and the weekly and daily pages each carry their own three-line priority row. Get the [ADHD Planner Bundle](/shop/adhd-planner-bundle/) for $17.99.

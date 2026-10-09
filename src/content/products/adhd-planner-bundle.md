@@ -1,79 +1,29 @@
 ---
 title: "ADHD Planner Bundle"
 tagline: "A printable planner system built for how ADHD brains actually work"
-description: "Printable weekly, daily and habit tracker planner system for ADHD brains — undated, realistic time chunks instead of hourly time-blocking, a hard 3-priority cap, and a brain dump page. Instant PDF download, US Letter and A4 included."
-price: 17.99
-category: "adhd"
-heroImage: "/images/adhd-planner-bundle/page00-cover-preview.png"
-gallery:
-  - src: "/images/adhd-planner-bundle/weekly-planner-page1-preview.png"
-    alt: "Weekly planner page with a top-3 priorities row and morning, afternoon, evening blocks for each day"
-  - src: "/images/adhd-planner-bundle/page02-daily-planner-preview.png"
-    alt: "Daily planner page split into morning, afternoon and evening instead of hourly slots"
-  - src: "/images/adhd-planner-bundle/page04-brain-dump-preview.png"
-    alt: "Brain dump page with columns for tasks, ideas and random thoughts"
-  - src: "/images/adhd-planner-bundle/page05-habit-tracker-preview.png"
-    alt: "Habit tracker page with a simple 7-day check-off grid, no streak counter"
-  - src: "/images/adhd-planner-bundle/page06-priority-matrix-preview.png"
-    alt: "Priority matrix page sorting tasks into plan-for-it or let-it-go"
-  - src: "/images/adhd-planner-bundle/page10-selfcare-checkin-preview.png"
-    alt: "Self-care check-in page for sleep, movement, water and mood"
-  - src: "/images/adhd-planner-bundle/page09-goal-breakdown-preview.png"
-    alt: "Goal breakdown page moving from the big goal down to today's one small step"
-  - src: "/images/adhd-planner-bundle/page03-monthly-overview-preview.png"
-    alt: "Monthly overview grid page for tracking the shape of a month at a glance"
-  - src: "/images/adhd-planner-bundle/page07-reminder-tracker-preview.png"
-    alt: "Reminder tracker page for medication, appointments and easy-to-forget tasks"
-  - src: "/images/adhd-planner-bundle/page08-meal-planner-preview.png"
-    alt: "Meal planner page for the week's meals"
-  - src: "/images/adhd-planner-bundle/page11-chore-checklist-preview.png"
-    alt: "Chore checklist page"
-  - src: "/images/adhd-planner-bundle/page12-bill-tracker-preview.png"
-    alt: "Bill tracker page with due dates"
-features:
-  - "13 real printable pages: weekly, daily, monthly overview, brain dump, habit tracker, priority matrix, self-care check-in, goal breakdown, reminder tracker, meal planner, chore checklist, bill tracker, and cover"
-  - "Undated — start on any day, no wasted pages from a missed January 1st"
-  - "US Letter and A4 both included in one purchase"
-  - "Instant PDF download, print at home or a copy shop"
-checkout:
-  gumroad: "https://cooperhawk64.gumroad.com/l/abqkkx"
-  payhip: "https://payhip.com/b/su2J3"
+description: "13 undated printable pages: weekly and daily planners in morning, afternoon and evening blocks, a three-priority cap, a brain dump page and a no-streak habit tracker. $17.99, US Letter and A4."
 faq:
   - q: "Is this a physical planner or a printable?"
-    a: "It's a printable PDF you download instantly and print yourself, at home or at a copy shop. There's no physical product shipped."
+    a: "A printable PDF. You download it the moment you buy and print it yourself, at home or at a copy shop. Nothing is shipped."
   - q: "US Letter or A4?"
-    a: "Both are included in the one purchase — no need to guess which size to buy."
+    a: "Both sizes are in the one purchase, so there is nothing to choose."
   - q: "Is it dated, like a 2026 planner?"
-    a: "No — every page is undated on purpose, so you can start on any day instead of losing pages to a missed start date."
+    a: "No. Every page is undated on purpose, so you can start on any day and a late start wastes nothing."
   - q: "Why isn't the habit tracker a streak counter?"
-    a: "Streak counters punish a missed day by resetting to zero, which is exactly the kind of all-or-nothing thinking this planner is built to avoid. It's a simple day-by-day check-off instead."
+    a: "A streak counter turns one missed day into a reset to zero, which is the all-or-nothing pattern this planner is built to avoid. It is a plain day-by-day check-off instead."
+  - q: "How many times can I print it?"
+    a: "As many times as you like, for your own use. Print the weekly page every week, or print the whole set once and keep it in a folder."
+  - q: "Can I use it on a tablet instead of printing?"
+    a: "It is a standard PDF, so it opens in any PDF app that supports writing on the page. It was designed for paper first."
+  - q: "Where does the purchase happen?"
+    a: "On Gumroad or Payhip. Either one emails you a download link straight after payment. There is no account to create on this site."
 publishDate: "2026-09-18"
 ---
 
-## Built for how ADHD brains actually work, not against them
+Most planners assume a brain that runs on schedule: hourly time blocking, perfect streaks, one rigid format for every day. This one does not. The ADHD Planner Bundle is a full printable system built around realistic time chunks, a hard cap on daily priorities, and a dedicated place for the thoughts that will not stay quiet.
 
-Most planners assume a brain that runs on schedule: hourly time-blocking, perfect streaks, one rigid format for every day. This one doesn't. The ADHD Planner Bundle is a full printable system built around realistic time chunks, a hard cap on daily priorities, and a dedicated place for the thoughts that won't stay quiet — not another productivity system that gets abandoned by February.
+Monthly overview, self-care check-in, goal breakdown, reminder tracker, meal planner, chore checklist, and bill tracker round out the thirteen pages: the ordinary parts of a week, written down in one place instead of juggled across five apps.
 
-### Morning, afternoon, evening — not 24 hourly slots
+Prefer a different way into the same thirteen pages? See them framed as a [minimalist printable planner](/minimalist-printable-planner/) or as [productivity aesthetic daily planning](/productivity-aesthetic-daily-planning/).
 
-Hourly time-blocking assumes a brain that runs on schedule. The daily and weekly pages split each day into three realistic chunks instead, so a missed hour doesn't unravel the whole day.
-
-### A hard cap of 3 priorities
-
-Every week and every day starts by naming just three things that actually matter — not an endless to-do list that never gets finished. The priority matrix page forces that choice further, sorting tasks into "plan for it" or "let it go, guilt-free."
-
-### A brain dump page for the 11pm thoughts
-
-Racing thoughts at bedtime usually mean something's unwritten. The brain dump page gives tasks, ideas and random thoughts somewhere to go instead of looping all night.
-
-### A habit tracker with no streak to break
-
-Most habit trackers punish a missed day by resetting a streak counter to zero. This one is a simple day-by-day check-off — miss a day, and tomorrow is still a clean slate, not a failure.
-
-### Everything else a real week needs
-
-Monthly overview, self-care check-in, goal breakdown, reminder tracker, meal planner, chore checklist, and bill tracker round out the system — the boring parts of a week, written down in one place instead of juggled across five apps.
-
-Prefer a different way into the same system? See it framed as a [minimalist printable planner](/minimalist-printable-planner) or as [productivity aesthetic daily planning](/productivity-aesthetic-daily-planning) — same thirteen pages, different starting angle.
-
-Managing money is its own kind of overwhelm. The [ADHD-Friendly Budget Planner](/shop/budget-planner) applies the same undated, no-streak-shame approach to income, bills, and savings.
+Money is its own kind of overwhelm. The [ADHD-Friendly Budget Planner](/shop/budget-planner/) applies the same undated, no-streak approach to income, bills and savings.

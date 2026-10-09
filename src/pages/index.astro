@@ -1,47 +1,182 @@
 ---
+import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import ProductCard from '../components/ProductCard.astro';
+import BigThree from '../components/BigThree.astro';
+import Reasons from '../components/Reasons.astro';
+import FaqList from '../components/FaqList.astro';
+import { adhdPlannerBundle, budgetPlanner, findPage } from '../data/products';
+import { SITE } from '../lib/seo';
 
-const allProducts = await getCollection('products', ({ data }) => !data.draft);
-const featured = allProducts[0];
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime())
+  .slice(0, 3);
+
+const weekly = findPage(adhdPlannerBundle, 'weekly-planner')!;
+const daily = findPage(adhdPlannerBundle, 'daily-planner')!;
+const brainDump = findPage(adhdPlannerBundle, 'brain-dump')!;
+const habitTracker = findPage(adhdPlannerBundle, 'habit-tracker')!;
+
+const faq = [
+  { q: 'Is this a physical planner or a printable?', a: 'A printable PDF. You download it the moment you buy and print it yourself, at home or at a copy shop. Nothing is shipped.' },
+  { q: 'US Letter or A4?', a: 'Both sizes are in the one purchase, so there is nothing to choose.' },
+  { q: 'Is it dated?', a: 'No. Every page is undated on purpose, so you can start on any day and a late start wastes nothing.' },
+  { q: 'Why is there no streak counter on the habit tracker?', a: 'A streak counter turns one missed day into a reset to zero. The habit tracker is a plain day-by-day check-off instead: a missed day is just a missed day, and tomorrow’s circle is still there.' },
+];
+
+const jsonLd = [
+  {
+    '@type': 'WebPage',
+    '@id': `${SITE}/#webpage`,
+    url: `${SITE}/`,
+    name: 'Calm Brain Co: Printable ADHD Planners for Real Days',
+    description: 'Printable planners for ADHD brains: three time blocks a day instead of hourly slots, a cap of three priorities, a brain dump page and a no-streak habit tracker.',
+    isPartOf: { '@id': `${SITE}/#website` },
+    inLanguage: 'en',
+  },
+  {
+    '@type': 'ItemList',
+    '@id': `${SITE}/#products`,
+    name: 'Printable planners by Calm Brain Co',
+    numberOfItems: 2,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'ADHD Planner Bundle', url: `${SITE}/shop/adhd-planner-bundle/` },
+      { '@type': 'ListItem', position: 2, name: 'ADHD-Friendly Budget Planner', url: `${SITE}/shop/budget-planner/` },
+    ],
+  },
+];
 ---
 <BaseLayout
-  title="Calm Brain Co — Printable Tools for ADHD Brains"
-  description="Printable planners and digital tools built for how ADHD brains actually work — realistic time chunks, streak-free habit tracking, and a brain dump page for the thoughts that won't stay quiet."
+  title="Calm Brain Co: Printable ADHD Planners for Real Days"
+  description="Printable planners for ADHD brains: three time blocks a day instead of hourly slots, a cap of three priorities, a brain dump page and a no-streak habit tracker."
+  path="/"
+  ogImage="/og/home.png"
+  jsonLd={jsonLd}
 >
   <Header />
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap">
+        <div class="hero__copy">
+          <p class="weekof" aria-label="Week of: any week you like"><span>Week of</span><span class="line" aria-hidden="true"><span>any week you like</span></span></p>
+          <h1 id="hero-title">Plan the day you actually have.</h1>
+          <p class="hero__lead">Printable planners for ADHD brains. <b>Morning, afternoon and evening</b> instead of hourly slots. <b>Three priorities</b>, not a list of twenty. <b>A habit tracker with no streak to break.</b> Undated, so you can print it today and start today.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="/shop/adhd-planner-bundle/">See the planner <span class="price">$17.99</span></a>
+            <a class="text-link" href="/free-habit-tracker/">Or try one page free</a>
+          </div>
+        </div>
+        <BigThree />
+      </div>
+    </section>
 
-  <section class="hero">
-    <div class="wrap">
-      <div>
-        <span class="hero-badge">Printable · Instant Download</span>
-        <h1>Tools built for how your brain actually works, not against it</h1>
-        <p class="tagline">No rigid hourly time-blocking. No guilt-trip streaks. Just realistic printable systems designed around ADHD (and other not-so-typical) brains.</p>
-        <div class="btn-row">
-          <a class="btn btn-primary" href="/shop">Shop the Bundle</a>
-          <a class="btn btn-secondary" href="/blog">Read the Blog</a>
+    <section class="chunk chunk--morning" aria-labelledby="morning-title">
+      <div class="wrap">
+        <div class="chunk__head">
+          <span class="chunk__label">Morning</span>
+          <h2 id="morning-title">Pick a planner</h2>
+          <p>Two printable systems, built the same way. Each is a PDF you download the moment you buy, with US Letter and A4 in the same file.</p>
+        </div>
+        <div class="products">
+          <article class="product">
+            <div class="paper paper--cover"><Image src={adhdPlannerBundle.pages[0].img} alt={adhdPlannerBundle.pages[0].alt} loading="eager" width={420} /></div>
+            <div class="product__body">
+              <h3><a href="/shop/adhd-planner-bundle/" style="color:inherit;text-decoration:none">ADHD Planner Bundle</a></h3>
+              <p>A weekly and daily system that splits the day into three chunks, caps you at three priorities, and gives racing thoughts a page of their own.</p>
+              <p class="product__facts">13 pages. Undated. Instant PDF.</p>
+              <p class="product__price">$17.99</p>
+              <a class="btn btn--secondary" href="/shop/adhd-planner-bundle/">See all 13 pages</a>
+            </div>
+          </article>
+          <article class="product">
+            <div class="paper paper--cover"><Image src={budgetPlanner.pages[0].img} alt={budgetPlanner.pages[0].alt} loading="lazy" width={420} /></div>
+            <div class="product__body">
+              <h3><a href="/shop/budget-planner/" style="color:inherit;text-decoration:none">ADHD-Friendly Budget Planner</a></h3>
+              <p>Money on paper for brains that forget subscriptions exist and close the spreadsheet. Three honest buckets, a bill tracker, and a savings page with no deadline.</p>
+              <p class="product__facts">9 pages. Undated. Instant PDF.</p>
+              <p class="product__price">$17.99</p>
+              <a class="btn btn--secondary" href="/shop/budget-planner/">See all 9 pages</a>
+            </div>
+          </article>
+        </div>
+        <p class="chunk__foot">Checkout happens on Gumroad or Payhip. No account on this site, no shipping, no waiting: the PDF is yours within a minute of paying.</p>
+      </div>
+    </section>
+
+    <section class="chunk chunk--afternoon" aria-labelledby="afternoon-title">
+      <div class="wrap">
+        <div class="chunk__head">
+          <span class="chunk__label">Afternoon</span>
+          <h2 id="afternoon-title">Built to survive a bad Tuesday</h2>
+          <p>Most planners assume a brain that runs on schedule. These pages assume a real week: a slow start, a task that runs long, a day that gets skipped. Nothing about them falls apart when that happens.</p>
+        </div>
+        <Reasons />
+
+        <div class="inside">
+          <div class="inside__head">
+            <h3>A look at the real pages</h3>
+            <span class="soft small">Four of the thirteen in the ADHD Planner Bundle</span>
+          </div>
+          <div class="strip" role="list">
+            <figure class="sheet" role="listitem">
+              <div class="paper"><Image src={weekly.img} alt={weekly.alt} loading="lazy" width={320} /></div>
+              <figcaption><b>Weekly Planner</b> <span class="soft">Top 3, seven days in three chunks, a brain dump strip.</span></figcaption>
+            </figure>
+            <figure class="sheet" role="listitem">
+              <div class="paper"><Image src={daily.img} alt={daily.alt} loading="lazy" width={320} /></div>
+              <figcaption><b>Daily Planner</b> <span class="soft">Big 3, a two-line check-in, three chunks, notes.</span></figcaption>
+            </figure>
+            <figure class="sheet" role="listitem">
+              <div class="paper"><Image src={brainDump.img} alt={brainDump.alt} loading="lazy" width={320} /></div>
+              <figcaption><b>Brain Dump</b> <span class="soft">Tasks, ideas, worries, random. Sort it later.</span></figcaption>
+            </figure>
+            <figure class="sheet" role="listitem">
+              <div class="paper"><Image src={habitTracker.img} alt={habitTracker.alt} loading="lazy" width={320} /></div>
+              <figcaption><b>Habit Tracker</b> <span class="soft">Seven circles a row. No streak column.</span></figcaption>
+            </figure>
+          </div>
+          <a class="btn btn--primary" href="/shop/adhd-planner-bundle/">See all 13 pages <span class="price">$17.99</span></a>
         </div>
       </div>
-      {featured && (
-        <div class="hero-image-card">
-          <img src={featured.data.heroImage} alt={featured.data.title} />
-        </div>
-      )}
-    </div>
-  </section>
+    </section>
 
-  <section class="gallery">
-    <div class="wrap">
-      <h2>What we make</h2>
-      <p class="lede">Currently: a full printable planner system for ADHD brains. More tools for other not-so-typical brains are on the way.</p>
-      <div class="card-grid">
-        {allProducts.map((product) => <ProductCard product={product} />)}
+    <section class="chunk chunk--evening" aria-labelledby="evening-title">
+      <div class="wrap evening">
+        <div>
+          <div class="chunk__head">
+            <span class="chunk__label">Evening</span>
+            <h2 id="evening-title">Try one page before you decide</h2>
+          </div>
+          <div class="free">
+            <div class="paper paper--short"><Image src={habitTracker.img} alt="The free Habit Tracker page, the same page that is in the full bundle" loading="lazy" width={420} /></div>
+            <div class="free__body">
+              <h3>One page from the bundle, free</h3>
+              <p>It is the exact page from the bundle: seven circles a row, no streak counter, US Letter and A4. Print it, use it for a week, and you will know whether the rest of the system is for you.</p>
+              <p class="soft small">Pay what you want on Gumroad. $0 is fine.</p>
+              <a class="btn btn--primary" href="https://cooperhawk64.gumroad.com/l/jmrfmo" rel="nofollow" onclick="window.pintrk && pintrk('track', 'lead')">Get it free on Gumroad</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="reading">
+          <h3>Reading, if you want the thinking behind the pages</h3>
+          <ul>
+            {posts.map((post) => (
+              <li><a href={`/blog/${post.id}/`}><span class="o" aria-hidden="true"></span>{post.data.title}</a></li>
+            ))}
+          </ul>
+          <p class="more"><a href="/blog/">All eight posts</a></p>
+        </div>
+
+        <div class="questions">
+          <h3>Questions</h3>
+          <FaqList faq={faq} />
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <Footer />
 </BaseLayout>

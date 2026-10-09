@@ -1,22 +1,35 @@
 ---
 title: "A Brain Dump Page That's Not Just a Blank Box"
-description: "A blank page doesn't help an ADHD brain unload. Here's why structure matters even when the whole point is dumping unfiltered thoughts."
+description: "A blank page sounds freeing and often is not. Why an ADHD brain dump works better with a little structure, and how to do one in five minutes before bed."
 publishDate: "2026-09-24"
 category: "ADHD"
 tags: ["brain-dump", "adhd", "planning"]
 relatedProduct: "adhd-planner-bundle"
+relatedPageId: "brain-dump"
 ---
 
-"Just write it all down" is common advice for a scattered mind, and it's only half right. A totally blank page sounds freeing, but for a lot of ADHD brains it's actually intimidating — no shape, no starting point, easy to stare at and never fill in.
+"Just write it all down" is common advice for a scattered mind, and it is only half right. A totally blank page sounds freeing, but for many ADHD brains it is intimidating: no shape, no starting point, easy to stare at and never fill in.
 
-## Why a blank page doesn't work
+## What is a brain dump
 
-The whole idea of a brain dump is to get thoughts out of your head before they turn into forgotten tasks or background anxiety. But a blank sheet asks you to also decide, in real time, how to organize what you're dumping — which defeats the purpose. Now you're not just unloading, you're also managing format, and that's exactly the kind of decision fatigue a brain dump is supposed to avoid.
+A brain dump is getting thoughts out of your head and onto paper before they turn into forgotten tasks or background noise. The point is speed and relief, not organisation.
 
-## Loose structure beats no structure
+## Why does a blank page not work
 
-A better brain dump page gives just enough shape to lower the barrier to starting — a few loose zones, not a rigid outline — without turning it into another task list you have to maintain. The goal isn't neatness. It's getting the thought out of your head and onto paper fast enough that it stops taking up space.
+A blank sheet asks you to also decide, in real time, how to organise what you are writing. That turns a simple unload into a second task, managing format, which is exactly the kind of decision a brain dump is supposed to avoid.
 
-## Where to start
+## What structure helps without becoming another list
 
-The brain dump page in the ADHD Planner Bundle is built with exactly that light structure — somewhere every scattered thought can land before it turns into a forgotten task.
+A page with a few loose zones, tasks, ideas, worries, random, lowers the barrier to starting without turning into a rigid outline you have to maintain. The goal is not neatness. It is getting the thought out of your head fast enough that it stops taking up space.
+
+## How to do a brain dump before bed
+
+Set a short timer, five minutes is enough. Write whatever is loudest first, in whichever zone fits, without editing. When the timer ends, stop. Many people find that writing the thought down, even without acting on it yet, is enough to loosen its grip for the night.
+
+## What to do with the page afterwards
+
+Move at most three items into tomorrow's priorities. Leave the rest on the page. It already did its job by getting out of your head.
+
+## Where this lives in the planner
+
+The brain dump page in the ADHD Planner Bundle has four ruled blocks: tasks, ideas, worries, random. Get the [ADHD Planner Bundle](/shop/adhd-planner-bundle/) for $17.99, 13 pages, instant PDF.

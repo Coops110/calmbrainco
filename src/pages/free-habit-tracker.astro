@@ -1,48 +1,113 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import FaqList from '../components/FaqList.astro';
+import { adhdPlannerBundle, findPage } from '../data/products';
+import { SITE, breadcrumbNode } from '../lib/seo';
 
 const gumroadUrl = 'https://cooperhawk64.gumroad.com/l/jmrfmo';
+const habitTracker = findPage(adhdPlannerBundle, 'habit-tracker')!;
+const path = '/free-habit-tracker/';
+const canonicalURL = `${SITE}${path}`;
+
+const faq = [
+  { q: 'Is it really free?', a: 'Yes. It is pay what you want on Gumroad, and $0 is a fine amount to pay.' },
+  { q: 'US Letter or A4?', a: 'Both sizes are in the download.' },
+];
+
+const jsonLd = [
+  breadcrumbNode(canonicalURL, [{ name: 'Free habit tracker' }]),
+  {
+    '@type': 'Product',
+    '@id': `${canonicalURL}#product`,
+    name: 'Free ADHD Habit Tracker Printable',
+    description: 'A free printable habit tracker page for ADHD brains: a seven-day check-off grid with no streak counter. US Letter and A4, instant PDF.',
+    image: [`${SITE}/og/free-habit-tracker.png`],
+    brand: { '@type': 'Brand', name: 'Calm Brain Co' },
+    url: canonicalURL,
+    offers: {
+      '@type': 'Offer',
+      price: 0,
+      priceCurrency: 'USD',
+      url: gumroadUrl,
+      availability: 'https://schema.org/InStock',
+      seller: { '@type': 'OnlineStore', '@id': `${SITE}/#organization` },
+    },
+    isRelatedTo: { '@id': `${SITE}/shop/adhd-planner-bundle/#product` },
+  },
+];
 ---
 <BaseLayout
-  title="Free ADHD Habit Tracker Printable"
-  description="A free printable habit tracker page built for ADHD brains — a simple 7-day check-off grid, no streak counter, no guilt if a day gets missed. Instant PDF download."
-  canonical="/free-habit-tracker"
+  title="Free Printable ADHD Habit Tracker, No Streak"
+  description="A free printable habit tracker for ADHD brains: a 7-day check-off grid with no streak counter, so a missed day is just a missed day. US Letter and A4. $0 is fine."
+  path={path}
+  ogImage="/og/free-habit-tracker.png"
+  type="product"
+  price={0}
+  jsonLd={jsonLd}
 >
-  <Header />
-
-  <section class="hero">
-    <div class="wrap">
-      <div>
-        <span class="hero-badge">Free · Printable · Instant Download</span>
-        <h1>A habit tracker that doesn't punish you for missing a day</h1>
-        <p class="tagline">No streak counter to break. No guilt-based framing. Just a simple 7-day check-off grid built the same way as our full planner system — try it free before you decide if the full bundle is for you.</p>
-        <div class="btn-row">
-          <a class="btn btn-primary" href={gumroadUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'lead')">Get it free on Gumroad</a>
+  <Header current="free" />
+  <main id="main">
+    <section class="phero" aria-labelledby="free-title">
+      <div class="wrap">
+        <div class="phero__copy">
+          <p class="crumb"><a href="/shop/">Planners</a><span aria-hidden="true">/</span>Free habit tracker</p>
+          <h1 id="free-title">A free habit tracker that does not punish a missed day</h1>
+          <p class="phero__promise">No streak counter. A simple seven-day check-off grid, the exact page that is also inside the full bundle. Print it, use it for a week, decide from there.</p>
+          <div class="phero__buy" id="buy">
+            <div class="phero__pricerow"><span class="phero__price">Free</span><span class="phero__pricenote">pay what you want, $0 is fine</span></div>
+            <div class="phero__actions">
+              <a class="btn btn--primary" href={gumroadUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'lead')">Get it free on Gumroad</a>
+            </div>
+            <p class="phero__after">Opens Gumroad. The PDF is yours straight after.</p>
+          </div>
+          <dl class="facts">
+            <div><dt>Pages</dt><dd>1</dd></div>
+            <div><dt>Dates</dt><dd>Undated</dd></div>
+            <div><dt>Sizes</dt><dd>US Letter and A4</dd></div>
+            <div><dt>Format</dt><dd>Instant PDF</dd></div>
+          </dl>
+        </div>
+        <div class="desk">
+          <div class="paper paper--short"><Image src={habitTracker.img} alt={habitTracker.alt} loading="eager" width={480} /></div>
         </div>
       </div>
-      <div class="hero-image-card">
-        <img src="/images/adhd-planner-bundle/page05-habit-tracker-preview.png" alt="Habit tracker page with a simple 7-day check-off grid, no streak counter" />
+    </section>
+
+    <section class="chunk chunk--mint" aria-labelledby="why-title">
+      <div class="wrap">
+        <div class="chunk__head">
+          <h2 id="why-title">Why is there no streak counter?</h2>
+          <p>A streak counter turns one missed day into a reset to zero, which is the all-or-nothing pattern this page is built to avoid. Each day stands on its own: eight habit rows, seven circles a row, Monday to Sunday. Miss Wednesday and Thursday's circle is still exactly the same size.</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="wrap">
-    <div class="cta-band">
-      <div class="price">Free</div>
-      <p>Instant PDF download — US Letter and A4 included. Pay-what-you-want, $0 is fine.</p>
-      <div class="btn-row">
-        <a class="btn btn-primary" href={gumroadUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'lead')">Get it free on Gumroad</a>
+    <section class="chunk chunk--tint buy" aria-labelledby="buy-title">
+      <div class="wrap buy__box">
+        <h2 id="buy-title">Free ADHD Habit Tracker</h2>
+        <div class="phero__pricerow"><span class="phero__price">Free</span><span class="phero__pricenote">pay what you want on Gumroad, $0 is fine</span></div>
+        <div class="phero__actions">
+          <a class="btn btn--primary" href={gumroadUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'lead')">Get it free on Gumroad</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="philosophy">
-    <div class="wrap">
-      <p>This is one page pulled from our full <a href="/shop/adhd-planner-bundle">ADHD Planner Bundle</a> — if it's useful, the full system has a weekly planner, daily planner, brain dump page, priority matrix, and more, all built the same way.</p>
-    </div>
-  </section>
+    <section class="chunk" aria-labelledby="source-title">
+      <div class="wrap">
+        <h2 id="source-title" class="sr-only">Where this page comes from</h2>
+        <p class="measure">This is one page pulled from the full <a href="/shop/adhd-planner-bundle/">ADHD Planner Bundle</a>, $17.99 for all 13 pages: weekly and daily planners, a brain dump page, a priority matrix, and more, all built the same way.</p>
+      </div>
+    </section>
 
+    <section class="chunk" aria-labelledby="faq-title">
+      <div class="wrap"><div class="questions">
+        <h2 id="faq-title">Questions</h2>
+        <FaqList faq={faq} />
+      </div></div>
+    </section>
+  </main>
   <Footer />
 </BaseLayout>

@@ -1,27 +1,142 @@
 ---
-import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import { getEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import ProductCard from '../../components/ProductCard.astro';
+import FaqList from '../../components/FaqList.astro';
+import { adhdPlannerBundle, budgetPlanner } from '../../data/products';
+import { SITE, breadcrumbNode } from '../../lib/seo';
 
-const allProducts = await getCollection('products', ({ data }) => !data.draft);
+const bundleEntry = await getEntry('products', 'adhd-planner-bundle');
+const budgetEntry = await getEntry('products', 'budget-planner');
+const path = '/shop/';
+const canonicalURL = `${SITE}${path}`;
+
+const faq = [
+  ...(bundleEntry?.data.faq.slice(0, 2) ?? []),
+  { q: 'Which planner should I start with?', a: 'The ADHD Planner Bundle covers the day to day: weekly and daily pages, habits, priorities, and a brain dump. The Budget Planner is money only. Most people start with the bundle and add the budget planner if money tracking is the bigger pain point.' },
+];
+
+const jsonLd = [
+  breadcrumbNode(canonicalURL, [{ name: 'Planners' }]),
+  {
+    '@type': 'CollectionPage',
+    '@id': `${canonicalURL}#webpage`,
+    url: canonicalURL,
+    name: 'Shop: Printable ADHD Planners (PDF)',
+    description: 'Two printable PDF planners for ADHD brains at $17.99 each: the 13-page ADHD Planner Bundle and the 9-page ADHD-Friendly Budget Planner. Undated, US Letter and A4, instant download.',
+    isPartOf: { '@id': `${SITE}/#website` },
+    inLanguage: 'en',
+    mainEntity: {
+      '@type': 'ItemList',
+      '@id': `${canonicalURL}#list`,
+      numberOfItems: 2,
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'ADHD Planner Bundle', url: `${SITE}/shop/adhd-planner-bundle/` },
+        { '@type': 'ListItem', position: 2, name: 'ADHD-Friendly Budget Planner', url: `${SITE}/shop/budget-planner/` },
+      ],
+    },
+  },
+];
 ---
 <BaseLayout
-  title="Shop"
-  description="Printable planners and digital tools for ADHD brains — instant download, US Letter and A4 included."
+  title="Shop: Printable ADHD Planners (PDF)"
+  description="Two undated printable PDF planners for ADHD brains at $17.99 each: the 13-page ADHD Planner Bundle and the 9-page ADHD-Friendly Budget Planner. US Letter and A4, instant download."
+  path={path}
+  ogImage="/og/shop.png"
+  jsonLd={jsonLd}
 >
-  <Header />
-  <section class="page-hero">
-    <div class="wrap">
-      <h1>Shop</h1>
-      <p>Printable tools built for how your brain actually works.</p>
-    </div>
-  </section>
-  <div class="wrap">
-    <div class="card-grid">
-      {allProducts.map((product) => <ProductCard product={product} />)}
-    </div>
-  </div>
+  <Header current="shop" />
+  <main id="main">
+    <section class="page-hero">
+      <div class="wrap">
+        <h1>Shop</h1>
+        <p class="measure">Two planners, one free page. All printable PDFs, undated, US Letter and A4.</p>
+      </div>
+    </section>
+
+    <section class="chunk chunk--morning" aria-labelledby="morning-title">
+      <div class="wrap">
+        <div class="chunk__head">
+          <span class="chunk__label">Morning</span>
+          <h2 id="morning-title">Pick a planner</h2>
+        </div>
+        <div class="products">
+          <article class="product">
+            <div class="paper paper--cover"><Image src={adhdPlannerBundle.pages[0].img} alt={adhdPlannerBundle.pages[0].alt} width={420} /></div>
+            <div class="product__body">
+              <h3><a href="/shop/adhd-planner-bundle/" style="color:inherit;text-decoration:none">ADHD Planner Bundle</a></h3>
+              <p>{bundleEntry?.data.tagline}.</p>
+              <p class="product__facts">13 pages. Undated. Instant PDF.</p>
+              <p class="product__price">$17.99</p>
+              <a class="btn btn--secondary" href="/shop/adhd-planner-bundle/">See all 13 pages</a>
+            </div>
+          </article>
+          <article class="product">
+            <div class="paper paper--cover"><Image src={budgetPlanner.pages[0].img} alt={budgetPlanner.pages[0].alt} width={420} /></div>
+            <div class="product__body">
+              <h3><a href="/shop/budget-planner/" style="color:inherit;text-decoration:none">ADHD-Friendly Budget Planner</a></h3>
+              <p>{budgetEntry?.data.tagline}.</p>
+              <p class="product__facts">9 pages. Undated. Instant PDF.</p>
+              <p class="product__price">$17.99</p>
+              <a class="btn btn--secondary" href="/shop/budget-planner/">See all 9 pages</a>
+            </div>
+          </article>
+        </div>
+        <p class="chunk__foot">Checkout happens on Gumroad or Payhip. No account on this site, no shipping, no waiting: the PDF is yours within a minute of paying.</p>
+      </div>
+    </section>
+
+    <section class="chunk" aria-labelledby="compare-title" id="compare">
+      <div class="wrap">
+        <div class="chunk__head">
+          <h2 id="compare-title">Which planner is right for me?</h2>
+        </div>
+        <div class="compare-scroll">
+          <table class="compare">
+            <thead>
+              <tr><th scope="col">&nbsp;</th><th scope="col">ADHD Planner Bundle</th><th scope="col">ADHD-Friendly Budget Planner</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Best for</th><td>Days, weeks and habits</td><td>Money: bills, savings, subscriptions</td></tr>
+              <tr><th scope="row">Pages</th><td>13</td><td>9</td></tr>
+              <tr><th scope="row">The core page</th><td>Weekly: morning, afternoon, evening</td><td>Monthly overview: income, fixed, variable</td></tr>
+              <tr><th scope="row">Also inside</th><td>Daily, monthly, brain dump, habit tracker, priority matrix, reminders, meals, goals, self-care, chores, bills</td><td>Weekly spending, bill tracker, savings goal, debt payoff, subscriptions, spending by category, net worth</td></tr>
+              <tr><th scope="row">Dated</th><td>No</td><td>No</td></tr>
+              <tr><th scope="row">Sizes</th><td>US Letter and A4</td><td>US Letter and A4</td></tr>
+              <tr><th scope="row">Price</th><td>$17.99</td><td>$17.99</td></tr>
+              <tr><th scope="row">&nbsp;</th><td><a class="btn btn--secondary" href="/shop/adhd-planner-bundle/">Buy on Gumroad</a></td><td><a class="btn btn--secondary" href="/shop/budget-planner/">Buy on Gumroad</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="chunk chunk--evening" aria-labelledby="free-title">
+      <div class="wrap">
+        <div class="chunk__head">
+          <span class="chunk__label">Free</span>
+          <h2 id="free-title">Try one page before you decide</h2>
+        </div>
+        <div class="free">
+          <div class="paper paper--short"><Image src={adhdPlannerBundle.pages.find(p => p.id === 'habit-tracker')!.img} alt="The free Habit Tracker page, the same page that is in the full bundle" width={420} /></div>
+          <div class="free__body">
+            <h3>One page from the bundle, free</h3>
+            <p>It is the exact page from the bundle: seven circles a row, no streak counter, US Letter and A4. Print it, use it for a week, and you will know whether the rest of the system is for you.</p>
+            <p class="soft small">Pay what you want on Gumroad. $0 is fine.</p>
+            <a class="btn btn--primary" href="https://cooperhawk64.gumroad.com/l/jmrfmo" rel="nofollow" onclick="window.pintrk && pintrk('track', 'lead')">Get it free on Gumroad</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chunk" aria-labelledby="questions-title" id="questions">
+      <div class="wrap"><div class="questions">
+        <h2 id="questions-title">Questions</h2>
+        <FaqList faq={faq} />
+      </div></div>
+    </section>
+  </main>
   <Footer />
 </BaseLayout>

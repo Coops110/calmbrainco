@@ -1,70 +1,94 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { adhdPlannerBundle, findPage } from '../data/products';
+import { SITE, breadcrumbNode } from '../lib/seo';
 
-const gumroadUrl = 'https://cooperhawk64.gumroad.com/l/abqkkx';
-const payhipUrl = 'https://payhip.com/b/su2J3';
+const gumroadUrl = adhdPlannerBundle.gumroad;
+const payhipUrl = adhdPlannerBundle.payhip;
+const daily = findPage(adhdPlannerBundle, 'daily-planner')!;
+const selfcare = findPage(adhdPlannerBundle, 'self-care-checkin')!;
+const weekly = findPage(adhdPlannerBundle, 'weekly-planner')!;
+const path = '/productivity-aesthetic-daily-planning/';
+const canonicalURL = `${SITE}${path}`;
+
+const jsonLd = [
+  breadcrumbNode(canonicalURL, [{ name: 'Productivity aesthetic daily planning' }]),
+  {
+    '@type': 'WebPage',
+    '@id': `${canonicalURL}#webpage`,
+    url: canonicalURL,
+    name: 'Daily planning that looks calm and works on a messy day',
+    about: { '@id': `${SITE}/shop/adhd-planner-bundle/#product` },
+    isPartOf: { '@id': `${SITE}/#website` },
+    inLanguage: 'en',
+  },
+];
 ---
 <BaseLayout
-  title="Productivity Aesthetic Daily Planning Printable"
-  description="A calm, aesthetic daily planning system that doesn't turn productivity into a performance — undated pages, a hard 3-priority cap, and a self-care check-in with no score to chase."
-  canonical="/productivity-aesthetic-daily-planning"
-  ogImage="/images/adhd-planner-bundle/page02-daily-planner-preview.png"
+  title="Aesthetic Daily Planner Printable (Undated)"
+  description="A calm, aesthetic daily planner printable built for a real week: morning, afternoon and evening blocks, three priorities, a self-care check-in with no score."
+  path={path}
+  ogImage="/og/productivity-aesthetic-daily-planning.png"
+  jsonLd={jsonLd}
 >
-  <Header />
+  <Header current="shop" />
+  <main id="main">
+    <section class="phero" aria-labelledby="hero-title">
+      <div class="wrap">
+        <div class="phero__copy">
+          <h1 id="hero-title">Daily planning that looks calm and works on a messy day</h1>
+          <p class="phero__promise">Aesthetic does not have to mean fragile. Soft tinted blocks, a hard cap of three priorities a day, and a self-care check-in that is not another score to chase.</p>
+          <div class="phero__buy" id="buy">
+            <div class="phero__pricerow"><span class="phero__price">$17.99</span><span class="phero__pricenote">one purchase, both paper sizes</span></div>
+            <div class="phero__actions">
+              <a class="btn btn--primary" href={gumroadUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'checkout', {value: 17.99, currency: 'USD'})">Get it on Gumroad</a>
+              <a class="btn btn--secondary" href={payhipUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'checkout', {value: 17.99, currency: 'USD'})">Buy on Payhip</a>
+            </div>
+          </div>
+        </div>
+        <div class="desk"><div class="paper"><Image src={daily.img} alt={daily.alt} loading="eager" width={420} /></div></div>
+      </div>
+    </section>
 
-  <section class="hero">
-    <div class="wrap">
-      <div>
-        <span class="hero-badge">Aesthetic · Printable · Instant Download</span>
-        <h1>Daily planning that feels calm, not like a performance</h1>
-        <p class="tagline">Aesthetic doesn't have to mean fragile — these pages hold up to a real messy week. Soft layouts, a hard cap of three priorities a day, and a self-care check-in that isn't another score to chase.</p>
-        <div class="btn-row">
-          <a class="btn btn-primary" href={gumroadUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'checkout', {value: 17.99, currency: 'USD'})">Get it on Gumroad — $17.99</a>
-          <a class="btn btn-secondary" href={payhipUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'checkout', {value: 17.99, currency: 'USD'})">Buy on Payhip</a>
+    <section class="chunk chunk--peri" aria-labelledby="what-title">
+      <div class="wrap">
+        <div class="chunk__head">
+          <h2 id="what-title">Planning that includes how you feel, not just what's due</h2>
+          <p class="measure">No hourly time slots: three blocks a day instead. The self-care check-in tracks sleep, movement, water and mood as plain check-offs, with no total and no score. Cream page, sage, slate, clay and plum accents, US Letter and A4.</p>
+        </div>
+        <div class="products">
+          <article class="product">
+            <div class="paper"><Image src={selfcare.img} alt={selfcare.alt} loading="lazy" width={320} /></div>
+            <div class="product__body"><h3>Self-Care Check-In</h3><p>{selfcare.caption}</p></div>
+          </article>
+          <article class="product">
+            <div class="paper"><Image src={weekly.img} alt={weekly.alt} loading="lazy" width={320} /></div>
+            <div class="product__body"><h3>Weekly Planner</h3><p>{weekly.caption}</p></div>
+          </article>
         </div>
       </div>
-      <div class="hero-image-card">
-        <img src="/images/adhd-planner-bundle/page02-daily-planner-preview.png" alt="Daily planner page split into morning, afternoon and evening instead of hourly slots" />
+    </section>
+
+    <section class="chunk" aria-labelledby="source-title">
+      <div class="wrap">
+        <h2 id="source-title" class="sr-only">Where this page lives</h2>
+        <p class="measure">Part of the full <a href="/shop/adhd-planner-bundle/">ADHD Planner Bundle</a>, including a <a href="/blog/brain-dump-page-thats-not-a-blank-box/">brain dump page</a> for the thoughts that will not stay quiet. Prefer an even quieter version first? Try the <a href="/minimalist-printable-planner/">minimalist printable planner</a> instead.</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="gallery">
-    <div class="wrap">
-      <h2>Planning that includes how you feel, not just what's due</h2>
-      <p class="lede">Real pages from the actual bundle.</p>
-      <div class="gallery-grid">
-        <figure>
-          <img src="/images/adhd-planner-bundle/page10-selfcare-checkin-preview.png" alt="Self-care check-in page for sleep, movement, water and mood" loading="lazy" />
-        </figure>
-        <figure>
-          <img src="/images/adhd-planner-bundle/page06-priority-matrix-preview.png" alt="Priority matrix page sorting tasks into plan-for-it or let-it-go" loading="lazy" />
-        </figure>
-        <figure>
-          <img src="/images/adhd-planner-bundle/weekly-planner-page1-preview.png" alt="Weekly planner page with a top-3 priorities row and morning, afternoon, evening blocks for each day" loading="lazy" />
-        </figure>
+    <section class="chunk chunk--tint buy" aria-labelledby="buy-title">
+      <div class="wrap buy__box">
+        <h2 id="buy-title">ADHD Planner Bundle</h2>
+        <div class="phero__pricerow"><span class="phero__price">$17.99</span><span class="phero__pricenote">13 pages, undated, US Letter and A4</span></div>
+        <div class="phero__actions">
+          <a class="btn btn--primary" href={gumroadUrl} rel="nofollow">Get it on Gumroad</a>
+          <a class="btn btn--secondary" href={payhipUrl} rel="nofollow">Buy on Payhip</a>
+        </div>
       </div>
-    </div>
-  </section>
-
-  <section class="philosophy">
-    <div class="wrap">
-      <p>Part of the same <a href="/shop/adhd-planner-bundle">full ADHD Planner Bundle</a> — including a <a href="/blog/brain-dump-page-thats-not-a-blank-box">brain dump page</a> for the thoughts that won't stay quiet. Prefer an even more stripped-down version first? Try the <a href="/minimalist-printable-planner">minimalist printable planner page</a> instead.</p>
-    </div>
-  </section>
-
-  <section class="wrap">
-    <div class="cta-band">
-      <div class="price">$17.99</div>
-      <p>Instant PDF download — US Letter and A4 included.</p>
-      <div class="btn-row">
-        <a class="btn btn-primary" href={gumroadUrl} rel="nofollow">Get it on Gumroad</a>
-        <a class="btn btn-secondary" href={payhipUrl} rel="nofollow">Buy on Payhip</a>
-      </div>
-    </div>
-  </section>
-
+    </section>
+  </main>
   <Footer />
 </BaseLayout>

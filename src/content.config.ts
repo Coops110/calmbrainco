@@ -1,27 +1,18 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
-// Every product lives in this one collection regardless of category, so the
-// shop index and homepage "featured" grid work automatically as new products
-// get added — no page code changes needed, just a new markdown file. The
-// `category` field is what lets the site expand past ADHD later (e.g.
-// 'adhd', 'anxiety', 'focus') without restructuring anything.
+// Product copy only. Real page renders, prices, checkout URLs and the page
+// list live in src/data/products.ts next to the imported images, since content
+// collections can't cleanly hold `astro:assets` image imports for a fixed,
+// hand-ordered gallery. This file holds only what an editor would want to
+// change in prose: tagline, intro body, features, FAQ.
 const productSchema = z.object({
   title: z.string(),
   tagline: z.string(),
-  description: z.string(), // used as the meta description + shop card blurb
-  price: z.number(),
-  category: z.string().default('adhd'),
-  heroImage: z.string(),
-  gallery: z.array(z.object({ src: z.string(), alt: z.string() })).default([]),
-  features: z.array(z.string()).default([]),
-  checkout: z.object({
-    gumroad: z.string().url().optional(),
-    payhip: z.string().url().optional(),
-  }),
+  description: z.string(), // meta description
   faq: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
-  draft: z.boolean().default(false),
   publishDate: z.string(),
+  modifiedDate: z.string().optional(),
 });
 
 const products = defineCollection({
@@ -37,10 +28,10 @@ const blogSchema = z.object({
   author: z.string().default('Calm Brain Co'),
   category: z.string().default('ADHD'),
   tags: z.array(z.string()).default([]),
-  relatedProduct: z.string().optional(), // slug into the products collection, for a CTA at the end of the post
+  relatedProduct: z.string().optional(),
+  relatedPageId: z.string().optional(), // id into src/data/products.ts page list, for an inline crop
   draft: z.boolean().default(false),
   noindex: z.boolean().default(false),
-  image: z.string().optional(),
 });
 
 const blog = defineCollection({

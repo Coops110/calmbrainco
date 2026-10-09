@@ -3,34 +3,72 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import { SITE, breadcrumbNode } from '../../lib/seo';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime());
+
+const path = '/blog/';
+const canonicalURL = `${SITE}${path}`;
+
+function formatDate(iso: string) {
+  return new Date(iso + 'T00:00:00Z').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+}
+
+const jsonLd = [
+  breadcrumbNode(canonicalURL, [{ name: 'Blog' }]),
+  {
+    '@type': 'Blog',
+    '@id': `${canonicalURL}#blog`,
+    url: canonicalURL,
+    name: 'Calm Brain Co Blog',
+    description: 'Short, practical articles on planning with ADHD.',
+    publisher: { '@id': `${SITE}/#organization` },
+    inLanguage: 'en',
+  },
+  {
+    '@type': 'CollectionPage',
+    '@id': `${canonicalURL}#webpage`,
+    url: canonicalURL,
+    name: 'Blog: Planning Guides for ADHD Brains',
+    isPartOf: { '@id': `${SITE}/#website` },
+    inLanguage: 'en',
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: posts.length,
+      itemListElement: posts.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.data.title, url: `${SITE}/blog/${p.id}/` })),
+    },
+  },
+];
 ---
 <BaseLayout
-  title="Blog"
-  description="Ideas, guides and honest thinking about ADHD, focus, and printable systems that actually stick."
+  title="Blog: Planning Guides for ADHD Brains"
+  description="Plain, honest guides on planning with ADHD: why hourly time blocking and streak trackers tend to fail, picking three priorities, brain dumps, meals and bills."
+  path={path}
+  ogImage="/og/blog.png"
+  jsonLd={jsonLd}
 >
-  <Header />
-  <section class="page-hero">
+  <Header current="blog" />
+  <main id="main">
+    <section class="page-hero">
+      <div class="wrap">
+        <h1>Blog</h1>
+        <p class="measure">Plain writing about ADHD, planning and the pages in the bundle.</p>
+      </div>
+    </section>
     <div class="wrap">
-      <h1>Blog</h1>
-      <p>Ideas and guides on ADHD, focus, and systems that actually stick.</p>
+      <ul class="blog-list">
+        {posts.map((post) => (
+          <li>
+            <a href={`/blog/${post.id}/`}>
+              <h3>{post.data.title}</h3>
+              <p>{post.data.description}</p>
+              <p class="meta">{formatDate(post.data.publishDate)}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
-  </section>
-  <div class="wrap">
-    <div class="card-grid">
-      {posts.map((post) => (
-        <a class="blog-card" href={`/blog/${post.slug ?? post.id}`}>
-          {post.data.image && <img src={post.data.image} alt={post.data.title} loading="lazy" />}
-          <div class="card-body">
-            <span class="category-pill">{post.data.category}</span>
-            <h3>{post.data.title}</h3>
-            <p>{post.data.description}</p>
-          </div>
-        </a>
-      ))}
-    </div>
-  </div>
+  </main>
   <Footer />
 </BaseLayout>

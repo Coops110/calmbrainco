@@ -1,0 +1,23 @@
+# Cloudflare Pages headers. Not deployed by this build (local only per the
+# brief), but written now so the fix in HANDOFF.md problem #8 ships with the
+# code instead of being a separate future task.
+
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.png
+  Cache-Control: public, max-age=604800
+
+/*.svg
+  Cache-Control: public, max-age=604800
+
+/llms.txt
+  Content-Type: text/markdown; charset=utf-8
+
+/llms-full.txt
+  Content-Type: text/markdown; charset=utf-8
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Link: </llms.txt>; rel="describedby"

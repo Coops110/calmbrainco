@@ -149,8 +149,8 @@ export const homeResetPlanner: Product = {
   shortName: 'Home Reset',
   price: 17.99,
   pageCount: 11,
-  gumroad: 'https://cooperhawk64.gumroad.com/l/adhd-home-reset-planner',
-  payhip: 'https://payhip.com/b/adhd-home-reset-planner',
+  gumroad: 'https://cooperhawk64.gumroad.com/l/ljpvri',
+  payhip: 'https://payhip.com/b/BE1t7',
   pairsWithSlug: 'adhd-planner-bundle',
   pages: [
     { id: 'cover', name: 'Cover', img: hCover, alt: 'Cover page of the ADHD Home Reset Planner listing all eleven pages', caption: 'The first sheet, if you keep the set in a folder.' },
@@ -173,8 +173,8 @@ export const studentPlanner: Product = {
   shortName: 'Student',
   price: 17.99,
   pageCount: 10,
-  gumroad: 'https://cooperhawk64.gumroad.com/l/adhd-student-planner',
-  payhip: 'https://payhip.com/b/adhd-student-planner',
+  gumroad: 'https://cooperhawk64.gumroad.com/l/lubobf',
+  payhip: 'https://payhip.com/b/9sE7h',
   pairsWithSlug: 'adhd-planner-bundle',
   pages: [
     { id: 'cover', name: 'Cover', img: sCover, alt: 'Cover page of the ADHD Student Planner listing all ten pages', caption: 'The first sheet, if you keep the set in a folder.' },
@@ -196,8 +196,8 @@ export const workFocusPlanner: Product = {
   shortName: 'Work and Focus',
   price: 17.99,
   pageCount: 10,
-  gumroad: 'https://cooperhawk64.gumroad.com/l/adhd-work-focus-planner',
-  payhip: 'https://payhip.com/b/adhd-work-focus-planner',
+  gumroad: 'https://cooperhawk64.gumroad.com/l/tptlaf',
+  payhip: 'https://payhip.com/b/ljaEz',
   pairsWithSlug: 'adhd-planner-bundle',
   pages: [
     { id: 'cover', name: 'Cover', img: wCover, alt: 'Cover page of the ADHD Work and Focus Planner listing all ten pages', caption: 'The first sheet, if you keep the set in a folder.' },
@@ -219,8 +219,8 @@ export const familyHouseholdPlanner: Product = {
   shortName: 'Family',
   price: 17.99,
   pageCount: 10,
-  gumroad: 'https://cooperhawk64.gumroad.com/l/adhd-family-household-planner',
-  payhip: 'https://payhip.com/b/adhd-family-household-planner',
+  gumroad: 'https://cooperhawk64.gumroad.com/l/rxsmn',
+  payhip: 'https://payhip.com/b/3blIY',
   pairsWithSlug: 'adhd-home-reset-planner',
   pages: [
     { id: 'cover', name: 'Cover', img: fCover, alt: 'Cover page of the ADHD Family and Household Planner listing all ten pages', caption: 'The first sheet, if you keep the set in a folder.' },

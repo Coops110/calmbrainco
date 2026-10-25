@@ -32,4 +32,4 @@ Adjust one thing, or adjust nothing and just notice. There is no guilt framing b
 
 ## Where this lives in the planner
 
-The self-care check-in is page 11 of 13 in the ADHD Planner Bundle. Get the [ADHD Planner Bundle](/shop/adhd-planner-bundle/) for $17.99.
+The self-care check-in is page 11 of 13 in the ADHD Planner Bundle. Get the [ADHD Planner Bundle](/shop/adhd-planner-bundle/) for $24.99.

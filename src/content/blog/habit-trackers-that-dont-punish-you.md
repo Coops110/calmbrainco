@@ -30,4 +30,4 @@ Drop the streak entirely. Each day stands on its own: did you do it or not, no c
 
 ## Where this lives in the planner
 
-The habit tracker page in the ADHD Planner Bundle is a simple weekly grid: eight habit rows, seven circles each, no streak math, no guilt if a day gets missed. It is also available on its own as the [free habit tracker](/free-habit-tracker/), pay what you want, $0 is fine. The full [ADHD Planner Bundle](/shop/adhd-planner-bundle/) is $17.99 for all 13 pages.
+The habit tracker page in the ADHD Planner Bundle is a simple weekly grid: eight habit rows, seven circles each, no streak math, no guilt if a day gets missed. It is also available on its own as the [free habit tracker](/free-habit-tracker/), pay what you want, $0 is fine. The full [ADHD Planner Bundle](/shop/adhd-planner-bundle/) is $24.99 for all 13 pages.

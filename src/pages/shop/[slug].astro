@@ -101,7 +101,7 @@ const relatedPosts = (await getCollection('blog', (p) => p.data.relatedProduct =
           <h1 id="product-title">{data.title}</h1>
           <p class="phero__promise">{data.tagline}.</p>
           <div class="phero__buy" id="buy">
-            <div class="phero__pricerow"><span class="phero__price">${product.price.toFixed(2)}</span><span class="phero__pricenote">one purchase, both paper sizes</span></div>
+            <div class="phero__pricerow"><span class="phero__price">{product.compareAtPrice && <s class="phero__compareat">${product.compareAtPrice.toFixed(2)}</s>} ${product.price.toFixed(2)}</span><span class="phero__pricenote">one purchase, both paper sizes</span></div>
             <div class="phero__actions">
               <a class="btn btn--primary" href={product.gumroad} rel="nofollow" onclick={`window.pintrk && pintrk('track', 'checkout', {value: ${product.price}, currency: 'USD'})`}>Get it on Gumroad</a>
               <a class="btn btn--secondary" href={product.payhip} rel="nofollow" onclick={`window.pintrk && pintrk('track', 'checkout', {value: ${product.price}, currency: 'USD'})`}>Buy on Payhip</a>
@@ -187,7 +187,7 @@ const relatedPosts = (await getCollection('blog', (p) => p.data.relatedProduct =
     <section class="chunk chunk--tint buy" aria-labelledby="buy-title">
       <div class="wrap buy__box">
         <h2 id="buy-title">{data.title}</h2>
-        <div class="phero__pricerow"><span class="phero__price">${product.price.toFixed(2)}</span><span class="phero__pricenote">{product.pageCount} pages, undated, US Letter and A4, instant PDF</span></div>
+        <div class="phero__pricerow"><span class="phero__price">{product.compareAtPrice && <s class="phero__compareat">${product.compareAtPrice.toFixed(2)}</s>} ${product.price.toFixed(2)}</span><span class="phero__pricenote">{product.pageCount} pages, undated, US Letter and A4, instant PDF</span></div>
         <div class="phero__actions">
           <a class="btn btn--primary" href={product.gumroad} rel="nofollow" onclick={`window.pintrk && pintrk('track', 'checkout', {value: ${product.price}, currency: 'USD'})`}>Get it on Gumroad</a>
           <a class="btn btn--secondary" href={product.payhip} rel="nofollow" onclick={`window.pintrk && pintrk('track', 'checkout', {value: ${product.price}, currency: 'USD'})`}>Buy on Payhip</a>
@@ -238,7 +238,7 @@ const relatedPosts = (await getCollection('blog', (p) => p.data.relatedProduct =
   </main>
 
   <Footer />
-  <StickyBuyBar name={data.title} price={product.price} gumroad={product.gumroad} />
+  <StickyBuyBar name={data.title} price={product.price} compareAtPrice={product.compareAtPrice} gumroad={product.gumroad} />
 
   <script>
     // Page strip previous/next buttons; progressive enhancement, swiping and

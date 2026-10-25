@@ -32,4 +32,4 @@ Sometimes, in a smaller dose: one fixed appointment anchored to a real time can 
 
 ## Where this lives in the planner
 
-The weekly planner page in the ADHD Planner Bundle is built exactly this way: morning, afternoon and evening blocks for all seven days, plus a top-3 row and a brain dump strip underneath. Get the [ADHD Planner Bundle](/shop/adhd-planner-bundle/) for $17.99, 13 pages, instant PDF.
+The weekly planner page in the ADHD Planner Bundle is built exactly this way: morning, afternoon and evening blocks for all seven days, plus a top-3 row and a brain dump strip underneath. Get the [ADHD Planner Bundle](/shop/adhd-planner-bundle/) for $24.99, 13 pages, instant PDF.

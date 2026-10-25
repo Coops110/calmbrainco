@@ -32,4 +32,4 @@ All three have trade-offs; a hybrid is fine. The case here is only that paper so
 
 ## Where this lives in the planner
 
-The ADHD-Friendly Budget Planner is built on these assumptions directly: a monthly overview, a weekly spending log, bill and subscription trackers, and a savings goal page with no deadline attached, all on paper. Get the [ADHD-Friendly Budget Planner](/shop/budget-planner/) for $17.99, 9 pages.
+The ADHD-Friendly Budget Planner is built on these assumptions directly: a monthly overview, a weekly spending log, bill and subscription trackers, and a savings goal page with no deadline attached, all on paper. Get the [ADHD-Friendly Budget Planner](/shop/budget-planner/) for $9.99, 9 pages.

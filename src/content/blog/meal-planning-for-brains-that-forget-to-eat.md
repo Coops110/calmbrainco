@@ -28,4 +28,4 @@ Some people find pairing meals with an existing routine, or a recurring alarm, h
 
 ## Where this lives in the planner
 
-The meal planner page in the ADHD Planner Bundle pairs a row per day with a grocery list column, so the decision happens once. Get the [ADHD Planner Bundle](/shop/adhd-planner-bundle/) for $17.99.
+The meal planner page in the ADHD Planner Bundle pairs a row per day with a grocery list column, so the decision happens once. Get the [ADHD Planner Bundle](/shop/adhd-planner-bundle/) for $24.99.

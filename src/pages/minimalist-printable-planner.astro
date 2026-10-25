@@ -43,10 +43,10 @@ const jsonLd = [
           <h1 id="hero-title">A minimalist printable planner stripped to what matters</h1>
           <p class="phero__promise">No decorative filler, no pages you will never use. Undated layouts for the few things that genuinely need tracking, a brain dump page, and a habit tracker with no streak to break.</p>
           <div class="phero__buy" id="buy">
-            <div class="phero__pricerow"><span class="phero__price">$17.99</span><span class="phero__pricenote">one purchase, both paper sizes</span></div>
+            <div class="phero__pricerow"><span class="phero__price">{adhdPlannerBundle.compareAtPrice && <s>${adhdPlannerBundle.compareAtPrice.toFixed(2)}</s>} ${adhdPlannerBundle.price.toFixed(2)}</span><span class="phero__pricenote">one purchase, both paper sizes</span></div>
             <div class="phero__actions">
-              <a class="btn btn--primary" href={gumroadUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'checkout', {value: 17.99, currency: 'USD'})">Get it on Gumroad</a>
-              <a class="btn btn--secondary" href={payhipUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'checkout', {value: 17.99, currency: 'USD'})">Buy on Payhip</a>
+              <a class="btn btn--primary" href={gumroadUrl} rel="nofollow" onclick={`window.pintrk && pintrk('track', 'checkout', {value: ${adhdPlannerBundle.price}, currency: 'USD'})`}>Get it on Gumroad</a>
+              <a class="btn btn--secondary" href={payhipUrl} rel="nofollow" onclick={`window.pintrk && pintrk('track', 'checkout', {value: ${adhdPlannerBundle.price}, currency: 'USD'})`}>Buy on Payhip</a>
             </div>
           </div>
         </div>
@@ -87,7 +87,7 @@ const jsonLd = [
     <section class="chunk chunk--tint buy" aria-labelledby="buy-title">
       <div class="wrap buy__box">
         <h2 id="buy-title">ADHD Planner Bundle</h2>
-        <div class="phero__pricerow"><span class="phero__price">$17.99</span><span class="phero__pricenote">13 pages, undated, US Letter and A4</span></div>
+        <div class="phero__pricerow"><span class="phero__price">{adhdPlannerBundle.compareAtPrice && <s>${adhdPlannerBundle.compareAtPrice.toFixed(2)}</s>} ${adhdPlannerBundle.price.toFixed(2)}</span><span class="phero__pricenote">13 pages, undated, US Letter and A4</span></div>
         <div class="phero__actions">
           <a class="btn btn--primary" href={gumroadUrl} rel="nofollow">Get it on Gumroad</a>
           <a class="btn btn--secondary" href={payhipUrl} rel="nofollow">Buy on Payhip</a>

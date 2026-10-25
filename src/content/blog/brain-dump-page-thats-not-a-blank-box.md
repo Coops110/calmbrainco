@@ -32,4 +32,4 @@ Move at most three items into tomorrow's priorities. Leave the rest on the page.
 
 ## Where this lives in the planner
 
-The brain dump page in the ADHD Planner Bundle has four ruled blocks: tasks, ideas, worries, random. Get the [ADHD Planner Bundle](/shop/adhd-planner-bundle/) for $17.99, 13 pages, instant PDF.
+The brain dump page in the ADHD Planner Bundle has four ruled blocks: tasks, ideas, worries, random. Get the [ADHD Planner Bundle](/shop/adhd-planner-bundle/) for $24.99, 13 pages, instant PDF.

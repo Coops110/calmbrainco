@@ -1,7 +1,7 @@
 ---
 title: "ADHD Work and Focus Planner"
 tagline: "A workday system for getting unstuck, one tiny step at a time"
-description: "10 undated printable pages for the ADHD workday: a top-3 priority page, a task breakdown page, a focus session tracker with a body-doubling slot, email and message triage, meeting notes, a context-switch reset, a waiting-on tracker and more. $17.99, US Letter and A4."
+description: "10 undated printable pages for the ADHD workday: a top-3 priority page, a task breakdown page, a focus session tracker with a body-doubling slot, email and message triage, meeting notes, a context-switch reset, a waiting-on tracker and more. $9.99, US Letter and A4."
 faq:
   - q: "Is this a physical planner or a printable?"
     a: "A printable PDF. You download it the moment you buy and print it yourself, at home or at a copy shop. Nothing is shipped."

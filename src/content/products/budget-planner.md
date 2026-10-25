@@ -1,7 +1,7 @@
 ---
 title: "ADHD-Friendly Budget Planner"
 tagline: "A money system built for brains that forget subscriptions exist and close the spreadsheet"
-description: "9 undated printable pages for money with an ADHD brain: monthly overview, weekly spending, bill tracker, savings goal, debt payoff, subscriptions, spending by category, net worth. $17.99, US Letter and A4."
+description: "9 undated printable pages for money with an ADHD brain: monthly overview, weekly spending, bill tracker, savings goal, debt payoff, subscriptions, spending by category, net worth. $9.99, US Letter and A4."
 faq:
   - q: "Is this a physical planner or a printable?"
     a: "A printable PDF. You download it the moment you buy and print it yourself, at home or at a copy shop. Nothing is shipped."

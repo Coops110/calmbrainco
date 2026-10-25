@@ -2,13 +2,14 @@
 export interface Props {
   name: string;
   price: number;
+  compareAtPrice?: number;
   gumroad: string;
 }
-const { name, price, gumroad } = Astro.props;
+const { name, price, compareAtPrice, gumroad } = Astro.props;
 ---
 <div class="buybar" id="buybar" aria-hidden="true">
-  <div class="buybar__name"><b>{name}</b><span>${price.toFixed(2)}</span></div>
-  <a class="btn btn--primary" href={gumroad} rel="nofollow" onclick="window.pintrk && pintrk('track', 'checkout', {value: 17.99, currency: 'USD'})">Get it on Gumroad</a>
+  <div class="buybar__name"><b>{name}</b><span>{compareAtPrice && <s>${compareAtPrice.toFixed(2)}</s>} ${price.toFixed(2)}</span></div>
+  <a class="btn btn--primary" href={gumroad} rel="nofollow" onclick={`window.pintrk && pintrk('track', 'checkout', {value: ${price}, currency: 'USD'})`}>Get it on Gumroad</a>
 </div>
 
 <script>

@@ -32,4 +32,4 @@ Three is small enough to hold in mind without writing it down again, and small e
 
 ## Where this lives in the planner
 
-The priority matrix is page 7 of 13 in the ADHD Planner Bundle, and the weekly and daily pages each carry their own three-line priority row. Get the [ADHD Planner Bundle](/shop/adhd-planner-bundle/) for $17.99.
+The priority matrix is page 7 of 13 in the ADHD Planner Bundle, and the weekly and daily pages each carry their own three-line priority row. Get the [ADHD Planner Bundle](/shop/adhd-planner-bundle/) for $24.99.

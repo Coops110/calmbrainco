@@ -1,7 +1,7 @@
 ---
 title: "ADHD Family and Household Planner"
 tagline: "A household system for the ADHD parent who is done being the only one who remembers everything"
-description: "10 undated printable pages for running an ADHD household: a family week-at-a-glance command page, a mental load dump, kid routine cards, a household chore rotation, a school paperwork tracker, a contact and info sheet, caregiver handoff notes, a family meal rotation, and a one thing for me page. $17.99, US Letter and A4."
+description: "10 undated printable pages for running an ADHD household: a family week-at-a-glance command page, a mental load dump, kid routine cards, a household chore rotation, a school paperwork tracker, a contact and info sheet, caregiver handoff notes, a family meal rotation, and a one thing for me page. $9.99, US Letter and A4."
 faq:
   - q: "Is this a physical planner or a printable?"
     a: "A printable PDF. You download it the moment you buy and print it yourself, at home or at a copy shop. Nothing is shipped."

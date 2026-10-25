@@ -1,7 +1,7 @@
 ---
 title: "ADHD Home Reset Planner"
 tagline: "A cleaning system for brains that lose the thread halfway through a room"
-description: "11 undated printable pages for cleaning and resetting a home with an ADHD brain: a zone map, weekly reset checklist, 10-minute reset, deep clean rotation, laundry loop tracker, kitchen reset, body-doubling chore log, guest-ready checklist and more. $17.99, US Letter and A4."
+description: "11 undated printable pages for cleaning and resetting a home with an ADHD brain: a zone map, weekly reset checklist, 10-minute reset, deep clean rotation, laundry loop tracker, kitchen reset, body-doubling chore log, guest-ready checklist and more. $9.99, US Letter and A4."
 faq:
   - q: "Is this a physical planner or a printable?"
     a: "A printable PDF. You download it the moment you buy and print it yourself, at home or at a copy shop. Nothing is shipped."

@@ -1,7 +1,7 @@
 ---
 title: "ADHD Planner Bundle"
 tagline: "A printable planner system built for how ADHD brains actually work"
-description: "13 undated printable pages: weekly and daily planners in morning, afternoon and evening blocks, a three-priority cap, a brain dump page and a no-streak habit tracker. $17.99, US Letter and A4."
+description: "13 undated printable pages: weekly and daily planners in morning, afternoon and evening blocks, a three-priority cap, a brain dump page and a no-streak habit tracker. $24.99, US Letter and A4."
 faq:
   - q: "Is this a physical planner or a printable?"
     a: "A printable PDF. You download it the moment you buy and print it yourself, at home or at a copy shop. Nothing is shipped."

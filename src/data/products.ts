@@ -84,6 +84,7 @@ export interface Product {
   title: string;
   shortName: string;
   price: number;
+  compareAtPrice?: number;
   pageCount: number;
   gumroad: string;
   payhip: string;
@@ -99,7 +100,8 @@ export const adhdPlannerBundle: Product = {
   slug: 'adhd-planner-bundle',
   title: 'ADHD Planner Bundle',
   shortName: 'Bundle',
-  price: 17.99,
+  price: 24.99,
+  compareAtPrice: 34.99,
   pageCount: 13,
   gumroad: 'https://cooperhawk64.gumroad.com/l/abqkkx',
   payhip: 'https://payhip.com/b/su2J3',
@@ -125,7 +127,8 @@ export const budgetPlanner: Product = {
   slug: 'budget-planner',
   title: 'ADHD-Friendly Budget Planner',
   shortName: 'Budget',
-  price: 17.99,
+  price: 9.99,
+  compareAtPrice: 12.99,
   pageCount: 9,
   gumroad: 'https://cooperhawk64.gumroad.com/l/cuykdzl',
   payhip: 'https://payhip.com/b/Z5EI4',
@@ -147,7 +150,8 @@ export const homeResetPlanner: Product = {
   slug: 'adhd-home-reset-planner',
   title: 'ADHD Home Reset Planner',
   shortName: 'Home Reset',
-  price: 17.99,
+  price: 9.99,
+  compareAtPrice: 12.99,
   pageCount: 11,
   gumroad: 'https://cooperhawk64.gumroad.com/l/ljpvri',
   payhip: 'https://payhip.com/b/BE1t7',
@@ -171,7 +175,8 @@ export const studentPlanner: Product = {
   slug: 'adhd-student-planner',
   title: 'ADHD Student Planner',
   shortName: 'Student',
-  price: 17.99,
+  price: 9.99,
+  compareAtPrice: 12.99,
   pageCount: 10,
   gumroad: 'https://cooperhawk64.gumroad.com/l/lubobf',
   payhip: 'https://payhip.com/b/9sE7h',
@@ -194,7 +199,8 @@ export const workFocusPlanner: Product = {
   slug: 'adhd-work-focus-planner',
   title: 'ADHD Work and Focus Planner',
   shortName: 'Work and Focus',
-  price: 17.99,
+  price: 9.99,
+  compareAtPrice: 12.99,
   pageCount: 10,
   gumroad: 'https://cooperhawk64.gumroad.com/l/tptlaf',
   payhip: 'https://payhip.com/b/ljaEz',
@@ -217,7 +223,8 @@ export const familyHouseholdPlanner: Product = {
   slug: 'adhd-family-household-planner',
   title: 'ADHD Family and Household Planner',
   shortName: 'Family',
-  price: 17.99,
+  price: 9.99,
+  compareAtPrice: 12.99,
   pageCount: 10,
   gumroad: 'https://cooperhawk64.gumroad.com/l/rxsmn',
   payhip: 'https://payhip.com/b/3blIY',

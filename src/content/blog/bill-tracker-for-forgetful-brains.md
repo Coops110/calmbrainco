@@ -24,4 +24,4 @@ The real columns are simple: bill name, amount, due date, and a paid circle. Tha
 
 ## Where this lives in the planner
 
-Both the ADHD Planner Bundle and the ADHD-Friendly Budget Planner include a bill tracker page with exactly these columns. If the money side needs more than due dates, the [ADHD-Friendly Budget Planner](/shop/budget-planner/) builds out the rest of the picture: monthly overview, savings, debt payoff and subscriptions, $17.99 for 9 pages.
+Both the ADHD Planner Bundle and the ADHD-Friendly Budget Planner include a bill tracker page with exactly these columns. If the money side needs more than due dates, the [ADHD-Friendly Budget Planner](/shop/budget-planner/) builds out the rest of the picture: monthly overview, savings, debt payoff and subscriptions, $9.99 for 9 pages.

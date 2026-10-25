@@ -1,7 +1,7 @@
 ---
 title: "ADHD Student Planner"
 tagline: "A school planner for brains that do their best work the night before, on purpose"
-description: "10 undated printable pages for high school and college students with ADHD: a class schedule and contacts page, an assignment tracker written as 'due in days' instead of a date, a big project breakdown, a study session page, an exam prep countdown, a weekly study planner, a reading tracker, a focus-time check-in, and an end-of-week reset. $17.99, US Letter and A4."
+description: "10 undated printable pages for high school and college students with ADHD: a class schedule and contacts page, an assignment tracker written as 'due in days' instead of a date, a big project breakdown, a study session page, an exam prep countdown, a weekly study planner, a reading tracker, a focus-time check-in, and an end-of-week reset. $9.99, US Letter and A4."
 faq:
   - q: "Is this a physical planner or a printable?"
     a: "A flat printable PDF. You download it the moment you buy and print it yourself, at home or at a copy shop. Nothing is shipped."

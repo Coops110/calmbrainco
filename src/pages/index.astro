@@ -68,7 +68,7 @@ const jsonLd = [
           <h1 id="hero-title">Plan the day you actually have.</h1>
           <p class="hero__lead">Printable planners for ADHD brains. <b>Morning, afternoon and evening</b> instead of hourly slots. <b>Three priorities</b>, not a list of twenty. <b>A habit tracker with no streak to break.</b> Undated, so you can print it today and start today.</p>
           <div class="hero__actions">
-            <a class="btn btn--primary" href="/shop/adhd-planner-bundle/">See the planner <span class="price">$17.99</span></a>
+            <a class="btn btn--primary" href="/shop/adhd-planner-bundle/">See the planner <span class="price">${adhdPlannerBundle.price.toFixed(2)}</span></a>
             <a class="text-link" href="/free-habit-tracker/">Or try one page free</a>
           </div>
         </div>
@@ -90,7 +90,7 @@ const jsonLd = [
               <h3><a href="/shop/adhd-planner-bundle/" style="color:inherit;text-decoration:none">ADHD Planner Bundle</a></h3>
               <p>A weekly and daily system that splits the day into three chunks, caps you at three priorities, and gives racing thoughts a page of their own.</p>
               <p class="product__facts">13 pages. Undated. Instant PDF.</p>
-              <p class="product__price">$17.99</p>
+              <p class="product__price">{adhdPlannerBundle.compareAtPrice && <s>${adhdPlannerBundle.compareAtPrice.toFixed(2)}</s>} ${adhdPlannerBundle.price.toFixed(2)}</p>
               <a class="btn btn--secondary" href="/shop/adhd-planner-bundle/">See all 13 pages</a>
             </div>
           </article>
@@ -100,7 +100,7 @@ const jsonLd = [
               <h3><a href="/shop/budget-planner/" style="color:inherit;text-decoration:none">ADHD-Friendly Budget Planner</a></h3>
               <p>Money on paper for brains that forget subscriptions exist and close the spreadsheet. Three honest buckets, a bill tracker, and a savings page with no deadline.</p>
               <p class="product__facts">9 pages. Undated. Instant PDF.</p>
-              <p class="product__price">$17.99</p>
+              <p class="product__price">{budgetPlanner.compareAtPrice && <s>${budgetPlanner.compareAtPrice.toFixed(2)}</s>} ${budgetPlanner.price.toFixed(2)}</p>
               <a class="btn btn--secondary" href="/shop/budget-planner/">See all 9 pages</a>
             </div>
           </article>
@@ -110,7 +110,7 @@ const jsonLd = [
               <h3><a href="/shop/adhd-home-reset-planner/" style="color:inherit;text-decoration:none">ADHD Home Reset Planner</a></h3>
               <p>A cleaning system for brains that lose the thread halfway through a room. A zone map you build yourself, a 10-minute reset, and a laundry tracker that never loses a load.</p>
               <p class="product__facts">11 pages. Undated. Instant PDF.</p>
-              <p class="product__price">$17.99</p>
+              <p class="product__price">{homeResetPlanner.compareAtPrice && <s>${homeResetPlanner.compareAtPrice.toFixed(2)}</s>} ${homeResetPlanner.price.toFixed(2)}</p>
               <a class="btn btn--secondary" href="/shop/adhd-home-reset-planner/">See all 11 pages</a>
             </div>
           </article>
@@ -120,7 +120,7 @@ const jsonLd = [
               <h3><a href="/shop/adhd-student-planner/" style="color:inherit;text-decoration:none">ADHD Student Planner</a></h3>
               <p>A school planner for brains that do their best work the night before, on purpose. A class schedule, an assignment tracker that counts down in days instead of a date, and a big project breakdown that reuses the Bundle's own goal-breakdown mechanism.</p>
               <p class="product__facts">10 pages. Undated. Instant PDF.</p>
-              <p class="product__price">$17.99</p>
+              <p class="product__price">{studentPlanner.compareAtPrice && <s>${studentPlanner.compareAtPrice.toFixed(2)}</s>} ${studentPlanner.price.toFixed(2)}</p>
               <a class="btn btn--secondary" href="/shop/adhd-student-planner/">See all 10 pages</a>
             </div>
           </article>
@@ -130,7 +130,7 @@ const jsonLd = [
               <h3><a href="/shop/adhd-work-focus-planner/" style="color:inherit;text-decoration:none">ADHD Work and Focus Planner</a></h3>
               <p>A workday system for getting unstuck, one tiny step at a time. A task breakdown page that reuses the Bundle's own goal-breakdown mechanism, a focus session tracker with a body-doubling slot, and no hourly grid anywhere.</p>
               <p class="product__facts">10 pages. Undated. Instant PDF.</p>
-              <p class="product__price">$17.99</p>
+              <p class="product__price">{workFocusPlanner.compareAtPrice && <s>${workFocusPlanner.compareAtPrice.toFixed(2)}</s>} ${workFocusPlanner.price.toFixed(2)}</p>
               <a class="btn btn--secondary" href="/shop/adhd-work-focus-planner/">See all 10 pages</a>
             </div>
           </article>
@@ -140,7 +140,7 @@ const jsonLd = [
               <h3><a href="/shop/adhd-family-household-planner/" style="color:inherit;text-decoration:none">ADHD Family and Household Planner</a></h3>
               <p>A household system for the ADHD parent who is done being the only one who remembers everything. A family week-at-a-glance command page, a mental load dump, and a chore rotation that reassigns who does what every week.</p>
               <p class="product__facts">10 pages. Undated. Instant PDF.</p>
-              <p class="product__price">$17.99</p>
+              <p class="product__price">{familyHouseholdPlanner.compareAtPrice && <s>${familyHouseholdPlanner.compareAtPrice.toFixed(2)}</s>} ${familyHouseholdPlanner.price.toFixed(2)}</p>
               <a class="btn btn--secondary" href="/shop/adhd-family-household-planner/">See all 10 pages</a>
             </div>
           </article>
@@ -181,7 +181,7 @@ const jsonLd = [
               <figcaption><b>Habit Tracker</b> <span class="soft">Seven circles a row. No streak column.</span></figcaption>
             </figure>
           </div>
-          <a class="btn btn--primary" href="/shop/adhd-planner-bundle/">See all 13 pages <span class="price">$17.99</span></a>
+          <a class="btn btn--primary" href="/shop/adhd-planner-bundle/">See all 13 pages <span class="price">${adhdPlannerBundle.price.toFixed(2)}</span></a>
         </div>
       </div>
     </section>

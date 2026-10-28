@@ -8,13 +8,15 @@ import { newYearNoResolutions, findPage } from '../data/products';
 import { SITE, breadcrumbNode } from '../lib/seo';
 
 const gumroadUrl = newYearNoResolutions.gumroad;
+const payhipUrl = newYearNoResolutions.payhip;
+const price = newYearNoResolutions.price;
 const resolution = findPage(newYearNoResolutions, 'instead-of-a-resolution')!;
 const checkin = findPage(newYearNoResolutions, 'monthly-checkin')!;
 const path = '/new-year-no-resolutions/';
 const canonicalURL = `${SITE}${path}`;
 
 const faq = [
-  { q: 'Is it really free?', a: 'Yes. It is pay what you want on Gumroad, and $0 is a fine amount to pay.' },
+  { q: 'Is it printed and mailed?', a: 'No. It is a digital PDF download, viewable and checkable off on your phone or tablet, or printed at home if you prefer.' },
   { q: 'US Letter or A4?', a: 'Both sizes are in the download.' },
   { q: 'Is this a habit tracker?', a: 'No -- the free habit tracker is a weekly 7-day grid. This is a yearly goal page: one re-entry-point plan, checked once a month, not daily.' },
 ];
@@ -24,14 +26,14 @@ const jsonLd = [
   {
     '@type': 'Product',
     '@id': `${canonicalURL}#product`,
-    name: 'Free New Year No Resolutions Goal Page Printable',
-    description: 'A free two-page printable goal-setting system for ADHD brains built on re-entry points instead of streaks: write the goal and your restart rules in advance, then a 12-month check-in with no streak math. US Letter and A4, instant PDF.',
+    name: 'New Year No Resolutions Goal Page Printable',
+    description: 'A digital two-page printable goal-setting system for ADHD brains built on re-entry points instead of streaks: write the goal and your restart rules in advance, then a 12-month check-in with no streak math. US Letter and A4, instant PDF.',
     image: [`${SITE}/og/new-year-no-resolutions.png`],
     brand: { '@type': 'Brand', name: 'Calm Brain Co' },
     url: canonicalURL,
     offers: {
       '@type': 'Offer',
-      price: 0,
+      price,
       priceCurrency: 'USD',
       url: gumroadUrl,
       availability: 'https://schema.org/InStock',
@@ -42,15 +44,15 @@ const jsonLd = [
 ];
 ---
 <BaseLayout
-  title="New Year, No Resolutions: Free ADHD Goal-Setting Printable"
-  description="A free two-page goal page built on re-entry points instead of streaks: write your restart rules in advance, then a 12-month check-in with no streak math. US Letter and A4. $0 is fine."
+  title="New Year, No Resolutions: ADHD Goal-Setting Printable"
+  description="A digital two-page goal page built on re-entry points instead of streaks: write your restart rules in advance, then a 12-month check-in with no streak math. US Letter and A4, $4.99."
   path={path}
   ogImage="/og/new-year-no-resolutions.png"
   type="product"
-  price={0}
+  price={price}
   jsonLd={jsonLd}
 >
-  <Header current="free" />
+  <Header />
   <main id="main">
     <section class="phero" aria-labelledby="free-title">
       <div class="wrap">
@@ -59,11 +61,12 @@ const jsonLd = [
           <h1 id="free-title">A re-entry point, not a resolution</h1>
           <p class="phero__promise">Write down what happens after a missed day or a missed week, before you need it. No streak to protect, no zero to explain, just a plan for being human.</p>
           <div class="phero__buy" id="buy">
-            <div class="phero__pricerow"><span class="phero__price">Free</span><span class="phero__pricenote">pay what you want, $0 is fine</span></div>
+            <div class="phero__pricerow"><span class="phero__price">$4.99</span><span class="phero__pricenote">instant digital PDF download</span></div>
             <div class="phero__actions">
-              <a class="btn btn--primary" href={gumroadUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'lead')">Get it free on Gumroad</a>
+              <a class="btn btn--primary" href={gumroadUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'checkout', {value: 4.99, currency: 'USD'})">Get it on Gumroad</a>
+              <a class="btn btn--secondary" href={payhipUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'checkout', {value: 4.99, currency: 'USD'})">Buy on Payhip</a>
             </div>
-            <p class="phero__after">Opens Gumroad. The PDF is yours straight after.</p>
+            <p class="phero__after">Either one emails you the PDF straight after payment.</p>
           </div>
           <dl class="facts">
             <div><dt>Pages</dt><dd>2</dd></div>
@@ -106,9 +109,10 @@ const jsonLd = [
     <section class="chunk chunk--tint buy" aria-labelledby="buy-title">
       <div class="wrap buy__box">
         <h2 id="buy-title">New Year, No Resolutions</h2>
-        <div class="phero__pricerow"><span class="phero__price">Free</span><span class="phero__pricenote">pay what you want on Gumroad, $0 is fine</span></div>
+        <div class="phero__pricerow"><span class="phero__price">$4.99</span><span class="phero__pricenote">instant digital PDF download</span></div>
         <div class="phero__actions">
-          <a class="btn btn--primary" href={gumroadUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'lead')">Get it free on Gumroad</a>
+          <a class="btn btn--primary" href={gumroadUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'checkout', {value: 4.99, currency: 'USD'})">Get it on Gumroad</a>
+          <a class="btn btn--secondary" href={payhipUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'checkout', {value: 4.99, currency: 'USD'})">Buy on Payhip</a>
         </div>
       </div>
     </section>

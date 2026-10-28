@@ -8,13 +8,15 @@ import { holidayGiftBudgetTracker, findPage } from '../data/products';
 import { SITE, breadcrumbNode } from '../lib/seo';
 
 const gumroadUrl = holidayGiftBudgetTracker.gumroad;
+const payhipUrl = holidayGiftBudgetTracker.payhip;
+const price = holidayGiftBudgetTracker.price;
 const giftList = findPage(holidayGiftBudgetTracker, 'gift-list-budget')!;
 const spending = findPage(holidayGiftBudgetTracker, 'spending-overview')!;
 const path = '/holiday-gift-budget-tracker/';
 const canonicalURL = `${SITE}${path}`;
 
 const faq = [
-  { q: 'Is it really free?', a: 'Yes. It is pay what you want on Gumroad, and $0 is a fine amount to pay.' },
+  { q: 'Is it printed and mailed?', a: 'No. It is a digital PDF download, viewable and checkable off on your phone or tablet, or printed at home if you prefer.' },
   { q: 'US Letter or A4?', a: 'Both sizes are in the download.' },
   { q: 'Does it replace the full Budget Planner?', a: 'No, it is a focused two-page seasonal companion. The full ADHD-Friendly Budget Planner covers the rest of the year: monthly overview, debt payoff, subscriptions, savings and net worth.' },
 ];
@@ -24,14 +26,14 @@ const jsonLd = [
   {
     '@type': 'Product',
     '@id': `${canonicalURL}#product`,
-    name: 'Free Holiday Gift & Budget Tracker Printable',
-    description: 'A free two-page printable for holiday gift and budget tracking: a per-person gift list with budget column, and a five-category holiday spending overview. US Letter and A4, instant PDF.',
+    name: 'Holiday Gift & Budget Tracker Printable',
+    description: 'A digital two-page printable for holiday gift and budget tracking: a per-person gift list with budget column, and a five-category holiday spending overview. US Letter and A4, instant PDF.',
     image: [`${SITE}/og/holiday-gift-budget-tracker.png`],
     brand: { '@type': 'Brand', name: 'Calm Brain Co' },
     url: canonicalURL,
     offers: {
       '@type': 'Offer',
-      price: 0,
+      price,
       priceCurrency: 'USD',
       url: gumroadUrl,
       availability: 'https://schema.org/InStock',
@@ -42,15 +44,15 @@ const jsonLd = [
 ];
 ---
 <BaseLayout
-  title="Free Holiday Gift & Budget Tracker Printable (ADHD-Friendly)"
-  description="A free two-page holiday printable: a gift list with a budget column per person, and a five-category holiday spending overview. US Letter and A4. $0 is fine."
+  title="Holiday Gift & Budget Tracker Printable (ADHD-Friendly)"
+  description="A digital two-page holiday printable: a gift list with a budget column per person, and a five-category holiday spending overview. US Letter and A4, $4.99."
   path={path}
   ogImage="/og/holiday-gift-budget-tracker.png"
   type="product"
-  price={0}
+  price={price}
   jsonLd={jsonLd}
 >
-  <Header current="free" />
+  <Header />
   <main id="main">
     <section class="phero" aria-labelledby="free-title">
       <div class="wrap">
@@ -59,11 +61,12 @@ const jsonLd = [
           <h1 id="free-title">Short bursts, not one overwhelming shopping trip</h1>
           <p class="phero__promise">A written budget per person, and a five-category spending overview for the whole season. Write the number down before you shop, not after.</p>
           <div class="phero__buy" id="buy">
-            <div class="phero__pricerow"><span class="phero__price">Free</span><span class="phero__pricenote">pay what you want, $0 is fine</span></div>
+            <div class="phero__pricerow"><span class="phero__price">$4.99</span><span class="phero__pricenote">instant digital PDF download</span></div>
             <div class="phero__actions">
-              <a class="btn btn--primary" href={gumroadUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'lead')">Get it free on Gumroad</a>
+              <a class="btn btn--primary" href={gumroadUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'checkout', {value: 4.99, currency: 'USD'})">Get it on Gumroad</a>
+              <a class="btn btn--secondary" href={payhipUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'checkout', {value: 4.99, currency: 'USD'})">Buy on Payhip</a>
             </div>
-            <p class="phero__after">Opens Gumroad. The PDF is yours straight after.</p>
+            <p class="phero__after">Either one emails you the PDF straight after payment.</p>
           </div>
           <dl class="facts">
             <div><dt>Pages</dt><dd>2</dd></div>
@@ -106,9 +109,10 @@ const jsonLd = [
     <section class="chunk chunk--tint buy" aria-labelledby="buy-title">
       <div class="wrap buy__box">
         <h2 id="buy-title">Holiday Gift & Budget Tracker</h2>
-        <div class="phero__pricerow"><span class="phero__price">Free</span><span class="phero__pricenote">pay what you want on Gumroad, $0 is fine</span></div>
+        <div class="phero__pricerow"><span class="phero__price">$4.99</span><span class="phero__pricenote">instant digital PDF download</span></div>
         <div class="phero__actions">
-          <a class="btn btn--primary" href={gumroadUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'lead')">Get it free on Gumroad</a>
+          <a class="btn btn--primary" href={gumroadUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'checkout', {value: 4.99, currency: 'USD'})">Get it on Gumroad</a>
+          <a class="btn btn--secondary" href={payhipUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'checkout', {value: 4.99, currency: 'USD'})">Buy on Payhip</a>
         </div>
       </div>
     </section>

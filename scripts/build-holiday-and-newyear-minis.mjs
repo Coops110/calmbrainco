@@ -143,7 +143,7 @@ const holidayPages = [
     title: null,
     body: () => `
       <div class="cover">
-        <span class="pill">FREE &middot; 2 PRINTABLE PAGES</span>
+        <span class="pill">DIGITAL &middot; 2 PAGES</span>
         <h1 class="cover__title">Holiday Gift &amp;<br/>Budget Tracker</h1>
         <p class="cover__sub">Short bursts, not one overwhelming shopping trip.<br/>One page per person, one page for the whole budget.</p>
         <div class="cover__dots">
@@ -191,7 +191,7 @@ const newYearPages = [
     title: null,
     body: () => `
       <div class="cover">
-        <span class="pill">FREE &middot; 2 PRINTABLE PAGES</span>
+        <span class="pill">DIGITAL &middot; 2 PAGES</span>
         <h1 class="cover__title">New Year,<br/>No Resolutions</h1>
         <p class="cover__sub">Resolutions assume a brain that runs on streaks.<br/>This page assumes the real one: re-entry points, not restarts from zero.</p>
         <div class="cover__dots">

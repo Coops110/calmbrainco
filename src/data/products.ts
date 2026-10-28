@@ -249,17 +249,15 @@ export const familyHouseholdPlanner: Product = {
   ],
 };
 
-// Two free seasonal mini-printables (2 real content pages each), same tier
-// as the free habit tracker -- pay-what-you-want lead magnets with their
-// own standalone landing page, not listed in `products` below so they don't
-// duplicate-list on /shop or the homepage grid, matching the established
-// pattern used for minimalist-printable-planner.astro and
-// productivity-aesthetic-daily-planning.astro.
+// Two seasonal mini-printables (2 real content pages each), standalone
+// landing pages not listed in `products` below so they don't duplicate-list
+// on /shop or the homepage grid, matching the established pattern used for
+// minimalist-printable-planner.astro and productivity-aesthetic-daily-planning.astro.
 export const holidayGiftBudgetTracker: Product = {
   slug: 'holiday-gift-budget-tracker',
   title: 'Holiday Gift & Budget Tracker',
   shortName: 'Holiday',
-  price: 0,
+  price: 4.99,
   pageCount: 2,
   gumroad: 'https://cooperhawk64.gumroad.com/l/llycep',
   payhip: 'https://payhip.com/b/XVACN',
@@ -274,7 +272,7 @@ export const newYearNoResolutions: Product = {
   slug: 'new-year-no-resolutions',
   title: 'New Year, No Resolutions',
   shortName: 'New Year',
-  price: 0,
+  price: 4.99,
   pageCount: 2,
   gumroad: 'https://cooperhawk64.gumroad.com/l/ofrck',
   payhip: 'https://payhip.com/b/EP4zI',

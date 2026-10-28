@@ -1,6 +1,6 @@
 ---
 title: "ADHD and Holiday Overwhelm: A Realistic Way to Shop and Budget"
-description: "Holiday shopping overwhelms ADHD brains for specific, fixable reasons. Short bursts instead of one big trip, a written budget instead of a mental one, and the free gift and budget tracker built around both."
+description: "Holiday shopping overwhelms ADHD brains for specific, fixable reasons. Short bursts instead of one big trip, a written budget instead of a mental one, and the gift and budget tracker built around both."
 publishDate: "2026-10-28"
 category: "ADHD"
 tags: ["holiday", "gift-tracker", "adhd", "budget"]
@@ -28,4 +28,4 @@ Two things, kept deliberately separate: who you're buying for, with a budget and
 
 ## Where this lives
 
-The [Holiday Gift & Budget Tracker](/holiday-gift-budget-tracker/) is a free two-page printable built around exactly this split: a per-person gift list with a budget column, and a five-category spending overview. Pay what you want, instant PDF.
+The [Holiday Gift & Budget Tracker](/holiday-gift-budget-tracker/) is a digital two-page printable built around exactly this split: a per-person gift list with a budget column, and a five-category spending overview. $4.99, instant PDF.

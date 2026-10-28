@@ -32,4 +32,4 @@ One honest question a month, not thirty check marks: did I move toward this at a
 
 ## Where this lives
 
-[New Year, No Resolutions](/new-year-no-resolutions/) is a free two-page printable built on exactly this pattern: a page to write the goal, its smallest version, and both re-entry rules down in advance, plus a twelve-month check-in with no streak math anywhere on it. Pay what you want, instant PDF.
+[New Year, No Resolutions](/new-year-no-resolutions/) is a digital two-page printable built on exactly this pattern: a page to write the goal, its smallest version, and both re-entry rules down in advance, plus a twelve-month check-in with no streak math anywhere on it. $4.99, instant PDF.

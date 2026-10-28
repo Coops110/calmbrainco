@@ -5,7 +5,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import FaqList from '../../components/FaqList.astro';
-import { adhdPlannerBundle, budgetPlanner, homeResetPlanner, studentPlanner, workFocusPlanner, familyHouseholdPlanner } from '../../data/products';
+import { adhdPlannerBundle, budgetPlanner, homeResetPlanner, studentPlanner, workFocusPlanner, familyHouseholdPlanner, holidayGiftBudgetTracker, newYearNoResolutions, findPage } from '../../data/products';
 import { SITE, breadcrumbNode } from '../../lib/seo';
 
 const bundleEntry = await getEntry('products', 'adhd-planner-bundle');
@@ -14,6 +14,8 @@ const homeResetEntry = await getEntry('products', 'adhd-home-reset-planner');
 const studentEntry = await getEntry('products', 'adhd-student-planner');
 const workFocusEntry = await getEntry('products', 'adhd-work-focus-planner');
 const familyEntry = await getEntry('products', 'adhd-family-household-planner');
+const holidayCover = findPage(holidayGiftBudgetTracker, 'gift-list-budget')!;
+const newYearCover = findPage(newYearNoResolutions, 'instead-of-a-resolution')!;
 const path = '/shop/';
 const canonicalURL = `${SITE}${path}`;
 
@@ -29,13 +31,13 @@ const jsonLd = [
     '@id': `${canonicalURL}#webpage`,
     url: canonicalURL,
     name: 'Shop: Printable ADHD Planners (PDF)',
-    description: 'Six printable PDF planners for ADHD brains, singles from $9.99: the 13-page ADHD Planner Bundle ($24.99), the 9-page ADHD-Friendly Budget Planner, the 11-page ADHD Home Reset Planner, the 10-page ADHD Student Planner, the 10-page ADHD Work and Focus Planner, and the 10-page ADHD Family and Household Planner. Undated, US Letter and A4, instant download.',
+    description: 'Eight printable PDF planners for ADHD brains, singles from $4.99: the 13-page ADHD Planner Bundle ($24.99), the 9-page ADHD-Friendly Budget Planner, the 11-page ADHD Home Reset Planner, the 10-page ADHD Student Planner, the 10-page ADHD Work and Focus Planner, the 10-page ADHD Family and Household Planner, and two 2-page seasonal printables. Undated, US Letter and A4, instant download.',
     isPartOf: { '@id': `${SITE}/#website` },
     inLanguage: 'en',
     mainEntity: {
       '@type': 'ItemList',
       '@id': `${canonicalURL}#list`,
-      numberOfItems: 6,
+      numberOfItems: 8,
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'ADHD Planner Bundle', url: `${SITE}/shop/adhd-planner-bundle/` },
         { '@type': 'ListItem', position: 2, name: 'ADHD-Friendly Budget Planner', url: `${SITE}/shop/budget-planner/` },
@@ -43,6 +45,8 @@ const jsonLd = [
         { '@type': 'ListItem', position: 4, name: 'ADHD Student Planner', url: `${SITE}/shop/adhd-student-planner/` },
         { '@type': 'ListItem', position: 5, name: 'ADHD Work and Focus Planner', url: `${SITE}/shop/adhd-work-focus-planner/` },
         { '@type': 'ListItem', position: 6, name: 'ADHD Family and Household Planner', url: `${SITE}/shop/adhd-family-household-planner/` },
+        { '@type': 'ListItem', position: 7, name: 'Holiday Gift & Budget Tracker', url: `${SITE}/holiday-gift-budget-tracker/` },
+        { '@type': 'ListItem', position: 8, name: 'New Year, No Resolutions', url: `${SITE}/new-year-no-resolutions/` },
       ],
     },
   },
@@ -50,7 +54,7 @@ const jsonLd = [
 ---
 <BaseLayout
   title="Shop: Printable ADHD Planners (PDF)"
-  description="Six undated printable PDF planners for ADHD brains, singles from $9.99: the 13-page ADHD Planner Bundle ($24.99), the 9-page ADHD-Friendly Budget Planner, the 11-page ADHD Home Reset Planner, the 10-page ADHD Student Planner, the 10-page ADHD Work and Focus Planner, and the 10-page ADHD Family and Household Planner. US Letter and A4, instant download."
+  description="Eight undated printable PDF planners for ADHD brains, singles from $4.99: the 13-page ADHD Planner Bundle ($24.99), the 9-page ADHD-Friendly Budget Planner, the 11-page ADHD Home Reset Planner, the 10-page ADHD Student Planner, the 10-page ADHD Work and Focus Planner, the 10-page ADHD Family and Household Planner, and two 2-page seasonal printables. US Letter and A4, instant download."
   path={path}
   ogImage="/og/shop.png"
   jsonLd={jsonLd}
@@ -60,7 +64,7 @@ const jsonLd = [
     <section class="page-hero">
       <div class="wrap">
         <h1>Shop</h1>
-        <p class="measure">Six planners, one free page. All printable PDFs, undated, US Letter and A4.</p>
+        <p class="measure">Eight planners, one free page. All printable PDFs, undated, US Letter and A4.</p>
       </div>
     </section>
 
@@ -129,6 +133,26 @@ const jsonLd = [
               <p class="product__facts">10 pages. Undated. Instant PDF.</p>
               <p class="product__price">{familyHouseholdPlanner.compareAtPrice && <s>${familyHouseholdPlanner.compareAtPrice.toFixed(2)}</s>} ${familyHouseholdPlanner.price.toFixed(2)}</p>
               <a class="btn btn--secondary" href="/shop/adhd-family-household-planner/">See all 10 pages</a>
+            </div>
+          </article>
+          <article class="product">
+            <div class="paper paper--cover"><Image src={holidayCover.img} alt={holidayCover.alt} width={420} /></div>
+            <div class="product__body">
+              <h3><a href="/holiday-gift-budget-tracker/" style="color:inherit;text-decoration:none">Holiday Gift & Budget Tracker</a></h3>
+              <p>Short bursts, not one overwhelming shopping trip. A written budget per person, and a five-category spending overview for the whole season.</p>
+              <p class="product__facts">2 pages. Undated. Instant digital PDF.</p>
+              <p class="product__price">${holidayGiftBudgetTracker.price.toFixed(2)}</p>
+              <a class="btn btn--secondary" href="/holiday-gift-budget-tracker/">See both pages</a>
+            </div>
+          </article>
+          <article class="product">
+            <div class="paper paper--cover"><Image src={newYearCover.img} alt={newYearCover.alt} width={420} /></div>
+            <div class="product__body">
+              <h3><a href="/new-year-no-resolutions/" style="color:inherit;text-decoration:none">New Year, No Resolutions</a></h3>
+              <p>A re-entry point, not a resolution. Write your restart rules in advance, then a 12-month check-in with no streak math anywhere on it.</p>
+              <p class="product__facts">2 pages. Undated. Instant digital PDF.</p>
+              <p class="product__price">${newYearNoResolutions.price.toFixed(2)}</p>
+              <a class="btn btn--secondary" href="/new-year-no-resolutions/">See both pages</a>
             </div>
           </article>
         </div>

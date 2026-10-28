@@ -7,7 +7,7 @@ import Footer from '../components/Footer.astro';
 import BigThree from '../components/BigThree.astro';
 import Reasons from '../components/Reasons.astro';
 import FaqList from '../components/FaqList.astro';
-import { adhdPlannerBundle, budgetPlanner, homeResetPlanner, studentPlanner, workFocusPlanner, familyHouseholdPlanner, findPage } from '../data/products';
+import { adhdPlannerBundle, budgetPlanner, homeResetPlanner, studentPlanner, workFocusPlanner, familyHouseholdPlanner, holidayGiftBudgetTracker, newYearNoResolutions, findPage } from '../data/products';
 import { SITE } from '../lib/seo';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
@@ -18,6 +18,8 @@ const weekly = findPage(adhdPlannerBundle, 'weekly-planner')!;
 const daily = findPage(adhdPlannerBundle, 'daily-planner')!;
 const brainDump = findPage(adhdPlannerBundle, 'brain-dump')!;
 const habitTracker = findPage(adhdPlannerBundle, 'habit-tracker')!;
+const holidayCover = findPage(holidayGiftBudgetTracker, 'gift-list-budget')!;
+const newYearCover = findPage(newYearNoResolutions, 'instead-of-a-resolution')!;
 
 const faq = [
   { q: 'Is this a physical planner or a printable?', a: 'A printable PDF. You download it the moment you buy and print it yourself, at home or at a copy shop. Nothing is shipped.' },
@@ -40,7 +42,7 @@ const jsonLd = [
     '@type': 'ItemList',
     '@id': `${SITE}/#products`,
     name: 'Printable planners by Calm Brain Co',
-    numberOfItems: 6,
+    numberOfItems: 8,
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'ADHD Planner Bundle', url: `${SITE}/shop/adhd-planner-bundle/` },
       { '@type': 'ListItem', position: 2, name: 'ADHD-Friendly Budget Planner', url: `${SITE}/shop/budget-planner/` },
@@ -48,6 +50,8 @@ const jsonLd = [
       { '@type': 'ListItem', position: 4, name: 'ADHD Student Planner', url: `${SITE}/shop/adhd-student-planner/` },
       { '@type': 'ListItem', position: 5, name: 'ADHD Work and Focus Planner', url: `${SITE}/shop/adhd-work-focus-planner/` },
       { '@type': 'ListItem', position: 6, name: 'ADHD Family and Household Planner', url: `${SITE}/shop/adhd-family-household-planner/` },
+      { '@type': 'ListItem', position: 7, name: 'Holiday Gift & Budget Tracker', url: `${SITE}/holiday-gift-budget-tracker/` },
+      { '@type': 'ListItem', position: 8, name: 'New Year, No Resolutions', url: `${SITE}/new-year-no-resolutions/` },
     ],
   },
 ];
@@ -81,7 +85,7 @@ const jsonLd = [
         <div class="chunk__head">
           <span class="chunk__label">Morning</span>
           <h2 id="morning-title">Pick a planner</h2>
-          <p>Six printable systems, built the same way. Each is a PDF you download the moment you buy, with US Letter and A4 in the same file.</p>
+          <p>Eight printable systems, built the same way. Each is a PDF you download the moment you buy, with US Letter and A4 in the same file.</p>
         </div>
         <div class="products">
           <article class="product">
@@ -144,6 +148,26 @@ const jsonLd = [
               <a class="btn btn--secondary" href="/shop/adhd-family-household-planner/">See all 10 pages</a>
             </div>
           </article>
+          <article class="product">
+            <div class="paper paper--cover"><Image src={holidayCover.img} alt={holidayCover.alt} loading="lazy" width={420} /></div>
+            <div class="product__body">
+              <h3><a href="/holiday-gift-budget-tracker/" style="color:inherit;text-decoration:none">Holiday Gift & Budget Tracker</a></h3>
+              <p>Short bursts, not one overwhelming shopping trip. A written budget per person, and a five-category spending overview for the whole season.</p>
+              <p class="product__facts">2 pages. Undated. Instant digital PDF.</p>
+              <p class="product__price">${holidayGiftBudgetTracker.price.toFixed(2)}</p>
+              <a class="btn btn--secondary" href="/holiday-gift-budget-tracker/">See both pages</a>
+            </div>
+          </article>
+          <article class="product">
+            <div class="paper paper--cover"><Image src={newYearCover.img} alt={newYearCover.alt} loading="lazy" width={420} /></div>
+            <div class="product__body">
+              <h3><a href="/new-year-no-resolutions/" style="color:inherit;text-decoration:none">New Year, No Resolutions</a></h3>
+              <p>A re-entry point, not a resolution. Write your restart rules in advance, then a 12-month check-in with no streak math anywhere on it.</p>
+              <p class="product__facts">2 pages. Undated. Instant digital PDF.</p>
+              <p class="product__price">${newYearNoResolutions.price.toFixed(2)}</p>
+              <a class="btn btn--secondary" href="/new-year-no-resolutions/">See both pages</a>
+            </div>
+          </article>
         </div>
         <p class="chunk__foot">Checkout happens on Gumroad or Payhip. No account on this site, no shipping, no waiting: the PDF is yours within a minute of paying.</p>
       </div>
@@ -200,7 +224,6 @@ const jsonLd = [
               <p>It is the exact page from the bundle: seven circles a row, no streak counter, US Letter and A4. Print it, use it for a week, and you will know whether the rest of the system is for you.</p>
               <p class="soft small">Pay what you want on Gumroad. $0 is fine.</p>
               <a class="btn btn--primary" href="https://cooperhawk64.gumroad.com/l/jmrfmo" rel="nofollow" onclick="window.pintrk && pintrk('track', 'lead')">Get it free on Gumroad</a>
-              <p class="soft small" style="margin-top:14px">Two more digital seasonal pages: a <a href="/holiday-gift-budget-tracker/">holiday gift &amp; budget tracker</a> and a <a href="/new-year-no-resolutions/">New Year, no resolutions</a> goal page.</p>
             </div>
           </div>
         </div>

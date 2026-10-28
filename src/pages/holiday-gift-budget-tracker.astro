@@ -1,0 +1,138 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FaqList from '../components/FaqList.astro';
+import { holidayGiftBudgetTracker, findPage } from '../data/products';
+import { SITE, breadcrumbNode } from '../lib/seo';
+
+const gumroadUrl = holidayGiftBudgetTracker.gumroad;
+const giftList = findPage(holidayGiftBudgetTracker, 'gift-list-budget')!;
+const spending = findPage(holidayGiftBudgetTracker, 'spending-overview')!;
+const path = '/holiday-gift-budget-tracker/';
+const canonicalURL = `${SITE}${path}`;
+
+const faq = [
+  { q: 'Is it really free?', a: 'Yes. It is pay what you want on Gumroad, and $0 is a fine amount to pay.' },
+  { q: 'US Letter or A4?', a: 'Both sizes are in the download.' },
+  { q: 'Does it replace the full Budget Planner?', a: 'No, it is a focused two-page seasonal companion. The full ADHD-Friendly Budget Planner covers the rest of the year: monthly overview, debt payoff, subscriptions, savings and net worth.' },
+];
+
+const jsonLd = [
+  breadcrumbNode(canonicalURL, [{ name: 'Holiday Gift & Budget Tracker' }]),
+  {
+    '@type': 'Product',
+    '@id': `${canonicalURL}#product`,
+    name: 'Free Holiday Gift & Budget Tracker Printable',
+    description: 'A free two-page printable for holiday gift and budget tracking: a per-person gift list with budget column, and a five-category holiday spending overview. US Letter and A4, instant PDF.',
+    image: [`${SITE}/og/holiday-gift-budget-tracker.png`],
+    brand: { '@type': 'Brand', name: 'Calm Brain Co' },
+    url: canonicalURL,
+    offers: {
+      '@type': 'Offer',
+      price: 0,
+      priceCurrency: 'USD',
+      url: gumroadUrl,
+      availability: 'https://schema.org/InStock',
+      seller: { '@type': 'OnlineStore', '@id': `${SITE}/#organization` },
+    },
+    isRelatedTo: { '@id': `${SITE}/shop/budget-planner/#product` },
+  },
+];
+---
+<BaseLayout
+  title="Free Holiday Gift & Budget Tracker Printable (ADHD-Friendly)"
+  description="A free two-page holiday printable: a gift list with a budget column per person, and a five-category holiday spending overview. US Letter and A4. $0 is fine."
+  path={path}
+  ogImage="/og/holiday-gift-budget-tracker.png"
+  type="product"
+  price={0}
+  jsonLd={jsonLd}
+>
+  <Header current="free" />
+  <main id="main">
+    <section class="phero" aria-labelledby="free-title">
+      <div class="wrap">
+        <div class="phero__copy">
+          <p class="crumb"><a href="/shop/">Planners</a><span aria-hidden="true">/</span>Holiday gift & budget tracker</p>
+          <h1 id="free-title">Short bursts, not one overwhelming shopping trip</h1>
+          <p class="phero__promise">A written budget per person, and a five-category spending overview for the whole season. Write the number down before you shop, not after.</p>
+          <div class="phero__buy" id="buy">
+            <div class="phero__pricerow"><span class="phero__price">Free</span><span class="phero__pricenote">pay what you want, $0 is fine</span></div>
+            <div class="phero__actions">
+              <a class="btn btn--primary" href={gumroadUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'lead')">Get it free on Gumroad</a>
+            </div>
+            <p class="phero__after">Opens Gumroad. The PDF is yours straight after.</p>
+          </div>
+          <dl class="facts">
+            <div><dt>Pages</dt><dd>2</dd></div>
+            <div><dt>Dates</dt><dd>Undated</dd></div>
+            <div><dt>Sizes</dt><dd>US Letter and A4</dd></div>
+            <div><dt>Format</dt><dd>Instant PDF, clickable navigation</dd></div>
+          </dl>
+        </div>
+        <div class="desk">
+          <div class="paper paper--short"><Image src={giftList.img} alt={giftList.alt} loading="eager" width={480} /></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chunk chunk--mint" aria-labelledby="why-title">
+      <div class="wrap">
+        <div class="chunk__head">
+          <h2 id="why-title">Why two separate pages instead of one</h2>
+          <p>The gift list and the overall budget are two different jobs. The gift list page tracks who, how much, and whether it's bought yet, person by person. The spending overview steps back to the whole season: gifts, food and entertaining, travel, decor and cards, and everything else, budgeted next to actual so a problem shows up early instead of in January.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="chunk" aria-labelledby="pages-title">
+      <div class="wrap">
+        <h2 id="pages-title" class="sr-only">What's inside</h2>
+        <div class="pagegrid">
+          <div class="pagegrid__item">
+            <Image src={giftList.img} alt={giftList.alt} loading="lazy" width={420} />
+            <p class="pagegrid__caption">{giftList.caption}</p>
+          </div>
+          <div class="pagegrid__item">
+            <Image src={spending.img} alt={spending.alt} loading="lazy" width={420} />
+            <p class="pagegrid__caption">{spending.caption}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chunk chunk--tint buy" aria-labelledby="buy-title">
+      <div class="wrap buy__box">
+        <h2 id="buy-title">Holiday Gift & Budget Tracker</h2>
+        <div class="phero__pricerow"><span class="phero__price">Free</span><span class="phero__pricenote">pay what you want on Gumroad, $0 is fine</span></div>
+        <div class="phero__actions">
+          <a class="btn btn--primary" href={gumroadUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'lead')">Get it free on Gumroad</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="chunk" aria-labelledby="source-title">
+      <div class="wrap">
+        <h2 id="source-title" class="sr-only">Where this fits</h2>
+        <p class="measure">For the rest of the year, the full <a href="/shop/budget-planner/">ADHD-Friendly Budget Planner</a> covers the parts a seasonal tracker doesn't: a monthly overview, weekly spending log, bill tracker, savings goal, debt payoff and subscriptions. Read more in <a href="/blog/adhd-holiday-gift-budget-overwhelm/">why the holidays hit ADHD brains harder</a>.</p>
+      </div>
+    </section>
+
+    <section class="chunk" aria-labelledby="faq-title">
+      <div class="wrap"><div class="questions">
+        <h2 id="faq-title">Questions</h2>
+        <FaqList faq={faq} />
+      </div></div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .pagegrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 8px; }
+  .pagegrid__item img { width: 100%; height: auto; border-radius: 12px; }
+  .pagegrid__caption { margin-top: 10px; font-size: 14px; color: var(--ink-soft, #5A6B65); }
+  @media (max-width: 720px) { .pagegrid { grid-template-columns: 1fr; } }
+</style>

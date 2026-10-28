@@ -104,6 +104,8 @@ async function main() {
   await renderCard('adhd-work-focus-planner', { eyebrow: 'Planner', title: 'ADHD Work and Focus Planner', caption: '10 pages, $17.99, undated PDF' });
   await renderCard('adhd-family-household-planner', { eyebrow: 'Planner', title: 'ADHD Family and Household Planner', caption: '10 pages, $9.99, undated PDF' });
   await renderCard('free-habit-tracker', { eyebrow: 'Free', title: 'A habit tracker with no streak to break', caption: 'Pay what you want, $0 is fine' });
+  await renderCard('holiday-gift-budget-tracker', { eyebrow: 'Free', title: 'Holiday Gift & Budget Tracker', caption: 'Pay what you want, $0 is fine' });
+  await renderCard('new-year-no-resolutions', { eyebrow: 'Free', title: 'New Year, No Resolutions', caption: 'Pay what you want, $0 is fine' });
   await renderCard('minimalist-printable-planner', { eyebrow: 'Shop', title: 'A minimalist printable planner', caption: '13 undated pages, $17.99' });
   await renderCard('productivity-aesthetic-daily-planning', { eyebrow: 'Shop', title: 'Calm, aesthetic daily planning', caption: '13 undated pages, $17.99' });
   await renderCard('blog', { eyebrow: 'Blog', title: 'Planning guides for ADHD brains' });

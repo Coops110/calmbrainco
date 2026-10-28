@@ -1,0 +1,138 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FaqList from '../components/FaqList.astro';
+import { newYearNoResolutions, findPage } from '../data/products';
+import { SITE, breadcrumbNode } from '../lib/seo';
+
+const gumroadUrl = newYearNoResolutions.gumroad;
+const resolution = findPage(newYearNoResolutions, 'instead-of-a-resolution')!;
+const checkin = findPage(newYearNoResolutions, 'monthly-checkin')!;
+const path = '/new-year-no-resolutions/';
+const canonicalURL = `${SITE}${path}`;
+
+const faq = [
+  { q: 'Is it really free?', a: 'Yes. It is pay what you want on Gumroad, and $0 is a fine amount to pay.' },
+  { q: 'US Letter or A4?', a: 'Both sizes are in the download.' },
+  { q: 'Is this a habit tracker?', a: 'No -- the free habit tracker is a weekly 7-day grid. This is a yearly goal page: one re-entry-point plan, checked once a month, not daily.' },
+];
+
+const jsonLd = [
+  breadcrumbNode(canonicalURL, [{ name: 'New Year, No Resolutions' }]),
+  {
+    '@type': 'Product',
+    '@id': `${canonicalURL}#product`,
+    name: 'Free New Year No Resolutions Goal Page Printable',
+    description: 'A free two-page printable goal-setting system for ADHD brains built on re-entry points instead of streaks: write the goal and your restart rules in advance, then a 12-month check-in with no streak math. US Letter and A4, instant PDF.',
+    image: [`${SITE}/og/new-year-no-resolutions.png`],
+    brand: { '@type': 'Brand', name: 'Calm Brain Co' },
+    url: canonicalURL,
+    offers: {
+      '@type': 'Offer',
+      price: 0,
+      priceCurrency: 'USD',
+      url: gumroadUrl,
+      availability: 'https://schema.org/InStock',
+      seller: { '@type': 'OnlineStore', '@id': `${SITE}/#organization` },
+    },
+    isRelatedTo: { '@id': `${SITE}/shop/adhd-planner-bundle/#product` },
+  },
+];
+---
+<BaseLayout
+  title="New Year, No Resolutions: Free ADHD Goal-Setting Printable"
+  description="A free two-page goal page built on re-entry points instead of streaks: write your restart rules in advance, then a 12-month check-in with no streak math. US Letter and A4. $0 is fine."
+  path={path}
+  ogImage="/og/new-year-no-resolutions.png"
+  type="product"
+  price={0}
+  jsonLd={jsonLd}
+>
+  <Header current="free" />
+  <main id="main">
+    <section class="phero" aria-labelledby="free-title">
+      <div class="wrap">
+        <div class="phero__copy">
+          <p class="crumb"><a href="/shop/">Planners</a><span aria-hidden="true">/</span>New Year, no resolutions</p>
+          <h1 id="free-title">A re-entry point, not a resolution</h1>
+          <p class="phero__promise">Write down what happens after a missed day or a missed week, before you need it. No streak to protect, no zero to explain, just a plan for being human.</p>
+          <div class="phero__buy" id="buy">
+            <div class="phero__pricerow"><span class="phero__price">Free</span><span class="phero__pricenote">pay what you want, $0 is fine</span></div>
+            <div class="phero__actions">
+              <a class="btn btn--primary" href={gumroadUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'lead')">Get it free on Gumroad</a>
+            </div>
+            <p class="phero__after">Opens Gumroad. The PDF is yours straight after.</p>
+          </div>
+          <dl class="facts">
+            <div><dt>Pages</dt><dd>2</dd></div>
+            <div><dt>Dates</dt><dd>Undated</dd></div>
+            <div><dt>Sizes</dt><dd>US Letter and A4</dd></div>
+            <div><dt>Format</dt><dd>Instant PDF, clickable navigation</dd></div>
+          </dl>
+        </div>
+        <div class="desk">
+          <div class="paper paper--short"><Image src={resolution.img} alt={resolution.alt} loading="eager" width={480} /></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chunk chunk--mint" aria-labelledby="why-title">
+      <div class="wrap">
+        <div class="chunk__head">
+          <h2 id="why-title">Why resolutions tend to fail ADHD brains specifically</h2>
+          <p>Resolutions assume sustained motivation over months, consistency without needing novelty, and comfort with a delayed reward -- three things a lot of ADHD brains are specifically wired against. The usual result isn't a lack of willpower, it's a format mismatch. A written re-entry point fixes the mismatch directly: the hard decision gets made once, in advance, instead of negotiated from scratch every time a day gets missed.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="chunk" aria-labelledby="pages-title">
+      <div class="wrap">
+        <h2 id="pages-title" class="sr-only">What's inside</h2>
+        <div class="pagegrid">
+          <div class="pagegrid__item">
+            <Image src={resolution.img} alt={resolution.alt} loading="lazy" width={420} />
+            <p class="pagegrid__caption">{resolution.caption}</p>
+          </div>
+          <div class="pagegrid__item">
+            <Image src={checkin.img} alt={checkin.alt} loading="lazy" width={420} />
+            <p class="pagegrid__caption">{checkin.caption}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chunk chunk--tint buy" aria-labelledby="buy-title">
+      <div class="wrap buy__box">
+        <h2 id="buy-title">New Year, No Resolutions</h2>
+        <div class="phero__pricerow"><span class="phero__price">Free</span><span class="phero__pricenote">pay what you want on Gumroad, $0 is fine</span></div>
+        <div class="phero__actions">
+          <a class="btn btn--primary" href={gumroadUrl} rel="nofollow" onclick="window.pintrk && pintrk('track', 'lead')">Get it free on Gumroad</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="chunk" aria-labelledby="source-title">
+      <div class="wrap">
+        <h2 id="source-title" class="sr-only">Where this fits</h2>
+        <p class="measure">This page pairs naturally with the <a href="/shop/adhd-planner-bundle/">ADHD Planner Bundle</a>'s own Goal Breakdown and Habit Tracker pages. Read more in <a href="/blog/adhd-new-year-no-resolutions/">why traditional resolutions fail ADHD brains, and what actually works instead</a>.</p>
+      </div>
+    </section>
+
+    <section class="chunk" aria-labelledby="faq-title">
+      <div class="wrap"><div class="questions">
+        <h2 id="faq-title">Questions</h2>
+        <FaqList faq={faq} />
+      </div></div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .pagegrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 8px; }
+  .pagegrid__item img { width: 100%; height: auto; border-radius: 12px; }
+  .pagegrid__caption { margin-top: 10px; font-size: 14px; color: var(--ink-soft, #5A6B65); }
+  @media (max-width: 720px) { .pagegrid { grid-template-columns: 1fr; } }
+</style>

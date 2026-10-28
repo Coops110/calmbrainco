@@ -71,6 +71,12 @@ import fCaregiverHandoff from '../assets/products/adhd-family-household-planner/
 import fMealRotation from '../assets/products/adhd-family-household-planner/meal-rotation.png';
 import fOneThing from '../assets/products/adhd-family-household-planner/one-thing-for-me.png';
 
+import holGiftList from '../assets/products/holiday-gift-budget-tracker/gift-list-budget.png';
+import holSpending from '../assets/products/holiday-gift-budget-tracker/spending-overview.png';
+
+import nyResolution from '../assets/products/new-year-no-resolutions/instead-of-a-resolution.png';
+import nyCheckin from '../assets/products/new-year-no-resolutions/monthly-checkin.png';
+
 export interface ProductPage {
   id: string;
   name: string;
@@ -240,6 +246,42 @@ export const familyHouseholdPlanner: Product = {
     { id: 'caregiver-handoff', name: 'Caregiver Handoff Notes', img: fCaregiverHandoff, alt: 'Caregiver Handoff Notes page: two blocks of blank lines, what is happening this week and what a partner, co-parent or sitter needs to know', caption: 'What a partner, co-parent, or sitter needs to know this week, in one place.' },
     { id: 'meal-rotation', name: 'Family Meal Rotation', img: fMealRotation, alt: 'Family Meal Rotation page: a table with columns for meal, groceries needed, and a make-again circle, across eight rows', caption: 'A short list of repeatable, kid-tolerated meals, not a new plan every single day.' },
     { id: 'one-thing-for-me', name: 'One Thing for Me', img: fOneThing, alt: 'One Thing for Me page: a single blank line for one small thing the parent does for themselves this week', caption: 'A single, deliberately small self-care line for the parent. Not a full page, so it never feels like one more thing.' },
+  ],
+};
+
+// Two free seasonal mini-printables (2 real content pages each), same tier
+// as the free habit tracker -- pay-what-you-want lead magnets with their
+// own standalone landing page, not listed in `products` below so they don't
+// duplicate-list on /shop or the homepage grid, matching the established
+// pattern used for minimalist-printable-planner.astro and
+// productivity-aesthetic-daily-planning.astro.
+export const holidayGiftBudgetTracker: Product = {
+  slug: 'holiday-gift-budget-tracker',
+  title: 'Holiday Gift & Budget Tracker',
+  shortName: 'Holiday',
+  price: 0,
+  pageCount: 2,
+  gumroad: 'https://cooperhawk64.gumroad.com/l/llycep',
+  payhip: 'https://payhip.com/b/XVACN',
+  pairsWithSlug: 'budget-planner',
+  pages: [
+    { id: 'gift-list-budget', name: 'Gift List & Budget', img: holGiftList, alt: 'Gift List and Budget page: a table with columns for who, budget, gift idea, and a bought circle, across ten rows', caption: 'Who, how much, what idea, bought yet. One page instead of five browser tabs.' },
+    { id: 'spending-overview', name: 'Holiday Spending Overview', img: holSpending, alt: 'Holiday Spending Overview page: a table with pre-printed categories (gifts, food and entertaining, travel, decor and cards, other) and columns for budgeted, actual, and a done circle', caption: 'Five honest categories, not a line item for every receipt.' },
+  ],
+};
+
+export const newYearNoResolutions: Product = {
+  slug: 'new-year-no-resolutions',
+  title: 'New Year, No Resolutions',
+  shortName: 'New Year',
+  price: 0,
+  pageCount: 2,
+  gumroad: 'https://cooperhawk64.gumroad.com/l/ofrck',
+  payhip: 'https://payhip.com/b/EP4zI',
+  pairsWithSlug: 'adhd-planner-bundle',
+  pages: [
+    { id: 'instead-of-a-resolution', name: 'Instead of a Resolution', img: nyResolution, alt: 'Instead of a Resolution page: four labeled blank lines for the goal, the smallest version, the restart rule if a day is missed, and the restart rule if a week is missed', caption: 'The re-entry point written down before you need it, not improvised mid-guilt-spiral in February.' },
+    { id: 'monthly-checkin', name: 'Monthly Check-In, Not a Streak', img: nyCheckin, alt: 'Monthly Check-In page: a twelve-row table, one row per month, with a did-I-move-toward-it circle and a one-line note column, no streak counter anywhere', caption: 'Twelve honest check-ins across the year. No chain to protect, no zero to explain.' },
   ],
 };
 

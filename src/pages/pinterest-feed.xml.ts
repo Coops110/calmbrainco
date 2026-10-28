@@ -1,7 +1,11 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { products } from '../data/products';
-import { SITE } from '../lib/seo';
+
+// Pinterest permanently blocked calmbrainco.shop as spam (2026-10-14) — every
+// Pinterest-facing link uses the pages.dev mirror instead, per the standing
+// rule locked 2026-10-22. Do not switch this to the SITE/.shop domain.
+const SITE = 'https://calmbrainco.pages.dev';
 
 function escapeXml(s: string): string {
   return s

@@ -95,11 +95,11 @@ const jsonLd = [
         <h2 id="pages-title" class="sr-only">What's inside</h2>
         <div class="pagegrid">
           <div class="pagegrid__item">
-            <Image src={resolution.img} alt={resolution.alt} loading="lazy" width={420} />
+            <div class="paper"><Image src={resolution.img} alt={resolution.alt} loading="lazy" width={420} /></div>
             <p class="pagegrid__caption">{resolution.caption}</p>
           </div>
           <div class="pagegrid__item">
-            <Image src={checkin.img} alt={checkin.alt} loading="lazy" width={420} />
+            <div class="paper"><Image src={checkin.img} alt={checkin.alt} loading="lazy" width={420} /></div>
             <p class="pagegrid__caption">{checkin.caption}</p>
           </div>
         </div>
@@ -136,7 +136,6 @@ const jsonLd = [
 
 <style>
   .pagegrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 8px; }
-  .pagegrid__item img { width: 100%; height: auto; border-radius: 12px; }
   .pagegrid__caption { margin-top: 10px; font-size: 14px; color: var(--ink-soft, #5A6B65); }
   @media (max-width: 720px) { .pagegrid { grid-template-columns: 1fr; } }
 </style>

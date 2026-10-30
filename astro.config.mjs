@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://calmbrainco.shop',
+  site: 'https://calmbrainco.pages.dev',
   trailingSlash: 'always',
   compressHTML: true,
   integrations: [

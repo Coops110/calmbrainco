@@ -94,7 +94,7 @@ async function renderCard(name, opts) {
 async function main() {
   await mkdir(outDir, { recursive: true });
 
-  await renderCard('default', { title: 'Printable planners for ADHD brains', caption: 'calmbrainco.shop' });
+  await renderCard('default', { title: 'Printable planners for ADHD brains', caption: 'calmbrainco.pages.dev' });
   await renderCard('home', { title: 'Plan the day you actually have.', caption: 'Printable planners for ADHD brains' });
   await renderCard('shop', { eyebrow: 'Shop', title: 'Printable ADHD planners, instant PDF', caption: '$17.99 each, undated, US Letter and A4' });
   await renderCard('adhd-planner-bundle', { eyebrow: 'Planner', title: 'ADHD Planner Bundle', caption: '13 pages, $17.99, undated PDF' });

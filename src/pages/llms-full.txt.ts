@@ -15,7 +15,7 @@ export const GET: APIRoute = async () => {
   const parts: string[] = [
     '# Calm Brain Co: full site text',
     '',
-    'Generated from the live content collections. Every product, blog post and key fact on calmbrainco.shop in one file.',
+    'Generated from the live content collections. Every product, blog post and key fact on calmbrainco.pages.dev in one file.',
     '',
   ];
 
@@ -23,7 +23,7 @@ export const GET: APIRoute = async () => {
     const product = products[entry.id];
     const { body } = entry;
     parts.push(`## ${entry.data.title}`);
-    parts.push(`https://calmbrainco.shop/shop/${entry.id}/`);
+    parts.push(`https://calmbrainco.pages.dev/shop/${entry.id}/`);
     parts.push('');
     parts.push(`Price: US$${product.price.toFixed(2)}. Pages: ${product.pageCount}. Format: PDF, US Letter and A4. Gumroad: ${product.gumroad} Payhip: ${product.payhip}`);
     parts.push('');
@@ -40,7 +40,7 @@ export const GET: APIRoute = async () => {
   for (const post of posts) {
     const { body } = post;
     parts.push(`## ${post.data.title}`);
-    parts.push(`https://calmbrainco.shop/blog/${post.id}/`);
+    parts.push(`https://calmbrainco.pages.dev/blog/${post.id}/`);
     parts.push(`Published: ${post.data.publishDate}${post.data.modifiedDate ? ` Updated: ${post.data.modifiedDate}` : ''}`);
     parts.push('');
     parts.push(stripMd(body ?? ''));

@@ -3,7 +3,7 @@
 // FAQPage). Honesty constraints from the research: no review, aggregateRating,
 // priceValidUntil, shipping or return policy nodes anywhere (none of it is real).
 
-export const SITE = 'https://calmbrainco.shop';
+export const SITE = 'https://calmbrainco.pages.dev';
 
 export function abs(path: string): string {
   if (path.startsWith('http')) return path;
@@ -34,7 +34,6 @@ export const websiteNode = {
   '@id': `${SITE}/#website`,
   url: `${SITE}/`,
   name: 'Calm Brain Co',
-  alternateName: ['calmbrainco.shop'],
   inLanguage: 'en',
   publisher: { '@id': `${SITE}/#organization` },
 };

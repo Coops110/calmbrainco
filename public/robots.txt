@@ -4,4 +4,4 @@ User-agent: *
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
-Sitemap: https://calmbrainco.shop/sitemap-index.xml
+Sitemap: https://calmbrainco.pages.dev/sitemap-index.xml

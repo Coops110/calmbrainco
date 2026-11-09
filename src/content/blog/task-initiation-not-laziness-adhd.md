@@ -26,6 +26,8 @@ Breaking the task down until the next piece is small enough to start in the next
 
 No, just the starting edge. Once a task is moving, momentum tends to carry it further than the first tiny step alone. The breakdown is only there to clear the stall, not to turn every task into a checklist of two-minute pieces.
 
+The same stall shows up long before work. An essay sized as "write the essay" is as unstartable as "finish the report", which is why the Big Project Breakdown page in the [ADHD planner for students](/shop/adhd-student-planner/) uses this exact mechanism, pointed at papers and projects instead.
+
 ## Where this lives in the planner
 
 The Task Breakdown page in the [ADHD Work and Focus Planner](/shop/adhd-work-focus-planner/) is built on exactly this: a big task, the steps to get there, then one next tiny step, small enough to start in the next two minutes. It's the same honest mechanism as the [Goal Breakdown page](/shop/adhd-planner-bundle/#p10) in the [ADHD Planner Bundle](/shop/adhd-planner-bundle/), aimed at work instead of life goals. The planner also keeps the three-chunk, no-hourly-grid approach the rest of the catalog uses; see [why hourly time blocking doesn't work for ADHD brains](/blog/hourly-time-blocking-doesnt-work-for-adhd/) for why. Get the [ADHD Work and Focus Planner](/shop/adhd-work-focus-planner/) for $9.99, 10 pages.

@@ -137,7 +137,7 @@ export const budgetPlanner: Product = {
   compareAtPrice: 12.99,
   pageCount: 9,
   gumroad: 'https://cooperhawk64.gumroad.com/l/cuykdzl',
-  payhip: 'https://payhip.com/b/Z5EI4',
+  payhip: 'https://payhip.com/b/Z5El4',
   pairsWithSlug: 'adhd-planner-bundle',
   pages: [
     { id: 'cover', name: 'Cover', img: gCover, alt: 'Cover page of the ADHD-Friendly Budget Planner listing all nine pages', caption: 'The first sheet, if you keep the set in a folder.' },

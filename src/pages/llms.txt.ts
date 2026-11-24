@@ -1,6 +1,11 @@
 import type { APIRoute } from 'astro';
+import { getCollection } from 'astro:content';
 
 export const GET: APIRoute = async () => {
+  const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+    (a, b) => new Date(a.data.publishDate).getTime() - new Date(b.data.publishDate).getTime()
+  );
+
   const lines = [
     '# Calm Brain Co',
     '',
@@ -23,6 +28,11 @@ export const GET: APIRoute = async () => {
     '- [Holiday Gift & Budget Tracker](https://calmbrainco.pages.dev/holiday-gift-budget-tracker/): 2-page digital seasonal printable, per-person gift list with budget column plus a 5-category holiday spending overview. US$3.99. Gumroad: https://cooperhawk64.gumroad.com/l/llycep Payhip: https://payhip.com/b/XVACN',
     '- [New Year, No Resolutions](https://calmbrainco.pages.dev/new-year-no-resolutions/): 2-page digital goal-setting printable built on re-entry points instead of streaks, plus a 12-month check-in with no streak math. US$3.99. Gumroad: https://cooperhawk64.gumroad.com/l/ofrck Payhip: https://payhip.com/b/EP4zI',
     '- [Shop](https://calmbrainco.pages.dev/shop/): every product on one page, with a compare table.',
+    '',
+    '## Guides',
+    '',
+    ...posts.map((p) => `- [${p.data.title}](https://calmbrainco.pages.dev/blog/${p.id}/): ${p.data.description}`),
+    `- [Blog index](https://calmbrainco.pages.dev/blog/): all ${posts.length} guides.`,
     '',
     '## Optional',
     '',

@@ -6,6 +6,8 @@ const PAGES = [
   '/shop/adhd-student-planner/', '/shop/adhd-work-focus-planner/',
   '/shop/adhd-family-household-planner/', '/holiday-gift-budget-tracker/',
   '/new-year-no-resolutions/',
+  '/blog/', '/blog/hourly-time-blocking-doesnt-work-for-adhd/',
+  '/blog/budget-spreadsheet-doesnt-work-for-adhd/',
 ];
 
 let failures = 0;

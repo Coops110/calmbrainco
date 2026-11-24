@@ -6,7 +6,7 @@
 // renders with the OS's installed sans-serif (Segoe UI on Windows) instead.
 // Close enough for a social preview card; the real page uses Instrument Sans.
 import { Resvg } from '@resvg/resvg-js';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, writeFile, readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -104,6 +104,17 @@ async function main() {
   await renderCard('adhd-family-household-planner', { eyebrow: 'Planner', title: 'ADHD Family and Household Planner', caption: '10 pages, $3.99, undated PDF' });
   await renderCard('holiday-gift-budget-tracker', { eyebrow: 'Digital', title: 'Holiday Gift & Budget Tracker', caption: 'Instant PDF download, $3.99' });
   await renderCard('new-year-no-resolutions', { eyebrow: 'Digital', title: 'New Year, No Resolutions', caption: 'Instant PDF download, $3.99' });
+  await renderCard('blog', { eyebrow: 'Blog', title: 'Planning guides for ADHD brains' });
+
+  const blogDir = path.join(root, 'src', 'content', 'blog');
+  const files = (await readdir(blogDir)).filter((f) => f.endsWith('.md'));
+  for (const file of files) {
+    const slug = file.replace(/\.md$/, '');
+    const raw = await readFile(path.join(blogDir, file), 'utf-8');
+    const titleMatch = raw.match(/title:\s*"(.*?)"/);
+    const title = titleMatch ? titleMatch[1] : slug;
+    await renderCard(`blog-${slug}`, { eyebrow: 'Blog', title });
+  }
 
 }
 

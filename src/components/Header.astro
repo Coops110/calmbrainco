@@ -1,6 +1,6 @@
 ---
 export interface Props {
-  current?: 'shop' | null;
+  current?: 'shop' | 'blog' | null;
 }
 const { current = null } = Astro.props;
 ---
@@ -12,6 +12,7 @@ const { current = null } = Astro.props;
     </a>
     <nav class="nav" aria-label="Site">
       <a href="/shop/" aria-current={current === 'shop' ? 'page' : undefined}>Planners</a>
+      <a href="/blog/" aria-current={current === 'blog' ? 'page' : undefined}>Blog</a>
     </nav>
   </div>
 </header>

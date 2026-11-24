@@ -3,8 +3,8 @@ title: "ADHD Family and Household Planner"
 tagline: "A household system for the ADHD parent who is done being the only one who remembers everything"
 description: "10 undated printable pages for running an ADHD household: a family week-at-a-glance command page, a mental load dump, kid routine cards, a household chore rotation, a school paperwork tracker, a contact and info sheet, caregiver handoff notes, a family meal rotation, and a one thing for me page. $3.99, US Letter and A4."
 faq:
-  - q: "Is this a physical planner or a printable?"
-    a: "A printable PDF. You download it the moment you buy and print it yourself, at home or at a copy shop. Nothing is shipped."
+  - q: "Do I print it or use it on a tablet?"
+    a: "Either, it is your choice. It is one PDF: print it at home or at a copy shop, or open it in a tablet app like GoodNotes or Notability and write on it with a stylus. Nothing is shipped."
   - q: "US Letter or A4?"
     a: "Both sizes are in the one purchase, so there is nothing to choose."
   - q: "Is it dated, like a 2026 family calendar?"
@@ -20,4 +20,4 @@ Running a household with ADHD rarely comes down to one hard day. It's the weight
 
 Ten pages: a family week-at-a-glance command page built around the brand's usual morning, afternoon and evening blocks so anyone in the household can see where everyone needs to be, a mental load dump that gives the invisible, unshareable parts of running a household somewhere to land, kid routine cards for morning and bedtime sequences written once and reused every day, a household chore rotation that reassigns who does what each week instead of a fixed chart, a school paperwork tracker written as "due in" instead of a calendar date, a contact and info sheet for school, doctor and sitter numbers in one place, caregiver handoff notes for whoever else needs to know what's going on this week, a family meal rotation of repeatable, kid-tolerated meals, and a one thing for me page: a single, deliberately small line for the parent, not a full page.
 
-Pairs naturally with the [ADHD Home Reset Planner](/shop/adhd-home-reset-planner/), which handles cleaning a space: zones, a deep clean rotation, a laundry loop. This planner's Household Chore Rotation is about the people in that space instead, who does what this week.
+Pairs naturally with the [ADHD Home Reset Planner](/shop/adhd-home-reset-planner/), which handles cleaning a space: zones, a deep clean rotation, a laundry loop. This planner's Household Chore Rotation is about the people in that space instead, who does what this week. Curious why one person ends up holding the whole household in their head? Read [why the mental load concentrates on one person in ADHD households](/blog/adhd-household-mental-load/).

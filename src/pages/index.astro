@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -9,6 +10,10 @@ import FaqList from '../components/FaqList.astro';
 import { budgetPlanner, homeResetPlanner, studentPlanner, workFocusPlanner, familyHouseholdPlanner, holidayGiftBudgetTracker, newYearNoResolutions, findPage } from '../data/products';
 import { SITE } from '../lib/seo';
 
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime())
+  .slice(0, 3);
+
 const workdayTop3 = findPage(workFocusPlanner, 'workday-top-3')!;
 const billTracker = findPage(budgetPlanner, 'bill-tracker')!;
 const mentalLoad = findPage(familyHouseholdPlanner, 'mental-load-dump')!;
@@ -17,7 +22,7 @@ const holidayCover = findPage(holidayGiftBudgetTracker, 'gift-list-budget')!;
 const newYearCover = findPage(newYearNoResolutions, 'instead-of-a-resolution')!;
 
 const faq = [
-  { q: 'Is this a physical planner or a printable?', a: 'A printable PDF. You download it the moment you buy and print it yourself, at home or at a copy shop. Nothing is shipped.' },
+  { q: 'Do I print it or use it on a tablet?', a: 'Either, it is your choice. Each planner is one PDF: print it at home or at a copy shop, or open it in a tablet app like GoodNotes or Notability and write on it with a stylus. Nothing is shipped.' },
   { q: 'US Letter or A4?', a: 'Both sizes are in the one purchase, so there is nothing to choose.' },
   { q: 'Is it dated?', a: 'No. Every page is undated on purpose, so you can start on any day and a late start wastes nothing.' },
   { q: 'How much is each planner?', a: 'Every planner is $3.99. One price, no tiers, no upsell. You get the full PDF the moment you pay.' },
@@ -64,7 +69,7 @@ const jsonLd = [
         <div class="hero__copy">
           <p class="weekof" aria-label="Week of: any week you like"><span>Week of</span><span class="line" aria-hidden="true"><span>any week you like</span></span></p>
           <h1 id="hero-title">Plan the day you actually have.</h1>
-          <p class="hero__lead">Printable planners for ADHD brains. <b>Morning, afternoon and evening</b> instead of hourly slots. <b>Three priorities</b>, not a list of twenty. No streaks to break. Undated, so you can print it today and start today. <b>Every planner is $3.99.</b></p>
+          <p class="hero__lead">ADHD planners to print or use on a tablet. <b>Morning, afternoon and evening</b> instead of hourly slots. <b>Three priorities</b>, not a list of twenty. No streaks to break. Undated, so you can start today. <b>Every planner is $3.99.</b></p>
           <div class="hero__actions">
             <a class="btn btn--primary" href="/shop/">See the planners <span class="price">$3.99 each</span></a>
           </div>
@@ -78,7 +83,7 @@ const jsonLd = [
         <div class="chunk__head">
           <span class="chunk__label">Morning</span>
           <h2 id="morning-title">Pick a planner</h2>
-          <p>Seven printable planners, built the same way, <b>$3.99 each</b>. Each is a PDF you download the moment you buy, with US Letter and A4 in the same file.</p>
+          <p>Seven planners, built the same way, <b>$3.99 each</b>. Each is one PDF you download the moment you buy: print it at home, or write on it in a tablet app like GoodNotes. US Letter and A4 in the same download.</p>
         </div>
         <div class="products">
           <article class="product">
@@ -197,9 +202,20 @@ const jsonLd = [
       <div class="wrap">
         <div class="chunk__head">
           <span class="chunk__label">Evening</span>
-          <h2 id="evening-title">Questions</h2>
+          <h2 id="evening-title">Reading, and questions</h2>
         </div>
+        <div class="reading">
+          <h3>Reading, if you want the thinking behind the pages</h3>
+          <ul>
+            {posts.map((post) => (
+              <li><a href={`/blog/${post.id}/`}><span class="o" aria-hidden="true"></span>{post.data.title}</a></li>
+            ))}
+          </ul>
+          <p class="more"><a href="/blog/">All the posts</a></p>
+        </div>
+
         <div class="questions">
+          <h3>Questions</h3>
           <FaqList faq={faq} />
         </div>
       </div>

@@ -20,4 +20,23 @@ const products = defineCollection({
   schema: productSchema,
 });
 
-export const collections = { products };
+const blogSchema = z.object({
+  title: z.string(),
+  description: z.string(),
+  publishDate: z.string(),
+  modifiedDate: z.string().optional(),
+  author: z.string().default('Calm Brain Co'),
+  category: z.string().default('ADHD'),
+  tags: z.array(z.string()).default([]),
+  relatedProduct: z.string().optional(),
+  relatedPageId: z.string().optional(), // id into src/data/products.ts page list, for an inline crop
+  draft: z.boolean().default(false),
+  noindex: z.boolean().default(false),
+});
+
+const blog = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
+  schema: blogSchema,
+});
+
+export const collections = { products, blog };

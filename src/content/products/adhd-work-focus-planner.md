@@ -3,8 +3,8 @@ title: "ADHD Work and Focus Planner"
 tagline: "A workday system for getting unstuck, one tiny step at a time"
 description: "10 undated printable pages for the ADHD workday: a top-3 priority page, a task breakdown page, a focus session tracker with a body-doubling slot, email and message triage, meeting notes, a context-switch reset, a waiting-on tracker and more. $3.99, US Letter and A4."
 faq:
-  - q: "Is this a physical planner or a printable?"
-    a: "A printable PDF. You download it the moment you buy and print it yourself, at home or at a copy shop. Nothing is shipped."
+  - q: "Do I print it or use it on a tablet?"
+    a: "Either, it is your choice. It is one PDF: print it at home or at a copy shop, or open it in a tablet app like GoodNotes or Notability and write on it with a stylus. Nothing is shipped."
   - q: "US Letter or A4?"
     a: "Both sizes are in the one purchase, so there is nothing to choose."
   - q: "Is it dated, with a work week printed on it?"
@@ -20,4 +20,4 @@ Most work planners assume a job that runs on a clock: a grid of hours, a meeting
 
 Ten pages: a Workday Top 3 for the real priorities of the day instead of a list of twenty, a Task Breakdown page that takes one big task down to its next tiny step, a Focus Session Tracker with a body-doubling slot and a distraction parking lot, an Email and Message Triage page with exactly three buckets, a Meeting Notes Capture page for decisions made and your own action items, a Context-Switch Reset for the moment something pulls you away from a task, a Waiting-On Tracker so a blocked item doesn't quietly vanish, an End-of-Day Shutdown Ritual for a real stopping point, and a Weekly Work Review with no score attached.
 
-The Task Breakdown page takes a big task, broken into steps, then one next tiny step small enough to actually start. And there is no hour-by-hour grid anywhere in this planner, on purpose.
+The Task Breakdown page takes a big task, broken into steps, then one next tiny step small enough to actually start. And there is no hour-by-hour grid anywhere in this planner, on purpose. Curious why that format tends to fail for ADHD brains specifically? Read [why hourly time blocking doesn't work for ADHD brains](/blog/hourly-time-blocking-doesnt-work-for-adhd/).

@@ -79,6 +79,9 @@ const jsonLd = [
 const coverPage = product.pages[0];
 const secondPage = product.pages[1];
 
+const relatedPosts = (await getCollection('blog', (p) => p.data.relatedProduct === slug && !p.data.draft))
+  .sort((a, b) => new Date(a.data.publishDate).getTime() - new Date(b.data.publishDate).getTime())
+  .slice(0, 3);
 ---
 <BaseLayout
   title={`${data.title} (${product.pageCount} Printable Pages, PDF)`}
@@ -103,7 +106,7 @@ const secondPage = product.pages[1];
               <a class="btn btn--primary" href={product.gumroad} rel="nofollow" onclick={`window.pintrk && pintrk('track', 'checkout', {value: ${product.price}, currency: 'USD'})`}>Get it on Gumroad</a>
               <a class="btn btn--secondary" href={product.payhip} rel="nofollow" onclick={`window.pintrk && pintrk('track', 'checkout', {value: ${product.price}, currency: 'USD'})`}>Buy on Payhip</a>
             </div>
-            <p class="phero__after">Either one emails you the PDF straight after payment. You print it yourself, at home or at a copy shop.</p>
+            <p class="phero__after">Either one emails you the PDF straight after payment. Print it at home, or write on it in a tablet app like GoodNotes.</p>
           </div>
           <dl class="facts">
             <div><dt>Pages</dt><dd>{product.pageCount}</dd></div>
@@ -211,6 +214,19 @@ const secondPage = product.pages[1];
         </div>
       </div>
     </section>
+
+    {relatedPosts.length > 0 && (
+      <section class="chunk" aria-labelledby="reading-title">
+        <div class="wrap reading">
+          <h2 id="reading-title" style="font-size:1.3125rem">Reading, if you want the thinking behind the pages</h2>
+          <ul>
+            {relatedPosts.map((post) => (
+              <li><a href={`/blog/${post.id}/`}><span class="o" aria-hidden="true"></span>{post.data.title}</a></li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )}
 
     <section class="chunk" aria-labelledby="faq-title">
       <div class="wrap"><div class="questions">

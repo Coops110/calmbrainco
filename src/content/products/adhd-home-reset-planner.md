@@ -3,8 +3,8 @@ title: "ADHD Home Reset Planner"
 tagline: "A cleaning system for brains that lose the thread halfway through a room"
 description: "11 undated printable pages for cleaning and resetting a home with an ADHD brain: a zone map, weekly reset checklist, 10-minute reset, deep clean rotation, laundry loop tracker, kitchen reset, body-doubling chore log, guest-ready checklist and more. $3.99, US Letter and A4."
 faq:
-  - q: "Is this a physical planner or a printable?"
-    a: "A printable PDF. You download it the moment you buy and print it yourself, at home or at a copy shop. Nothing is shipped."
+  - q: "Do I print it or use it on a tablet?"
+    a: "Either, it is your choice. It is one PDF: print it at home or at a copy shop, or open it in a tablet app like GoodNotes or Notability and write on it with a stylus. Nothing is shipped."
   - q: "US Letter or A4?"
     a: "Both sizes are in the one purchase, so there is nothing to choose."
   - q: "Is it dated, like a 2026 cleaning schedule?"
@@ -20,4 +20,4 @@ Most cleaning advice assumes a brain that can hold a whole room in mind at once 
 
 Eleven pages: a zone map that splits the home into flexible zones you name yourself and assign to days as the week actually goes, a weekly reset checklist for the handful of things that keep a home functional in any order, a 10-minute reset for picking three small things instead of ten, a deep clean rotation for monthly and seasonal tasks checked off whenever they get done, a one-shelf-at-a-time declutter prompt, a four-stage laundry loop tracker so a load is never lost between the dryer and the drawer, a kitchen reset page, a body-doubling chore log, a guest-ready checklist for the fast version when someone is on their way over, and a permission page for naming the one thing you're letting go of this week, on purpose.
 
-This planner does for cleaning what the [ADHD-Friendly Budget Planner](/shop/budget-planner/) does for money: a full system, not one checklist.
+This planner does for cleaning what the [ADHD-Friendly Budget Planner](/shop/budget-planner/) does for money: a full system, not one checklist. Curious why fixed chore charts tend to fail for ADHD brains specifically? Read [why a chore chart doesn't work for ADHD brains](/blog/chore-chart-doesnt-work-for-adhd/).

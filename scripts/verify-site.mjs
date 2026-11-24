@@ -2,17 +2,10 @@
 // built dist/. Not part of the build; run manually: node scripts/verify-site.mjs
 const BASE = 'http://127.0.0.1:8788';
 const PAGES = [
-  '/', '/shop/', '/shop/adhd-planner-bundle/', '/shop/budget-planner/',
-  '/blog/', '/free-habit-tracker/', '/minimalist-printable-planner/',
-  '/productivity-aesthetic-daily-planning/',
-  '/blog/hourly-time-blocking-doesnt-work-for-adhd/',
-  '/blog/habit-trackers-that-dont-punish-you/',
-  '/blog/priority-matrix-choosing-three-things/',
-  '/blog/brain-dump-page-thats-not-a-blank-box/',
-  '/blog/meal-planning-for-brains-that-forget-to-eat/',
-  '/blog/self-care-checkin-no-score-to-chase/',
-  '/blog/bill-tracker-for-forgetful-brains/',
-  '/blog/budget-spreadsheet-doesnt-work-for-adhd/',
+  '/', '/shop/', '/shop/budget-planner/', '/shop/adhd-home-reset-planner/',
+  '/shop/adhd-student-planner/', '/shop/adhd-work-focus-planner/',
+  '/shop/adhd-family-household-planner/', '/holiday-gift-budget-tracker/',
+  '/new-year-no-resolutions/',
 ];
 
 let failures = 0;

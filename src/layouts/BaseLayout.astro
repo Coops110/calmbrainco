@@ -7,7 +7,7 @@ import { SITE, organizationNode, websiteNode, graph } from '../lib/seo';
 export interface Props {
   title: string;
   description: string;
-  path: string; // e.g. "/shop/adhd-planner-bundle/" — always with leading+trailing slash, "/" for home
+  path: string; // e.g. "/shop/budget-planner/" — always with leading+trailing slash, "/" for home
   ogImage?: string; // absolute or root-relative path to a 1200x630 PNG
   type?: 'website' | 'article' | 'product';
   publishDate?: string;
@@ -83,7 +83,6 @@ const pageGraph = graph([organizationNode, websiteNode, ...jsonLd]);
   <link rel="icon" href="/favicon-96x96.png" type="image/png" sizes="96x96" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
   <link rel="manifest" href="/site.webmanifest" />
-  <link rel="alternate" type="application/rss+xml" title="Calm Brain Co blog" href="/rss.xml" />
   <link rel="describedby" href="/llms.txt" />
 
   <script type="text/javascript" async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`}></script>

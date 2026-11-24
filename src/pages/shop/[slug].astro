@@ -79,9 +79,6 @@ const jsonLd = [
 const coverPage = product.pages[0];
 const secondPage = product.pages[1];
 
-const relatedPosts = (await getCollection('blog', (p) => p.data.relatedProduct === slug && !p.data.draft))
-  .sort((a, b) => new Date(a.data.publishDate).getTime() - new Date(b.data.publishDate).getTime())
-  .slice(0, 3);
 ---
 <BaseLayout
   title={`${data.title} (${product.pageCount} Printable Pages, PDF)`}
@@ -149,7 +146,6 @@ const relatedPosts = (await getCollection('blog', (p) => p.data.relatedProduct =
             </figure>
           ))}
         </div>
-        {slug === 'adhd-planner-bundle' && <p class="pages__hint">Page 6, the Habit Tracker, is also <a href="/free-habit-tracker/">free on its own</a> if you want to try the paper first.</p>}
       </div>
     </section>
 
@@ -199,7 +195,7 @@ const relatedPosts = (await getCollection('blog', (p) => p.data.relatedProduct =
       <div class="wrap cross">
         <div class="paper paper--cover"><Image src={otherProduct.pages[0].img} alt={otherProduct.pages[0].alt} loading="lazy" width={320} /></div>
         <div class="cross__body">
-          <h2 id="cross-title">{slug === 'adhd-planner-bundle' ? 'Money is its own kind of overwhelm' : 'The day-to-day system that pairs with this one'}</h2>
+          <h2 id="cross-title">Pairs well with this one, also $3.99</h2>
           {otherEntry && <p>{otherEntry.data.description}</p>}
           <p class="cross__price">${otherProduct.price.toFixed(2)}</p>
           <a class="btn btn--secondary" href={`/shop/${otherProduct.slug}/`}>See all {otherProduct.pageCount} pages</a>
@@ -215,19 +211,6 @@ const relatedPosts = (await getCollection('blog', (p) => p.data.relatedProduct =
         </div>
       </div>
     </section>
-
-    {relatedPosts.length > 0 && (
-      <section class="chunk" aria-labelledby="reading-title">
-        <div class="wrap reading">
-          <h2 id="reading-title" style="font-size:1.3125rem">Reading, if you want the thinking behind the pages</h2>
-          <ul>
-            {relatedPosts.map((post) => (
-              <li><a href={`/blog/${post.id}/`}><span class="o" aria-hidden="true"></span>{post.data.title}</a></li>
-            ))}
-          </ul>
-        </div>
-      </section>
-    )}
 
     <section class="chunk" aria-labelledby="faq-title">
       <div class="wrap"><div class="questions">

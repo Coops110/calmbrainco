@@ -6,7 +6,7 @@
 // renders with the OS's installed sans-serif (Segoe UI on Windows) instead.
 // Close enough for a social preview card; the real page uses Instrument Sans.
 import { Resvg } from '@resvg/resvg-js';
-import { mkdir, writeFile, readdir } from 'node:fs/promises';
+import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -96,29 +96,15 @@ async function main() {
 
   await renderCard('default', { title: 'Printable planners for ADHD brains', caption: 'calmbrainco.pages.dev' });
   await renderCard('home', { title: 'Plan the day you actually have.', caption: 'Printable planners for ADHD brains' });
-  await renderCard('shop', { eyebrow: 'Shop', title: 'Printable ADHD planners, instant PDF', caption: '$17.99 each, undated, US Letter and A4' });
-  await renderCard('adhd-planner-bundle', { eyebrow: 'Planner', title: 'ADHD Planner Bundle', caption: '13 pages, $17.99, undated PDF' });
-  await renderCard('budget-planner', { eyebrow: 'Planner', title: 'ADHD-Friendly Budget Planner', caption: '9 pages, $17.99, undated PDF' });
-  await renderCard('adhd-home-reset-planner', { eyebrow: 'Planner', title: 'ADHD Home Reset Planner', caption: '11 pages, $17.99, undated PDF' });
-  await renderCard('adhd-student-planner', { eyebrow: 'Planner', title: 'ADHD Student Planner', caption: '10 pages, $17.99, undated PDF' });
-  await renderCard('adhd-work-focus-planner', { eyebrow: 'Planner', title: 'ADHD Work and Focus Planner', caption: '10 pages, $17.99, undated PDF' });
-  await renderCard('adhd-family-household-planner', { eyebrow: 'Planner', title: 'ADHD Family and Household Planner', caption: '10 pages, $9.99, undated PDF' });
-  await renderCard('free-habit-tracker', { eyebrow: 'Free', title: 'A habit tracker with no streak to break', caption: 'Pay what you want, $0 is fine' });
-  await renderCard('holiday-gift-budget-tracker', { eyebrow: 'Digital', title: 'Holiday Gift & Budget Tracker', caption: 'Instant PDF download, $4.99' });
-  await renderCard('new-year-no-resolutions', { eyebrow: 'Digital', title: 'New Year, No Resolutions', caption: 'Instant PDF download, $4.99' });
-  await renderCard('minimalist-printable-planner', { eyebrow: 'Shop', title: 'A minimalist printable planner', caption: '13 undated pages, $17.99' });
-  await renderCard('productivity-aesthetic-daily-planning', { eyebrow: 'Shop', title: 'Calm, aesthetic daily planning', caption: '13 undated pages, $17.99' });
-  await renderCard('blog', { eyebrow: 'Blog', title: 'Planning guides for ADHD brains' });
+  await renderCard('shop', { eyebrow: 'Shop', title: 'Printable ADHD planners, instant PDF', caption: 'Every planner $3.99, undated, US Letter and A4' });
+  await renderCard('budget-planner', { eyebrow: 'Planner', title: 'ADHD-Friendly Budget Planner', caption: '9 pages, $3.99, undated PDF' });
+  await renderCard('adhd-home-reset-planner', { eyebrow: 'Planner', title: 'ADHD Home Reset Planner', caption: '11 pages, $3.99, undated PDF' });
+  await renderCard('adhd-student-planner', { eyebrow: 'Planner', title: 'ADHD Student Planner', caption: '10 pages, $3.99, undated PDF' });
+  await renderCard('adhd-work-focus-planner', { eyebrow: 'Planner', title: 'ADHD Work and Focus Planner', caption: '10 pages, $3.99, undated PDF' });
+  await renderCard('adhd-family-household-planner', { eyebrow: 'Planner', title: 'ADHD Family and Household Planner', caption: '10 pages, $3.99, undated PDF' });
+  await renderCard('holiday-gift-budget-tracker', { eyebrow: 'Digital', title: 'Holiday Gift & Budget Tracker', caption: 'Instant PDF download, $3.99' });
+  await renderCard('new-year-no-resolutions', { eyebrow: 'Digital', title: 'New Year, No Resolutions', caption: 'Instant PDF download, $3.99' });
 
-  const blogDir = path.join(root, 'src', 'content', 'blog');
-  const files = (await readdir(blogDir)).filter((f) => f.endsWith('.md'));
-  for (const file of files) {
-    const slug = file.replace(/\.md$/, '');
-    const raw = await (await import('node:fs/promises')).readFile(path.join(blogDir, file), 'utf-8');
-    const titleMatch = raw.match(/title:\s*"(.*?)"/);
-    const title = titleMatch ? titleMatch[1] : slug;
-    await renderCard(`blog-${slug}`, { eyebrow: 'Blog', title });
-  }
 }
 
 await main();

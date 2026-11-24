@@ -8,14 +8,11 @@ function stripMd(markdown: string) {
 
 export const GET: APIRoute = async () => {
   const productEntries = await getCollection('products');
-  const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
-    (a, b) => new Date(a.data.publishDate).getTime() - new Date(b.data.publishDate).getTime()
-  );
 
   const parts: string[] = [
     '# Calm Brain Co: full site text',
     '',
-    'Generated from the live content collections. Every product, blog post and key fact on calmbrainco.pages.dev in one file.',
+    'Generated from the live content collections. Every product and key fact on calmbrainco.pages.dev in one file.',
     '',
   ];
 
@@ -37,15 +34,6 @@ export const GET: APIRoute = async () => {
     parts.push('\n---\n');
   }
 
-  for (const post of posts) {
-    const { body } = post;
-    parts.push(`## ${post.data.title}`);
-    parts.push(`https://calmbrainco.pages.dev/blog/${post.id}/`);
-    parts.push(`Published: ${post.data.publishDate}${post.data.modifiedDate ? ` Updated: ${post.data.modifiedDate}` : ''}`);
-    parts.push('');
-    parts.push(stripMd(body ?? ''));
-    parts.push('\n---\n');
-  }
 
   return new Response(parts.join('\n'), {
     headers: { 'Content-Type': 'text/markdown; charset=utf-8' },

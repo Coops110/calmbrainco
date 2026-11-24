@@ -2,19 +2,6 @@
 // Imported through astro:assets so every <Image> gets width/height and
 // optimized formats automatically (fixes HANDOFF.md problem: "images have no
 // width/height").
-import bCover from '../assets/products/adhd-planner-bundle/cover.png';
-import bWeekly from '../assets/products/adhd-planner-bundle/weekly-planner.png';
-import bDaily from '../assets/products/adhd-planner-bundle/daily-planner.png';
-import bMonthly from '../assets/products/adhd-planner-bundle/monthly-overview.png';
-import bBrainDump from '../assets/products/adhd-planner-bundle/brain-dump.png';
-import bHabit from '../assets/products/adhd-planner-bundle/habit-tracker.png';
-import bPriority from '../assets/products/adhd-planner-bundle/priority-matrix.png';
-import bReminder from '../assets/products/adhd-planner-bundle/reminder-tracker.png';
-import bMeal from '../assets/products/adhd-planner-bundle/meal-planner.png';
-import bGoal from '../assets/products/adhd-planner-bundle/goal-breakdown.png';
-import bSelfcare from '../assets/products/adhd-planner-bundle/selfcare-checkin.png';
-import bChore from '../assets/products/adhd-planner-bundle/chore-checklist.png';
-import bBill from '../assets/products/adhd-planner-bundle/bill-tracker.png';
 
 import gCover from '../assets/products/budget-planner/cover.png';
 import gMonthly from '../assets/products/budget-planner/monthly-overview.png';
@@ -102,43 +89,15 @@ export interface Product {
   pairsWithSlug: string;
 }
 
-export const adhdPlannerBundle: Product = {
-  slug: 'adhd-planner-bundle',
-  title: 'ADHD Planner Bundle',
-  shortName: 'Bundle',
-  price: 24.99,
-  compareAtPrice: 34.99,
-  pageCount: 13,
-  gumroad: 'https://cooperhawk64.gumroad.com/l/abqkkx',
-  payhip: 'https://payhip.com/b/su2J3',
-  pairsWithSlug: 'budget-planner',
-  pages: [
-    { id: 'cover', name: 'Cover', img: bCover, alt: 'Cover page of the ADHD Planner Bundle listing all thirteen pages', caption: 'The first sheet, if you keep the set in a folder.' },
-    { id: 'weekly-planner', name: 'Weekly Planner', img: bWeekly, alt: "Weekly Planner page: this week's top 3 in numbered circles, then Monday to Sunday in morning, afternoon and evening blocks, with a brain dump strip underneath", caption: "This week's top 3, seven days in morning, afternoon and evening blocks, and a brain dump strip." },
-    { id: 'daily-planner', name: 'Daily Planner', img: bDaily, alt: "Daily Planner page: today's big 3, an energy and water check-in, then morning, afternoon and evening blocks and a notes block", caption: "Today's big 3, an energy and water check-in, three chunks, notes." },
-    { id: 'monthly-overview', name: 'Monthly Overview', img: bMonthly, alt: "Monthly Overview page: this month's focus line and a five-week grid of day boxes, Monday to Sunday", caption: 'One focus for the month and a box per day. The shape of a month, not another daily planner.' },
-    { id: 'brain-dump', name: 'Brain Dump', img: bBrainDump, alt: 'Brain Dump page with four ruled blocks for tasks, ideas, worries and random', caption: 'Tasks, ideas, worries, random. Out of your head and onto the page.' },
-    { id: 'habit-tracker', name: 'Habit Tracker', img: bHabit, alt: 'Habit Tracker page: eight habit rows with seven check-off circles each, Monday to Sunday, and no streak column', caption: 'Eight habits, seven circles each. No streak column anywhere on the page.' },
-    { id: 'priority-matrix', name: 'Priority Matrix', img: bPriority, alt: 'Priority Matrix page: four blocks labelled do first, plan for, quick wins and let go', caption: 'Do first, plan for, quick wins, let go. The fourth pile is allowed to be large.' },
-    { id: 'reminder-tracker', name: 'Reminder Tracker', img: bReminder, alt: 'Reminder Tracker page: six rows with what, time, and seven daily check-off circles', caption: 'What, when, and seven circles. A memory backup, not advice.' },
-    { id: 'meal-planner', name: 'Meal Planner', img: bMeal, alt: 'Meal Planner page: a row per day Monday to Sunday and a grocery list column with checkboxes', caption: 'Seven days of meals with the grocery list right beside them.' },
-    { id: 'goal-breakdown', name: 'Goal Breakdown', img: bGoal, alt: 'Goal Breakdown page: four stacked blocks, the big goal, this month, this week, and today', caption: 'The big goal, this month, this week, then one small step today.' },
-    { id: 'self-care-checkin', name: 'Self-Care Check-In', img: bSelfcare, alt: 'Self-Care Check-In page: sleep hours, movement, five mood circles, glasses of water, and one good thing today', caption: 'Sleep, movement, mood, water, and one good thing today. No score.' },
-    { id: 'chore-checklist', name: 'Chore Checklist', img: bChore, alt: 'Chore Checklist page: three columns, daily, weekly and monthly, each with six checkbox lines', caption: 'Daily, weekly, monthly. Keep the daily list small.' },
-    { id: 'bill-tracker', name: 'Bill Tracker', img: bBill, alt: 'Bill Tracker page: twelve rows with bill, amount, due date and a paid circle', caption: 'Bill, amount, due date, and a paid circle. Twelve rows a month.' },
-  ],
-};
-
 export const budgetPlanner: Product = {
   slug: 'budget-planner',
   title: 'ADHD-Friendly Budget Planner',
   shortName: 'Budget',
-  price: 9.99,
-  compareAtPrice: 12.99,
+  price: 3.99,
   pageCount: 9,
   gumroad: 'https://cooperhawk64.gumroad.com/l/cuykdzl',
   payhip: 'https://payhip.com/b/Z5El4',
-  pairsWithSlug: 'adhd-planner-bundle',
+  pairsWithSlug: 'adhd-work-focus-planner',
   pages: [
     { id: 'cover', name: 'Cover', img: gCover, alt: 'Cover page of the ADHD-Friendly Budget Planner listing all nine pages', caption: 'The first sheet, if you keep the set in a folder.' },
     { id: 'monthly-overview', name: 'Monthly Overview', img: gMonthly, alt: 'Monthly budget overview page with income, fixed expenses, variable expenses and left-to-spend sections', caption: 'Income, fixed, variable. The subtraction is done for you on paper.' },
@@ -156,12 +115,11 @@ export const homeResetPlanner: Product = {
   slug: 'adhd-home-reset-planner',
   title: 'ADHD Home Reset Planner',
   shortName: 'Home Reset',
-  price: 9.99,
-  compareAtPrice: 12.99,
+  price: 3.99,
   pageCount: 11,
   gumroad: 'https://cooperhawk64.gumroad.com/l/ljpvri',
   payhip: 'https://payhip.com/b/BE1t7',
-  pairsWithSlug: 'adhd-planner-bundle',
+  pairsWithSlug: 'adhd-work-focus-planner',
   pages: [
     { id: 'cover', name: 'Cover', img: hCover, alt: 'Cover page of the ADHD Home Reset Planner listing all eleven pages', caption: 'The first sheet, if you keep the set in a folder.' },
     { id: 'zone-map', name: 'Zone Map', img: hZoneMap, alt: 'Zone Map page: six blank zone cards to name a home zone and list what is in it, plus a seven-day row to assign a zone to each day of the week', caption: 'Name your own zones, then assign them to days as the week actually goes.' },
@@ -181,12 +139,11 @@ export const studentPlanner: Product = {
   slug: 'adhd-student-planner',
   title: 'ADHD Student Planner',
   shortName: 'Student',
-  price: 9.99,
-  compareAtPrice: 12.99,
+  price: 3.99,
   pageCount: 10,
   gumroad: 'https://cooperhawk64.gumroad.com/l/lubobf',
   payhip: 'https://payhip.com/b/9sE7h',
-  pairsWithSlug: 'adhd-planner-bundle',
+  pairsWithSlug: 'adhd-work-focus-planner',
   pages: [
     { id: 'cover', name: 'Cover', img: sCover, alt: 'Cover page of the ADHD Student Planner listing all ten pages', caption: 'The first sheet, if you keep the set in a folder.' },
     { id: 'class-schedule', name: 'Class Schedule & Contacts', img: sClassSchedule, alt: 'Class Schedule and Contacts page: a table with columns for class, instructor, contact and office hours, six rows', caption: 'Every class and how to reach whoever teaches it, in one place.' },
@@ -205,12 +162,11 @@ export const workFocusPlanner: Product = {
   slug: 'adhd-work-focus-planner',
   title: 'ADHD Work and Focus Planner',
   shortName: 'Work and Focus',
-  price: 9.99,
-  compareAtPrice: 12.99,
+  price: 3.99,
   pageCount: 10,
   gumroad: 'https://cooperhawk64.gumroad.com/l/tptlaf',
   payhip: 'https://payhip.com/b/ljaEz',
-  pairsWithSlug: 'adhd-planner-bundle',
+  pairsWithSlug: 'adhd-student-planner',
   pages: [
     { id: 'cover', name: 'Cover', img: wCover, alt: 'Cover page of the ADHD Work and Focus Planner listing all ten pages', caption: 'The first sheet, if you keep the set in a folder.' },
     { id: 'workday-top-3', name: 'Workday Top 3', img: wWorkdayTop3, alt: 'Workday Top 3 page: three numbered blank lines for the real priorities of the day', caption: 'Three real priorities. Not a task list of twenty.' },
@@ -229,8 +185,7 @@ export const familyHouseholdPlanner: Product = {
   slug: 'adhd-family-household-planner',
   title: 'ADHD Family and Household Planner',
   shortName: 'Family',
-  price: 9.99,
-  compareAtPrice: 12.99,
+  price: 3.99,
   pageCount: 10,
   gumroad: 'https://cooperhawk64.gumroad.com/l/rxsmn',
   payhip: 'https://payhip.com/b/3blIY',
@@ -251,13 +206,12 @@ export const familyHouseholdPlanner: Product = {
 
 // Two seasonal mini-printables (2 real content pages each), standalone
 // landing pages not listed in `products` below so they don't duplicate-list
-// on /shop or the homepage grid, matching the established pattern used for
-// minimalist-printable-planner.astro and productivity-aesthetic-daily-planning.astro.
+// on /shop or the homepage grid.
 export const holidayGiftBudgetTracker: Product = {
   slug: 'holiday-gift-budget-tracker',
   title: 'Holiday Gift & Budget Tracker',
   shortName: 'Holiday',
-  price: 4.99,
+  price: 3.99,
   pageCount: 2,
   gumroad: 'https://cooperhawk64.gumroad.com/l/llycep',
   payhip: 'https://payhip.com/b/XVACN',
@@ -272,11 +226,11 @@ export const newYearNoResolutions: Product = {
   slug: 'new-year-no-resolutions',
   title: 'New Year, No Resolutions',
   shortName: 'New Year',
-  price: 4.99,
+  price: 3.99,
   pageCount: 2,
   gumroad: 'https://cooperhawk64.gumroad.com/l/ofrck',
   payhip: 'https://payhip.com/b/EP4zI',
-  pairsWithSlug: 'adhd-planner-bundle',
+  pairsWithSlug: 'adhd-work-focus-planner',
   pages: [
     { id: 'instead-of-a-resolution', name: 'Instead of a Resolution', img: nyResolution, alt: 'Instead of a Resolution page: four labeled blank lines for the goal, the smallest version, the restart rule if a day is missed, and the restart rule if a week is missed', caption: 'The re-entry point written down before you need it, not improvised mid-guilt-spiral in February.' },
     { id: 'monthly-checkin', name: 'Monthly Check-In, Not a Streak', img: nyCheckin, alt: 'Monthly Check-In page: a twelve-row table, one row per month, with a did-I-move-toward-it circle and a one-line note column, no streak counter anywhere', caption: 'Twelve honest check-ins across the year. No chain to protect, no zero to explain.' },
@@ -284,7 +238,6 @@ export const newYearNoResolutions: Product = {
 };
 
 export const products: Record<string, Product> = {
-  'adhd-planner-bundle': adhdPlannerBundle,
   'budget-planner': budgetPlanner,
   'adhd-home-reset-planner': homeResetPlanner,
   'adhd-student-planner': studentPlanner,
